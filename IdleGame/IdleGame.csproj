@@ -46,6 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Armour.cs" />
+    <Compile Include="CharacterClass.cs" />
+    <Compile Include="CharacterCreationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharacterCreationForm.Designer.cs">
+      <DependentUpon>CharacterCreationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entity.cs" />
     <Compile Include="ExperienceBar.cs">
       <Generator>ExperienceBar</Generator>
@@ -91,13 +98,19 @@
     <Compile Include="CharacterForm.Designer.cs">
       <DependentUpon>CharacterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TalentTreeForm.cs">
+    <Compile Include="Statistic.cs" />
+    <Compile Include="TalentTree.cs" />
+    <Compile Include="WarriorTree.cs" />
+    <Compile Include="WarriorTalentTree.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TalentTreeForm.Designer.cs">
-      <DependentUpon>TalentTreeForm.cs</DependentUpon>
+    <Compile Include="WarriorTalentTree.Designer.cs">
+      <DependentUpon>WarriorTalentTree.cs</DependentUpon>
     </Compile>
     <Compile Include="Weapon.cs" />
+    <EmbeddedResource Include="CharacterCreationForm.resx">
+      <DependentUpon>CharacterCreationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CharacterForm.resx">
       <DependentUpon>CharacterForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +132,9 @@
     <EmbeddedResource Include="ShopForm.resx">
       <DependentUpon>ShopForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WarriorTalentTree.resx">
+      <DependentUpon>WarriorTalentTree.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -136,7 +152,14 @@
     <Folder Include="Saves\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Character.ico" />
     <Content Include="Resources\Icon.ico" />
+    <Content Include="Resources\Inventory.ico" />
+    <Content Include="Resources\Shop.ico" />
+    <Content Include="Resources\TalentIcons\Warrior\ArmouredToTheTeeth.png" />
+    <Content Include="Resources\TalentIcons\Warrior\IronSkin.png" />
+    <Content Include="Resources\TalentIcons\Warrior\Tree.png" />
+    <Content Include="Resources\TalentIcons\Warrior\WeaponMastery.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

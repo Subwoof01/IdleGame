@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryForm));
             this.lbInventory = new System.Windows.Forms.ListBox();
             this.btnHead = new System.Windows.Forms.Button();
             this.lblHead = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@
             this.lblGoldStatic = new System.Windows.Forms.Label();
             this.lblSpaceStatic = new System.Windows.Forms.Label();
             this.tbItemStats = new System.Windows.Forms.TextBox();
+            this.btnSpawnArmour = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbInventory
@@ -266,11 +268,22 @@
             this.tbItemStats.TabIndex = 61;
             this.tbItemStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // btnSpawnArmour
+            // 
+            this.btnSpawnArmour.Location = new System.Drawing.Point(12, 12);
+            this.btnSpawnArmour.Name = "btnSpawnArmour";
+            this.btnSpawnArmour.Size = new System.Drawing.Size(59, 37);
+            this.btnSpawnArmour.TabIndex = 62;
+            this.btnSpawnArmour.Text = "Spawn Armour";
+            this.btnSpawnArmour.UseVisualStyleBackColor = true;
+            this.btnSpawnArmour.Click += new System.EventHandler(this.btnSpawnArmour_Click);
+            // 
             // InventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(552, 249);
+            this.Controls.Add(this.btnSpawnArmour);
             this.Controls.Add(this.tbItemStats);
             this.Controls.Add(this.lblSpaceStatic);
             this.Controls.Add(this.lblGoldStatic);
@@ -294,6 +307,7 @@
             this.Controls.Add(this.btnHead);
             this.Controls.Add(this.lbInventory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "InventoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -328,5 +342,6 @@
         private System.Windows.Forms.Label lblGoldStatic;
         private System.Windows.Forms.Label lblSpaceStatic;
         private System.Windows.Forms.TextBox tbItemStats;
+        private System.Windows.Forms.Button btnSpawnArmour;
     }
 }

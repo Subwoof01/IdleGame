@@ -16,14 +16,6 @@ namespace IdleGame
         private Player _player;
         private InventoryForm _inventoryForm;
 
-        public CharacterForm(MainForm mainForm, Player player, InventoryForm inventoryForm)
-        {
-            InitializeComponent();
-            _mainForm = mainForm;
-            _player = player;
-            _inventoryForm = inventoryForm;
-        }
-
         public void OnOpen()
         {
             UpdateStats();
@@ -33,10 +25,11 @@ namespace IdleGame
         {
             // Update player stat display.
             tbNameSet.Text = _player.name;
-            cbClass.Text = _player.playerClass;
+            tbClass.Text = Enum.GetName(typeof(CharacterClass.Classes), _player.playerClass);
             tbLevel.Text = _player.level.ToString();
             tbExperience.Text = $"{_player.experienceCurrent}/{_player.experienceNextLevel}";
             tbSkillPoints.Text = _player.skillPoints.ToString();
+            tbTalentPoints.Text = _player.talentPoints.ToString();
 
             tbStrength.Text = _player.strengthFinal().ToString();
             tbIntelligence.Text = _player.intelligenceFinal().ToString();
@@ -119,6 +112,23 @@ namespace IdleGame
         {
             _player.IncreaseExp(25);
             UpdateStats();
+        }
+
+        public CharacterForm(MainForm mainForm, Player player, InventoryForm inventoryForm)
+        {
+            InitializeComponent();
+            _mainForm = mainForm;
+            _player = player;
+            _inventoryForm = inventoryForm;
+        }
+
+        private void btnTalentTree_Click(object sender, EventArgs e)
+        {
+            if (_player.playerTalentTree is WarriorTree)
+            {
+                WarriorTalentTree warriorForm = new WarriorTalentTree(_player.playerTalentTree, _player, this);
+                warriorForm.Show();
+            }
         }
     }
 }

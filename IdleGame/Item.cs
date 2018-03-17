@@ -8,10 +8,12 @@ namespace IdleGame
 {
     public class Item : Entity
     {
+        public static Random random = new Random();
         public enum Equip { Head, Neck, Shoulder, Chest, Hands, Ring, Waist, Feet, MainHand, OffHand };
 
         public int affix;
-        public int equipSlot;
+        public Equip equipSlot;
+        public Enum type;
 
         public int price;
 

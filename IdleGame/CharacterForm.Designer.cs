@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CharacterForm));
             this.lblNameStatic = new System.Windows.Forms.Label();
             this.tbNameSet = new System.Windows.Forms.TextBox();
             this.btnSetName = new System.Windows.Forms.Button();
             this.lblClassStatic = new System.Windows.Forms.Label();
-            this.cbClass = new System.Windows.Forms.ComboBox();
-            this.btnSetClass = new System.Windows.Forms.Button();
             this.lblLevelStatic = new System.Windows.Forms.Label();
             this.tbLevel = new System.Windows.Forms.TextBox();
             this.tbSkillPoints = new System.Windows.Forms.TextBox();
@@ -83,6 +82,9 @@
             this.lblPhysicalDamageIncrease = new System.Windows.Forms.Label();
             this.tbElementalDamageIncrease = new System.Windows.Forms.TextBox();
             this.lblElementalDamageIncrease = new System.Windows.Forms.Label();
+            this.tbClass = new System.Windows.Forms.TextBox();
+            this.tbTalentPoints = new System.Windows.Forms.TextBox();
+            this.lblTalentPointsStatic = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNameStatic
@@ -101,6 +103,7 @@
             this.tbNameSet.Name = "tbNameSet";
             this.tbNameSet.Size = new System.Drawing.Size(100, 20);
             this.tbNameSet.TabIndex = 1;
+            this.tbNameSet.Text = "Name";
             // 
             // btnSetName
             // 
@@ -120,23 +123,6 @@
             this.lblClassStatic.Size = new System.Drawing.Size(35, 13);
             this.lblClassStatic.TabIndex = 3;
             this.lblClassStatic.Text = "Class:";
-            // 
-            // cbClass
-            // 
-            this.cbClass.FormattingEnabled = true;
-            this.cbClass.Location = new System.Drawing.Point(59, 32);
-            this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(100, 21);
-            this.cbClass.TabIndex = 4;
-            // 
-            // btnSetClass
-            // 
-            this.btnSetClass.Location = new System.Drawing.Point(165, 32);
-            this.btnSetClass.Name = "btnSetClass";
-            this.btnSetClass.Size = new System.Drawing.Size(34, 21);
-            this.btnSetClass.TabIndex = 5;
-            this.btnSetClass.Text = "Set";
-            this.btnSetClass.UseVisualStyleBackColor = true;
             // 
             // lblLevelStatic
             // 
@@ -160,17 +146,17 @@
             // tbSkillPoints
             // 
             this.tbSkillPoints.HideSelection = false;
-            this.tbSkillPoints.Location = new System.Drawing.Point(144, 84);
+            this.tbSkillPoints.Location = new System.Drawing.Point(82, 84);
             this.tbSkillPoints.Name = "tbSkillPoints";
             this.tbSkillPoints.ReadOnly = true;
-            this.tbSkillPoints.Size = new System.Drawing.Size(31, 20);
+            this.tbSkillPoints.Size = new System.Drawing.Size(25, 20);
             this.tbSkillPoints.TabIndex = 26;
-            this.tbSkillPoints.Text = "9999";
+            this.tbSkillPoints.Text = "999";
             // 
             // lblSkillPointsStatic
             // 
             this.lblSkillPointsStatic.AutoSize = true;
-            this.lblSkillPointsStatic.Location = new System.Drawing.Point(83, 87);
+            this.lblSkillPointsStatic.Location = new System.Drawing.Point(12, 87);
             this.lblSkillPointsStatic.Name = "lblSkillPointsStatic";
             this.lblSkillPointsStatic.Size = new System.Drawing.Size(61, 13);
             this.lblSkillPointsStatic.TabIndex = 25;
@@ -184,6 +170,7 @@
             this.btnTalentTree.TabIndex = 29;
             this.btnTalentTree.Text = "Talents";
             this.btnTalentTree.UseVisualStyleBackColor = true;
+            this.btnTalentTree.Click += new System.EventHandler(this.btnTalentTree_Click);
             // 
             // btnSpells
             // 
@@ -621,11 +608,43 @@
             this.lblElementalDamageIncrease.TabIndex = 53;
             this.lblElementalDamageIncrease.Text = "Elemental Damage Increase:";
             // 
+            // tbClass
+            // 
+            this.tbClass.HideSelection = false;
+            this.tbClass.Location = new System.Drawing.Point(59, 32);
+            this.tbClass.Name = "tbClass";
+            this.tbClass.ReadOnly = true;
+            this.tbClass.Size = new System.Drawing.Size(100, 20);
+            this.tbClass.TabIndex = 55;
+            this.tbClass.Text = "Class";
+            // 
+            // tbTalentPoints
+            // 
+            this.tbTalentPoints.HideSelection = false;
+            this.tbTalentPoints.Location = new System.Drawing.Point(214, 84);
+            this.tbTalentPoints.Name = "tbTalentPoints";
+            this.tbTalentPoints.ReadOnly = true;
+            this.tbTalentPoints.Size = new System.Drawing.Size(19, 20);
+            this.tbTalentPoints.TabIndex = 57;
+            this.tbTalentPoints.Text = "99";
+            // 
+            // lblTalentPointsStatic
+            // 
+            this.lblTalentPointsStatic.AutoSize = true;
+            this.lblTalentPointsStatic.Location = new System.Drawing.Point(141, 87);
+            this.lblTalentPointsStatic.Name = "lblTalentPointsStatic";
+            this.lblTalentPointsStatic.Size = new System.Drawing.Size(72, 13);
+            this.lblTalentPointsStatic.TabIndex = 56;
+            this.lblTalentPointsStatic.Text = "Talent Points:";
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(246, 478);
+            this.Controls.Add(this.tbTalentPoints);
+            this.Controls.Add(this.lblTalentPointsStatic);
+            this.Controls.Add(this.tbClass);
             this.Controls.Add(this.tbElementalDamageIncrease);
             this.Controls.Add(this.lblElementalDamageIncrease);
             this.Controls.Add(this.tbPhysicalDamageIncrease);
@@ -675,13 +694,12 @@
             this.Controls.Add(this.lblStrengthStatic);
             this.Controls.Add(this.tbLevel);
             this.Controls.Add(this.lblLevelStatic);
-            this.Controls.Add(this.btnSetClass);
-            this.Controls.Add(this.cbClass);
             this.Controls.Add(this.lblClassStatic);
             this.Controls.Add(this.btnSetName);
             this.Controls.Add(this.tbNameSet);
             this.Controls.Add(this.lblNameStatic);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "CharacterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -697,8 +715,6 @@
         private System.Windows.Forms.Label lblNameStatic;
         private System.Windows.Forms.TextBox tbNameSet;
         private System.Windows.Forms.Label lblClassStatic;
-        private System.Windows.Forms.ComboBox cbClass;
-        private System.Windows.Forms.Button btnSetClass;
         private System.Windows.Forms.Label lblLevelStatic;
         private System.Windows.Forms.TextBox tbLevel;
         private System.Windows.Forms.Button btnSetName;
@@ -749,5 +765,8 @@
         private System.Windows.Forms.Label lblPhysicalDamageIncrease;
         private System.Windows.Forms.TextBox tbElementalDamageIncrease;
         private System.Windows.Forms.Label lblElementalDamageIncrease;
+        private System.Windows.Forms.TextBox tbClass;
+        private System.Windows.Forms.TextBox tbTalentPoints;
+        private System.Windows.Forms.Label lblTalentPointsStatic;
     }
 }

@@ -8,6 +8,11 @@ namespace IdleGame
 {
     public class Weapon : Item
     {
+        public enum Type { Axe, Mace, Sword, Staff, Polearm, Bow, Crossbow };
+        
+        // true = Two-Handed, false = One-Handed.
+        public bool twoHanded;
+
         // Weapon damage.
         public int damageMin;
         public int damageMax;
@@ -16,9 +21,11 @@ namespace IdleGame
         public double criticalChanceBonus;
         public double criticalDamageBonus;
 
-        public Weapon(string _name, int slot, int levelReq, int strReq, int intReq, int dexReq, int strBonus, int intBonus, int dexBonus, double physDmgBonus, double eleDmgBonus, int dmgMin, int dmgMax, double critChc, double critDmg, int gold)
+        public Weapon(string _name, Equip slot, Enum weaponType, bool _twoHanded, int levelReq, int strReq, int intReq, int dexReq, int strBonus, int intBonus, int dexBonus, double physDmgBonus, double eleDmgBonus, int dmgMin, int dmgMax, double critChc, double critDmg, int gold)
         {
             equipSlot = slot;
+            type = weaponType;
+            twoHanded = _twoHanded;
             name = _name;
             price = gold;
 
