@@ -159,7 +159,8 @@ namespace IdleGame
         {
             // Show weapon stats on the textbox.
             tbItemStats.Text = $"{weapon.name}\r\n---------------\r\n" +
-                $"{Enum.GetName(typeof(Item.Equip), weapon.equipSlot)}\r\n" +
+                ((weapon.twoHanded) ? "Two-Handed " : "One-Handed ") + $"{Enum.GetName(typeof(Weapon.Type), weapon.type)}\r\n" +
+                $"{weapon.speed.ToString("#.#")} speed\r\n" +
                 $"{weapon.damageMin} - {weapon.damageMax} damage\r\n---------------\r\n" +
                 $"Lvl: {weapon.levelRequirement}, Str: {weapon.strengthRequirement}, Int: {weapon.intelligenceRequirement}, Dex: {weapon.dexterityRequirement}\r\n---------------\r\n" +
                 ((weapon.strengthBonus != 0) ? $"+{weapon.strengthBonus} to strength\r\n" : "") +
@@ -285,7 +286,7 @@ namespace IdleGame
 
         private void btnSpawnArmour_Click(object sender, EventArgs e)
         {
-            _player.AddItem(Armour.Generate(1, 90));
+            _player.AddItem(Weapon.Generate(1, 90));
             UpdateText();
         }
     }

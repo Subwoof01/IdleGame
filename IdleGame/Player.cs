@@ -37,14 +37,17 @@ namespace IdleGame
             {
                 // Increase level by 1.
                 this.level++;
+                // Set current experience.
+                if (experienceCurrent > experienceNextLevel)
+                    this.experienceCurrent -= experienceNextLevel;
+                else
+                    this.experienceCurrent = 0;
                 // Set next level experience.
-                this.experienceNextLevel = experienceThresholds[this.level];
+                this.experienceNextLevel = 100 * (int)Math.Pow(1.59, level);
                 // Give 5 skill points.
                 this.skillPoints += 5;
                 // Give the player 1 talent point.
                 this.talentPoints++;
-                // Reset current experience.
-                this.experienceCurrent = 0;
             }
         }
 

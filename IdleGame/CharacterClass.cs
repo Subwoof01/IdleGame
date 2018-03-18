@@ -10,9 +10,7 @@ namespace IdleGame
     {
         public enum Classes { Warrior, Sorcerer, Ranger };
         public TalentTree playerTalentTree;
-
-        public int[] experienceThresholds = new int[] { 0, 100, 607, 1756, 3757, 6822, 11174, 17045, 24687, 34367, 46372, 61006, 78596, 99486, 124046, 152661 };
-
+        
         // 0 = Head, 1 = Neck, 2 = Shoulder, 3 = Chest, 4 = Hands, 5 = Ring, 6 = Waist, 7 = Feet, 8 = MainHand, 9 = OffHand
         public Item[] equipment = new Item[10];
 

@@ -9,7 +9,7 @@ namespace IdleGame
     public class Armour : Item
     {
         public enum Type { Heavy, Medium, Light };
-        public enum Affix { Strength, Intelligence, Dexterity, Health, Mana, Armour, HealthRegen, ManaRegen, PhysicalResist, ElementalResist, PhysicalDamage, ElementalDamage };
+        private enum Affix { Strength, Intelligence, Dexterity, Health, Mana, Armour, HealthRegen, ManaRegen, PhysicalResist, ElementalResist, PhysicalDamage, ElementalDamage };
 
 
         // Flat bonuses.
@@ -144,7 +144,7 @@ namespace IdleGame
             "of Expulsion",
             "of Exile",
             "of Barneth",
-            "of the Inult",
+            "of the Inuit",
             "of the Seal",
             "of the Yeti",
             "of the Penguin",
@@ -243,8 +243,9 @@ namespace IdleGame
             int suffixChoice = random.Next(suffix.Length);
 
             slot = Equip.Chest;
-            
+
             itemName = "";
+
             type = (Type)random.Next(3);
 
             #region Name generation.
@@ -310,19 +311,19 @@ namespace IdleGame
                 armour = random.Next((int)(7 * Math.Pow(1.022, itemLevel)), (int)(10 * Math.Pow(1.034, itemLevel)));
 
             #region Generate values for chosen affixes.
-            foreach (Affix a in affixes)
+            foreach (Affix affix in affixes)
             {
                 // Strength
-                if (a.Equals(Affix.Strength))
+                if (affix.Equals(Affix.Strength))
                     strength = random.Next((int)(5 * Math.Pow(1.038, itemLevel)));
                 // Intelligence
-                if (a.Equals(Affix.Intelligence))
+                if (affix.Equals(Affix.Intelligence))
                     intelligence = random.Next((int)(5 * Math.Pow(1.038, itemLevel)));
                 // Dexterity
-                if (a.Equals(Affix.Dexterity))
+                if (affix.Equals(Affix.Dexterity))
                     dexterity = random.Next((int)(5 * Math.Pow(1.038, itemLevel)));
                 // Health
-                if (a.Equals(Affix.Health))
+                if (affix.Equals(Affix.Health))
                     if (type.Equals(Type.Heavy))
                         health = random.Next((int)(5 * Math.Pow(1.043, itemLevel)));
                     else if (type.Equals(Type.Medium))
@@ -330,7 +331,7 @@ namespace IdleGame
                     else if (type.Equals(Type.Light))
                         health = random.Next((int)(5 * Math.Pow(1.041, itemLevel)));
                 // Mana
-                if (a.Equals(Affix.Mana))
+                if (affix.Equals(Affix.Mana))
                     if (type.Equals(Type.Heavy))
                         mana = random.Next((int)(5 * Math.Pow(1.039, itemLevel)));
                     else if (type.Equals(Type.Medium))
@@ -338,7 +339,7 @@ namespace IdleGame
                     else if (type.Equals(Type.Light))
                         mana = random.Next((int)(5 * Math.Pow(1.0441, itemLevel)));
                 // Armour
-                if (a.Equals(Affix.Armour))
+                if (affix.Equals(Affix.Armour))
                     if (type.Equals(Type.Heavy))
                         armour += random.Next((int)(4 * Math.Pow(1.024, itemLevel)));
                     else if (type.Equals(Type.Medium))
@@ -346,22 +347,22 @@ namespace IdleGame
                     else if (type.Equals(Type.Light))
                         armour += random.Next((int)(4 * Math.Pow(1.021, itemLevel)));
                 // Health Regeneration
-                if (a.Equals(Affix.HealthRegen))
+                if (affix.Equals(Affix.HealthRegen))
                     healthRegen = random.Next((int)(5 * Math.Pow(1.02, itemLevel)));
                 // Mana Regeneration
-                if (a.Equals(Affix.ManaRegen))
+                if (affix.Equals(Affix.ManaRegen))
                     manaRegen = random.Next((int)(5 * Math.Pow(1.03, itemLevel)));
                 // Physical Resistance
-                if (a.Equals(Affix.PhysicalResist))
+                if (affix.Equals(Affix.PhysicalResist))
                     physicalResist = random.Next(21) * 0.01;
                 // Elemental Resistance
-                if (a.Equals(Affix.ElementalResist))
+                if (affix.Equals(Affix.ElementalResist))
                     elementalResist = random.Next(21) * 0.01;
                 // Physical Damage 
-                if (a.Equals(Affix.PhysicalDamage))
+                if (affix.Equals(Affix.PhysicalDamage))
                     physicalDamage = random.Next(21) * 0.01;
                 // Elemental Damage
-                if (a.Equals(Affix.ElementalDamage))
+                if (affix.Equals(Affix.ElementalDamage))
                     elementalDamage = random.Next(21) * 0.01;
             }
             #endregion

@@ -110,7 +110,7 @@ namespace IdleGame
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _player.IncreaseExp(25);
+            _player.IncreaseExp(150);
             UpdateStats();
         }
 
