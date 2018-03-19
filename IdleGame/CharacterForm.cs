@@ -15,10 +15,11 @@ namespace IdleGame
         private MainForm _mainForm;
         private Player _player;
         private InventoryForm _inventoryForm;
+        private WarriorTalentTree warriorForm;
 
         public void OnOpen()
         {
-            UpdateStats();
+            _mainForm.UpdateText();
         }
 
         public void UpdateStats()
@@ -63,39 +64,41 @@ namespace IdleGame
                 btnIncreaseIntelligence.Enabled = false;
                 btnIncreaseDexterity.Enabled = false;
             }
-            _mainForm.UpdateText();
+
+            if (warriorForm != null)
+                warriorForm.UpdateText();
         }
 
         private void ClosedForm(object sender, FormClosedEventArgs e)
         {
-            UpdateStats();
+            _mainForm.UpdateText();
         }
 
         private void btnSetName_Click(object sender, EventArgs e)
         {
             _player.name = tbNameSet.Text;
-            UpdateStats();
+            _mainForm.UpdateText();
         }
 
         private void btnIncreaseStrength_Click(object sender, EventArgs e)
         {
             _player.strengthBase++;
             _player.skillPoints--;
-            UpdateStats();
+            _mainForm.UpdateText();
         }
 
         private void btnIncreaseIntelligence_Click(object sender, EventArgs e)
         {
             _player.intelligenceBase++;
             _player.skillPoints--;
-            UpdateStats();
+            _mainForm.UpdateText();
         }
 
         private void btnIncreaseDexterity_Click(object sender, EventArgs e)
         {
             _player.dexterityBase++;
             _player.skillPoints--;
-            UpdateStats();
+            _mainForm.UpdateText();
         }
 
         private void btnSpells_Click(object sender, EventArgs e)
@@ -105,13 +108,13 @@ namespace IdleGame
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            UpdateStats();
+            _mainForm.UpdateText();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             _player.IncreaseExp(150);
-            UpdateStats();
+            _mainForm.UpdateText();
         }
 
         public CharacterForm(MainForm mainForm, Player player, InventoryForm inventoryForm)
@@ -126,7 +129,7 @@ namespace IdleGame
         {
             if (_player.playerTalentTree is WarriorTree)
             {
-                WarriorTalentTree warriorForm = new WarriorTalentTree(_player.playerTalentTree, _player, this);
+                warriorForm = new WarriorTalentTree(_player.playerTalentTree, _player, this);
                 warriorForm.Show();
             }
         }

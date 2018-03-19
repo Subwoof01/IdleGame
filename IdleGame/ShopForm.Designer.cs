@@ -146,6 +146,7 @@
             this.Name = "ShopForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Shop";
+            this.Load += new System.EventHandler(this.ShopForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

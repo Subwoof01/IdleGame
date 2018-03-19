@@ -12,11 +12,18 @@ namespace IdleGame
 {
     public partial class ShopForm : Form
     {
+        private MainForm _mainForm;
         private Player _player;
+        private int healCost;
 
         private void btnHeal_Click(object sender, EventArgs e)
         {
-
+            if (_player.gold >= healCost)
+            {
+                _player.healthCurrent = _player.healthFinal();
+                _player.gold -= healCost;
+            }
+            _mainForm.UpdateText();
         }
 
         private void btnGeneral_Click(object sender, EventArgs e)
@@ -44,10 +51,22 @@ namespace IdleGame
 
         }
 
-        public ShopForm(Player player)
+        public void UpdateText()
+        {
+            healCost = (_player.healthFinal() - _player.healthCurrent) / 3;
+            btnHeal.Text = $"Heal ({healCost}g)";
+        }
+
+        private void ShopForm_Load(object sender, EventArgs e)
+        {
+            _mainForm.UpdateText();
+        }
+
+        public ShopForm(Player player, MainForm mainForm)
         {
             InitializeComponent();
             _player = player;
+            _mainForm = mainForm;
         }
     }
 }

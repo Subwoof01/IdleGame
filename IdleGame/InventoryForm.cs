@@ -13,11 +13,14 @@ namespace IdleGame
     public partial class InventoryForm : Form
     {
         private Player _player;
-        private CharacterForm _characterForm;
+        private MainForm _mainForm;
+
+        // For debug item spawning
+        private Random random = new Random();
 
         private void InventoryForm_Load(object sender, EventArgs e)
         {
-            UpdateText();
+             _mainForm.UpdateText();
         }
 
         private void EquipItem(Item.Equip slot)
@@ -73,7 +76,7 @@ namespace IdleGame
                                 _player.inventorySlotsUsed++;
 
                                 // Show item on screen.
-                                UpdateText();
+                                _mainForm.UpdateText();
 
                                 // Job done, exist for-loop.
                                 break;
@@ -94,7 +97,7 @@ namespace IdleGame
                 }
             }
 
-            UpdateText();
+            _mainForm.UpdateText();
         }
 
         private void btnHead_Click(object sender, EventArgs e)
@@ -112,7 +115,7 @@ namespace IdleGame
             EquipItem(Item.Equip.Chest);
         }
 
-        private void UpdateText()
+        public void UpdateText()
         {
             lbInventory.Items.Clear();
 
@@ -130,8 +133,6 @@ namespace IdleGame
             else tbChestEquipped.Text = "<Empty>";
             if (_player.equipment[(int)Item.Equip.MainHand] != null) tbMainHandEquipped.Text = _player.equipment[(int)Item.Equip.MainHand].name;
             else tbMainHandEquipped.Text = "<Empty>";
-
-            if (_characterForm != null) _characterForm.UpdateStats();
         }
 
         private void lbInventory_SelectedIndexChanged(object sender, EventArgs e)
@@ -194,19 +195,19 @@ namespace IdleGame
 
         private void btnHeadShow_Click(object sender, EventArgs e)
         {
-            UpdateText();
+            _mainForm.UpdateText();
             if (_player.equipment[(int)Item.Equip.Head] != null) ShowArmourStats((Armour)_player.equipment[(int)Item.Equip.Head]);
         }
 
         private void btnChestShow_Click(object sender, EventArgs e)
         {
-            UpdateText();
+            _mainForm.UpdateText();
             if (_player.equipment[(int)Item.Equip.Chest] != null) ShowArmourStats((Armour)_player.equipment[(int)Item.Equip.Chest]);
         }
 
         private void btnWeaponShow_Click(object sender, EventArgs e)
         {
-            UpdateText();
+            _mainForm.UpdateText();
             if (_player.equipment[(int)Item.Equip.MainHand] != null) ShowWeaponStats((Weapon)_player.equipment[(int)Item.Equip.MainHand]);
         }
 
@@ -246,7 +247,7 @@ namespace IdleGame
                         _player.inventorySlotsUsed++;
 
                         // Show item on screen.
-                        UpdateText();
+                        _mainForm.UpdateText();
                         break;
                     }
                 }
@@ -271,23 +272,29 @@ namespace IdleGame
                         _player.inventorySlotsUsed--;
 
                         // Update texts.
-                        UpdateText();
+                        _mainForm.UpdateText();
                     }
                 }
             }
         }
 
-        public InventoryForm(Player player, CharacterForm characterForm)
+        public InventoryForm(Player player, MainForm mainForm)
         {
             InitializeComponent();
             _player = player;
-            _characterForm = characterForm;
+            _mainForm = mainForm;
         }
 
         private void btnSpawnArmour_Click(object sender, EventArgs e)
         {
-            _player.AddItem(Weapon.Generate(1, 90));
-            UpdateText();
+            int itemChance = random.Next();
+
+            if (itemChance % 2 == 0)
+                _player.AddItem(Armour.Generate(1, 90));
+            else
+                _player.AddItem(Weapon.Generate(1, 90));
+
+            _mainForm.UpdateText();
         }
     }
 }

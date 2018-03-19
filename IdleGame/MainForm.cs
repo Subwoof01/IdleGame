@@ -22,7 +22,7 @@ namespace IdleGame
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            inventory = new InventoryForm(_player, character);
+            inventory = new InventoryForm(_player, this);
             inventory.Show();
         }
 
@@ -35,7 +35,7 @@ namespace IdleGame
 
         private void btnShop_Click(object sender, EventArgs e)
         {
-            shop = new ShopForm(_player);
+            shop = new ShopForm(_player, this);
             shop.Show();
         }
 
@@ -56,6 +56,13 @@ namespace IdleGame
 
             experienceBar.Maximum = _player.experienceNextLevel;
             experienceBar.Value = _player.experienceCurrent;
+
+            if (character != null)
+                character.UpdateStats();
+            if (inventory != null)
+                inventory.UpdateText();
+            if (shop != null)
+                shop.UpdateText();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
