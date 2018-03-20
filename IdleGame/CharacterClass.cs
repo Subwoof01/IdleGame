@@ -75,7 +75,7 @@ namespace IdleGame
                 }
             }
 
-            return this.healthBase + (this.strengthBase * 2) + itemBonus;
+            return this.healthBase + (this.strengthFinal() * 2) + itemBonus;
         }
         public int manaFinal()
         {
@@ -91,7 +91,7 @@ namespace IdleGame
                 }
             }
 
-            return this.manaBase + (this.intelligenceBase * 2) + itemBonus;
+            return this.manaBase + (this.intelligenceFinal() * 2) + itemBonus;
         }
         public int armourFinal()
         {
@@ -117,7 +117,7 @@ namespace IdleGame
                 talentBonus = warrior.IronSkinBonus();
             }
 
-            return (int)((this.armour + this.dexterityBase + itemBonus) * (1 + talentBonus));
+            return (int)((this.armour + this.dexterityFinal() + itemBonus) * (1 + talentBonus));
         }
 
         public double physicalDamageIncrease()

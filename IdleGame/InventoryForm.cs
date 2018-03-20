@@ -93,7 +93,7 @@ namespace IdleGame
                         $"Level:\t\t {_player.level} - {itemEquip.levelRequirement} \n" +
                         $"Strength:\t {_player.strengthFinal()} - {itemEquip.strengthRequirement} \n" +
                         $"Intelligence:\t {_player.intelligenceFinal()} - {itemEquip.intelligenceRequirement} \n" +
-                        $"Dexterity:\t {_player.dexterityFinal()} - {itemEquip.dexterityRequirement}", " Not Yet", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        $"Dexterity:\t {_player.dexterityFinal()} - {itemEquip.dexterityRequirement}", "Not Yet", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 

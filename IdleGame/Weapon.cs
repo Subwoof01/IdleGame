@@ -283,7 +283,7 @@ namespace IdleGame
             #region Affix minimum and maximum, affix cap and affix chooser.
             int affixMinimum = 0;
             int affixMaximum = 0;
-
+            // Make formula
             if (itemLevel > 10)
                 affixMinimum = 1;
             if (itemLevel > 25)
