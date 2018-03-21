@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IdleGame.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,46 +15,56 @@ namespace IdleGame
 {
     public partial class MainForm : Form
     {
-        Player player = new Player();
-        CharacterForm character;
-        InventoryForm inventory;
+        private Player _player;
 
-        public MainForm()
-        {
-            InitializeComponent();
-            UpdateText();
-        }
+        private CharacterForm character;
+        private InventoryForm inventory;
+        private ShopForm shop;
+        private CombatForm combat;
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            inventory = new InventoryForm(player, character);
+            inventory = new InventoryForm(_player, this);
             inventory.Show();
         }
 
         private void btnCharacter_Click(object sender, EventArgs e)
         {
-            character = new CharacterForm(this, player, inventory);
+            character = new CharacterForm(this, _player, inventory);
             character.OnOpen();
             character.Show();
+        }
+
+        private void btnShop_Click(object sender, EventArgs e)
+        {
+            shop = new ShopForm(_player, this);
+            shop.Show();
         }
 
         public void UpdateText()
         {
             // Update player stat text.
-            lblName.Text = player.name;
-            lblClass.Text = player.playerClass;
-            lblHealth.Text = $"{player.healthCurrent}/{player.healthFinal()}";
-            lblMana.Text = $"{player.manaCurrent}/{player.manaFinal()}";
-            lblExperience.Text = $"{player.experienceCurrent}/{player.experienceNextLevel}";
+            lblName.Text = _player.name;
+            lblClass.Text = Enum.GetName(typeof(Player.Class), _player.playerClass);
+            lblHealth.Text = $"{_player.healthCurrent}/{(int)_player.attributes[(int)PlayerStat.Attribute.Health].Final()}";
+            lblMana.Text = $"{_player.manaCurrent}/{(int)_player.attributes[(int)PlayerStat.Attribute.Mana].Final()}";
+            lblExperience.Text = $"{_player.experienceCurrent}/{_player.experienceNextLevel}";
 
-            healthBar.Maximum = player.healthFinal();
-            healthBar.Value = player.healthCurrent;
+            healthBar.Maximum = (int)_player.attributes[(int)PlayerStat.Attribute.Health].Final();
+            healthBar.Value = _player.healthCurrent;
 
-            manaBar.Maximum = player.manaFinal();
-            manaBar.Value = player.manaCurrent;
+            manaBar.Maximum = (int)_player.attributes[(int)PlayerStat.Attribute.Mana].Final();
+            manaBar.Value = _player.manaCurrent;
 
-            experienceBar.Maximum = player.experienceNextLevel;
-            experienceBar.Value = player.experienceCurrent;
+            experienceBar.Maximum = _player.experienceNextLevel;
+            experienceBar.Value = _player.experienceCurrent;
+
+            if (character != null)
+                character.UpdateStats();
+            if (inventory != null)
+                inventory.UpdateText();
+            if (shop != null)
+                shop.UpdateText();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -69,6 +80,28 @@ namespace IdleGame
         private void btnNew_Click(object sender, EventArgs e)
         {
             // TODO
+        }
+
+        public MainForm(Player player)
+        {
+            InitializeComponent();
+
+            // Pass the player instance to the WarriorTree object so we can read its values there. (Needed for tooltips).
+            //WarriorTalent warrior;
+            //if (player.playerClass.Equals(Player.Class.Warrior))
+            //{
+            //    warrior = player.warriorTree;
+            //    warrior.WarriorTreeSetPlayer(player);
+            //}
+            
+            _player = player;
+            UpdateText();
+        }
+
+        private void btnTravel_Click(object sender, EventArgs e)
+        {
+            combat = new CombatForm(_player);
+            combat.Show();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IdleGame.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,185 +14,109 @@ namespace IdleGame
     public partial class InventoryForm : Form
     {
         private Player _player;
-        private CharacterForm _characterForm;
+        private MainForm _mainForm;
 
-        public InventoryForm(Player player, CharacterForm characterForm)
-        {
-            InitializeComponent();
-            _player = player;
-            _characterForm = characterForm;
-        }
+        // For debug item spawning
+        private Random random = new Random();
 
         private void InventoryForm_Load(object sender, EventArgs e)
         {
-            UpdateText();
+             _mainForm.UpdateText();
         }
-        
-        private void btnHead_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Initalise itemEquip variable.
-                Item itemEquip = null;
 
-                // NullReferenceException catcher.
-                if (lbInventory.SelectedItem != null)
+        private void EquipItem(Item.Equip slot)
+        {
+            // Initialise itemEquip variable. Holds the item we'll attempt to equip.
+            Item itemEquip = null;
+            // Initialise the equipped variable. Holds the item (if there is) we currently have equipped.
+            Item equipped = null;
+
+            // NullReferenceException catcher.
+            if (lbInventory.SelectedItem != null)
+            {
+                // Check all used slots to find the selected item.
+                for (int i = 0; i < _player.inventory.Length; i++)
                 {
-                    // Check all used slots to find the selected item.
+                    // Store selected item in itemEquip.
+                    if (_player.inventory[i] != null && _player.inventory[i].name == lbInventory.SelectedItem.ToString())
+                        itemEquip = _player.inventory[i];
+                }
+
+                // If player meets lvl/str/int/dex requirements and item is of correct equip slot, equip item.
+                if (itemEquip != null && itemEquip.equipSlot.Equals(slot) && _player.level >= itemEquip.levelRequirement && _player.attributes[(int)PlayerStat.Attribute.Strength].Final() >= itemEquip.strengthRequirement && _player.attributes[(int)PlayerStat.Attribute.Intelligence].Final() >= itemEquip.intelligenceRequirement && _player.attributes[(int)PlayerStat.Attribute.Dexterity].Final() >= itemEquip.dexterityRequirement)
+                {
+                    if (_player.equipment[(int)slot] != null)
+                        equipped = _player.equipment[(int)slot];
+
+                    // Equip item.
+                    _player.equipment[(int)slot] = itemEquip;
+
+                    // Remove from inventory.
                     for (int i = 0; i < _player.inventory.Length; i++)
                     {
-                        // Store selected item in itemEquip.
-                        if (_player.inventory[i] != null && _player.inventory[i].name == lbInventory.SelectedItem.ToString()) itemEquip = _player.inventory[i];
+                        if (_player.inventory[i] != null && _player.inventory[i].name.Equals(lbInventory.SelectedItem.ToString()))
+                            _player.inventory[i] = null;
                     }
+                    lbInventory.Items.RemoveAt(lbInventory.SelectedIndex);
 
+                    // Decrease available inventory slots.
+                    _player.inventorySlotsUsed--;
 
-                    // If player meets lvl/str/int/dex requirements and item is of correct equip slot, equip item.
-                    if (itemEquip != null && itemEquip.equipSlot == (int)Item.Equip.Head && _player.level >= itemEquip.levelRequirement && _player.strengthFinal() >= itemEquip.strengthRequirement && _player.intelligenceFinal() >= itemEquip.intelligenceRequirement && _player.dexterityFinal() >= itemEquip.dexterityRequirement)
+                    // If we had an item equipped.
+                    if (equipped != null)
                     {
-                        // Equip item.
-                        _player.equipment[(int)Item.Equip.Head] = itemEquip;
-
-                        // Remove from inventory.
+                        // Find the first empty slot in the inventory.
                         for (int i = 0; i < _player.inventory.Length; i++)
                         {
-                            if (_player.inventory[i] != null && _player.inventory[i].name.Equals(lbInventory.SelectedItem.ToString())) _player.inventory[i] = null;
-                        }
-                        lbInventory.Items.RemoveAt(lbInventory.SelectedIndex);
+                            if (_player.inventory[i] == null)
+                            {
+                                // Put it in inventory.
+                                _player.inventory[i] = equipped;
 
-                        // Decrease available inventory slots.
-                        _player.inventorySlotsUsed--;
-                    }
-                    // Otherwise, show dialog box telling player cannot equip item.
-                    else
-                    {
-                        DialogResult notYetDialog = MessageBox.Show($"You do not meet the requirements to equip this item. \n" +
-                            $"\t\t Player - Item \n" +
-                            $"Slot:\t\t Weapon - {Enum.GetName(typeof(Item.Equip), itemEquip.equipSlot)} \n" +
-                            $"Level:\t\t {_player.level} - {itemEquip.levelRequirement} \n" +
-                            $"Strength:\t {_player.strengthFinal()} - {itemEquip.strengthRequirement} \n" +
-                            $"Intelligence:\t {_player.intelligenceFinal()} - {itemEquip.intelligenceRequirement} \n" +
-                            $"Dexterity:\t {_player.dexterityFinal()} - {itemEquip.dexterityRequirement}", " Not Yet", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                // Increase available inventory slots.
+                                _player.inventorySlotsUsed++;
+
+                                // Show item on screen.
+                                _mainForm.UpdateText();
+
+                                // Job done, exist for-loop.
+                                break;
+                            }
+                        }
                     }
                 }
-            }
-            catch (System.IndexOutOfRangeException ex)
-            {
-                Console.WriteLine("IndexOutOfRangeException: you need to select and item first!. \nStacktrace: {0}", ex);
+                // Otherwise, show dialog box telling player cannot equip item.
+                else
+                {
+                    DialogResult notYetDialog = MessageBox.Show($"You do not meet the requirements to equip this item. \n" +
+                        $"\t\t Player - Item \n" +
+                        $"Slot:\t\t {Enum.GetName(typeof(Item.Equip), slot)} - {Enum.GetName(typeof(Item.Equip), itemEquip.equipSlot)} \n" +
+                        $"Level:\t\t {_player.level} - {itemEquip.levelRequirement} \n" +
+                        $"Strength:\t {_player.attributes[(int)PlayerStat.Attribute.Strength].Final()} - {itemEquip.strengthRequirement} \n" +
+                        $"Intelligence:\t {_player.attributes[(int)PlayerStat.Attribute.Intelligence].Final()} - {itemEquip.intelligenceRequirement} \n" +
+                        $"Dexterity:\t {_player.attributes[(int)PlayerStat.Attribute.Dexterity].Final()} - {itemEquip.dexterityRequirement}", "Not Yet", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
 
-            UpdateText();
+            _mainForm.UpdateText();
+        }
+
+        private void btnHead_Click(object sender, EventArgs e)
+        {
+            EquipItem(Item.Equip.Head);
         }
 
         private void btnWeapon_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Initalise itemEquip variable.
-                Item itemEquip = null;
-
-                // NullReferenceException catcher.
-                if (lbInventory.SelectedItem != null)
-                {
-                    // Check all used slots to find the selected item.
-                    for (int i = 0; i < _player.inventory.Length; i++)
-                    {
-                        // Store selected item in itemEquip.
-                        if (_player.inventory[i] != null && _player.inventory[i].name.Equals(lbInventory.SelectedItem.ToString())) itemEquip = _player.inventory[i];
-                    }
-
-
-                    // If player meets lvl/str/int/dex requirements and item is of correct equip slot, equip item.
-                    if (itemEquip != null && itemEquip.equipSlot == (int)Item.Equip.MainHand && _player.level >= itemEquip.levelRequirement && _player.strengthFinal() >= itemEquip.strengthRequirement && _player.intelligenceFinal() >= itemEquip.intelligenceRequirement && _player.dexterityFinal() >= itemEquip.dexterityRequirement)
-                    {
-                        // Equip item.
-                        _player.equipment[(int)Item.Equip.MainHand] = itemEquip;
-
-                        // Remove from inventory.
-                        for (int i = 0; i < _player.inventory.Length; i++)
-                        {
-                            if (_player.inventory[i] != null && _player.inventory[i].name.Equals(lbInventory.SelectedItem.ToString())) _player.inventory[i] = null;
-                        }
-                        lbInventory.Items.RemoveAt(lbInventory.SelectedIndex);
-
-                        // Decrease available inventory slots.
-                        _player.inventorySlotsUsed--;
-                    }
-                    // Otherwise, show dialog box telling player cannot equip item.
-                    else
-                    {
-                        DialogResult notYetDialog = MessageBox.Show($"You do not meet the requirements to equip this item. \n" +
-                            $"\t\t Player - Item \n" +
-                            $"Slot:\t\t Weapon - {Enum.GetName(typeof(Item.Equip), itemEquip.equipSlot)} \n" +
-                            $"Level:\t\t {_player.level} - {itemEquip.levelRequirement} \n" +
-                            $"Strength:\t {_player.strengthFinal()} - {itemEquip.strengthRequirement} \n" +
-                            $"Intelligence:\t {_player.intelligenceFinal()} - {itemEquip.intelligenceRequirement} \n" +
-                            $"Dexterity:\t {_player.dexterityFinal()} - {itemEquip.dexterityRequirement}", " Not Yet", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-            catch (System.IndexOutOfRangeException ex)
-            {
-                Console.WriteLine("IndexOutOfRangeException: you need to select and item first!. \nStacktrace: {0}", ex);
-            }
-
-            UpdateText();
+            EquipItem(Item.Equip.MainHand);
         }
 
         private void btnChest_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Initalise itemEquip variable.
-                Item itemEquip = null;
-
-                // NullReferenceException catcher.
-                if (lbInventory.SelectedItem != null)
-                {
-                    // Check all used slots to find the selected item.
-                    for (int i = 0; i < _player.inventory.Length; i++)
-                    {
-                        // Store selected item in itemEquip.
-                        if (_player.inventory[i] != null && _player.inventory[i].name.Equals(lbInventory.SelectedItem.ToString())) itemEquip = _player.inventory[i];
-                    }
-
-                    // If player meets lvl/str/int/dex requirements and item is of correct equip slot, equip item.
-                    if (itemEquip.equipSlot == (int)Item.Equip.Chest && _player.level >= itemEquip.levelRequirement && _player.strengthFinal() >= itemEquip.strengthRequirement && _player.intelligenceFinal() >= itemEquip.intelligenceRequirement && _player.dexterityFinal() >= itemEquip.dexterityRequirement)
-                    {
-                        // Equip item.
-                        _player.equipment[(int)Item.Equip.Chest] = itemEquip;
-
-                        // Remove from inventory.
-                        for (int i = 0; i < _player.inventory.Length; i++)
-                        {
-                            if (_player.inventory[i] != null && _player.inventory[i].name.Equals(lbInventory.SelectedItem.ToString())) _player.inventory[i] = null;
-                        }
-                        lbInventory.Items.RemoveAt(lbInventory.SelectedIndex);
-
-                        // Decrease available inventory slots.
-                        _player.inventorySlotsUsed--;
-                    }
-                    // Otherwise, show dialog box telling player cannot equip item.
-                    else
-                    {
-                        DialogResult notYetDialog = MessageBox.Show($"You do not meet the requirements to equip this item. \n" +
-                            $"\t\t Player - Item \n" +
-                            $"Slot:\t\t Chest - {Enum.GetName(typeof(Item.Equip), itemEquip.equipSlot)} \n" +
-                            $"Level:\t\t {_player.level} - {itemEquip.levelRequirement} \n" +
-                            $"Strength:\t {_player.strengthFinal()} - {itemEquip.strengthRequirement} \n" +
-                            $"Intelligence:\t {_player.intelligenceFinal()} - {itemEquip.intelligenceRequirement} \n" +
-                            $"Dexterity:\t {_player.dexterityFinal()} - {itemEquip.dexterityRequirement}", " Not Yet", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-            catch (System.IndexOutOfRangeException ex)
-            {
-                Console.WriteLine("IndexOutOfRangeException: you need to select and item first!. \nStacktrace: {0}", ex);
-            }
-
-            UpdateText();
+            EquipItem(Item.Equip.Chest);
         }
 
-        private void UpdateText()
+        public void UpdateText()
         {
             lbInventory.Items.Clear();
 
@@ -209,43 +134,35 @@ namespace IdleGame
             else tbChestEquipped.Text = "<Empty>";
             if (_player.equipment[(int)Item.Equip.MainHand] != null) tbMainHandEquipped.Text = _player.equipment[(int)Item.Equip.MainHand].name;
             else tbMainHandEquipped.Text = "<Empty>";
-
-            if (_characterForm != null) _characterForm.UpdateStats();
         }
 
         private void lbInventory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                // Initialise item variable.
-                Item item = null;
+            // Initialise item variable.
+            Item item = null;
 
-                // NullReferenceException catcher.
-                if (lbInventory.SelectedItem != null)
+            // NullReferenceException catcher.
+            if (lbInventory.SelectedItem != null)
+            {
+                // Check every used inventory slot to find the selected item.
+                for (int i = 0; i < _player.inventory.Length; i++)
                 {
-                    // Check every used inventory slot to find the selected item.
-                    for (int i = 0; i < _player.inventory.Length; i++)
-                    {
-                        // Store the selected item in item.
-                        if (_player.inventory[i] != null && _player.inventory[i].name == lbInventory.SelectedItem.ToString()) item = _player.inventory[i];
-                    }
+                    // Store the selected item in item.
+                    if (_player.inventory[i] != null && _player.inventory[i].name == lbInventory.SelectedItem.ToString()) item = _player.inventory[i];
                 }
+            }
 
-                // Show stats of selected item.
-                if (item is Weapon) ShowWeaponStats((Weapon)item);
-                if (item is Armour) ShowArmourStats((Armour)item);
-            }
-            catch (System.IndexOutOfRangeException ex)
-            {
-                Console.WriteLine("IndexOutOfRangeException: you did not select any item. \nStacktrace: {0}", ex);
-            }
+            // Show stats of selected item.
+            if (item is Weapon) ShowWeaponStats((Weapon)item);
+            if (item is Armour) ShowArmourStats((Armour)item);
         }
 
         private void ShowWeaponStats(Weapon weapon)
         {
             // Show weapon stats on the textbox.
             tbItemStats.Text = $"{weapon.name}\r\n---------------\r\n" +
-                $"{Enum.GetName(typeof(Item.Equip), weapon.equipSlot)}\r\n" +
+                ((weapon.twoHanded) ? "Two-Handed " : "One-Handed ") + $"{Enum.GetName(typeof(Weapon.Type), weapon.type)}\r\n" +
+                $"{weapon.speed.ToString("#.#")} speed\r\n" +
                 $"{weapon.damageMin} - {weapon.damageMax} damage\r\n---------------\r\n" +
                 $"Lvl: {weapon.levelRequirement}, Str: {weapon.strengthRequirement}, Int: {weapon.intelligenceRequirement}, Dex: {weapon.dexterityRequirement}\r\n---------------\r\n" +
                 ((weapon.strengthBonus != 0) ? $"+{weapon.strengthBonus} to strength\r\n" : "") +
@@ -261,7 +178,7 @@ namespace IdleGame
         {
             // Show armour stats on the textbox.
             tbItemStats.Text = $"{armour.name}\r\n---------------\r\n" +
-                $"{Enum.GetName(typeof(Item.Equip), armour.equipSlot)}\r\n" +
+                $"{Enum.GetName(typeof(Item.Equip), armour.equipSlot)} ({Enum.GetName(typeof(Armour.Type), armour.type)})\r\n" +
                 $"{armour.armourBonus} armour\r\n---------------\r\n" +
                 $"Lvl: {armour.levelRequirement}, Str: {armour.strengthRequirement}, Int: {armour.intelligenceRequirement}, Dex: {armour.dexterityRequirement}\r\n---------------\r\n" +
                 ((armour.strengthBonus != 0) ? $"+{armour.strengthBonus} to strength\r\n" : "") +
@@ -279,44 +196,44 @@ namespace IdleGame
 
         private void btnHeadShow_Click(object sender, EventArgs e)
         {
-            UpdateText();
+            _mainForm.UpdateText();
             if (_player.equipment[(int)Item.Equip.Head] != null) ShowArmourStats((Armour)_player.equipment[(int)Item.Equip.Head]);
         }
 
         private void btnChestShow_Click(object sender, EventArgs e)
         {
-            UpdateText();
+            _mainForm.UpdateText();
             if (_player.equipment[(int)Item.Equip.Chest] != null) ShowArmourStats((Armour)_player.equipment[(int)Item.Equip.Chest]);
         }
 
         private void btnWeaponShow_Click(object sender, EventArgs e)
         {
-            UpdateText();
+            _mainForm.UpdateText();
             if (_player.equipment[(int)Item.Equip.MainHand] != null) ShowWeaponStats((Weapon)_player.equipment[(int)Item.Equip.MainHand]);
         }
 
         private void btnHeadUnequip_Click(object sender, EventArgs e)
         {
-            Unequip((int)Item.Equip.Head);
+            Unequip(Item.Equip.Head);
         }
 
         private void btnChestUnequip_Click(object sender, EventArgs e)
         {
-            Unequip((int)Item.Equip.Chest);
+            Unequip(Item.Equip.Chest);
         }
 
         private void btnWeaponUnequip_Click(object sender, EventArgs e)
         {
-            Unequip((int)Item.Equip.MainHand);
+            Unequip(Item.Equip.MainHand);
         }
 
-        private void Unequip(int slot)
+        private void Unequip(Item.Equip slot)
         {
             // Check if slot contains an item.
-            if (_player.equipment[slot] != null)
+            if (_player.equipment[(int)slot] != null)
             {
                 // Set item to the equipped item.
-                Item item = _player.equipment[slot];
+                Item item = _player.equipment[(int)slot];
 
                 // Find the first empty slot in the inventory.
                 for (int i = 0; i < _player.inventory.Length; i++)
@@ -325,13 +242,13 @@ namespace IdleGame
                     {
                         // Unequip item and put it in inventory.
                         _player.inventory[i] = item;
-                        _player.equipment[slot] = null;
+                        _player.equipment[(int)slot] = null;
 
                         // Increase available inventory slots.
                         _player.inventorySlotsUsed++;
 
                         // Show item on screen.
-                        UpdateText();
+                        _mainForm.UpdateText();
                         break;
                     }
                 }
@@ -356,10 +273,29 @@ namespace IdleGame
                         _player.inventorySlotsUsed--;
 
                         // Update texts.
-                        UpdateText();
+                        _mainForm.UpdateText();
                     }
                 }
             }
+        }
+
+        public InventoryForm(Player player, MainForm mainForm)
+        {
+            InitializeComponent();
+            _player = player;
+            _mainForm = mainForm;
+        }
+
+        private void btnSpawnArmour_Click(object sender, EventArgs e)
+        {
+            int itemChance = random.Next();
+
+            if (itemChance % 2 == 0)
+                _player.AddItem(Armour.Generate(1, 5));
+            else
+                _player.AddItem(Weapon.Generate(1, 5));
+
+            _mainForm.UpdateText();
         }
     }
 }

@@ -68,7 +68,7 @@
             // lblHealth
             // 
             this.lblHealth.AutoSize = true;
-            this.lblHealth.Location = new System.Drawing.Point(157, 26);
+            this.lblHealth.Location = new System.Drawing.Point(162, 25);
             this.lblHealth.Name = "lblHealth";
             this.lblHealth.Size = new System.Drawing.Size(60, 13);
             this.lblHealth.TabIndex = 4;
@@ -77,7 +77,7 @@
             // lblMana
             // 
             this.lblMana.AutoSize = true;
-            this.lblMana.Location = new System.Drawing.Point(157, 46);
+            this.lblMana.Location = new System.Drawing.Point(162, 45);
             this.lblMana.Name = "lblMana";
             this.lblMana.Size = new System.Drawing.Size(60, 13);
             this.lblMana.TabIndex = 5;
@@ -121,6 +121,7 @@
             this.btnTravel.TabIndex = 9;
             this.btnTravel.Text = "Travel";
             this.btnTravel.UseVisualStyleBackColor = true;
+            this.btnTravel.Click += new System.EventHandler(this.btnTravel_Click);
             // 
             // btnShop
             // 
@@ -130,6 +131,7 @@
             this.btnShop.TabIndex = 10;
             this.btnShop.Text = "Shop";
             this.btnShop.UseVisualStyleBackColor = true;
+            this.btnShop.Click += new System.EventHandler(this.btnShop_Click);
             // 
             // btnLoad
             // 
@@ -164,7 +166,7 @@
             // lblExperience
             // 
             this.lblExperience.AutoSize = true;
-            this.lblExperience.Location = new System.Drawing.Point(157, 66);
+            this.lblExperience.Location = new System.Drawing.Point(162, 65);
             this.lblExperience.Name = "lblExperience";
             this.lblExperience.Size = new System.Drawing.Size(60, 13);
             this.lblExperience.TabIndex = 15;
@@ -195,7 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(220, 183);
+            this.ClientSize = new System.Drawing.Size(226, 183);
             this.Controls.Add(this.experienceBar);
             this.Controls.Add(this.manaBar);
             this.Controls.Add(this.healthBar);

@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CharacterForm));
             this.lblNameStatic = new System.Windows.Forms.Label();
             this.tbNameSet = new System.Windows.Forms.TextBox();
             this.btnSetName = new System.Windows.Forms.Button();
             this.lblClassStatic = new System.Windows.Forms.Label();
-            this.cbClass = new System.Windows.Forms.ComboBox();
-            this.btnSetClass = new System.Windows.Forms.Button();
             this.lblLevelStatic = new System.Windows.Forms.Label();
             this.tbLevel = new System.Windows.Forms.TextBox();
             this.tbSkillPoints = new System.Windows.Forms.TextBox();
@@ -83,6 +82,9 @@
             this.lblPhysicalDamageIncrease = new System.Windows.Forms.Label();
             this.tbElementalDamageIncrease = new System.Windows.Forms.TextBox();
             this.lblElementalDamageIncrease = new System.Windows.Forms.Label();
+            this.tbClass = new System.Windows.Forms.TextBox();
+            this.tbTalentPoints = new System.Windows.Forms.TextBox();
+            this.lblTalentPointsStatic = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNameStatic
@@ -101,6 +103,7 @@
             this.tbNameSet.Name = "tbNameSet";
             this.tbNameSet.Size = new System.Drawing.Size(100, 20);
             this.tbNameSet.TabIndex = 1;
+            this.tbNameSet.Text = "Name";
             // 
             // btnSetName
             // 
@@ -120,23 +123,6 @@
             this.lblClassStatic.Size = new System.Drawing.Size(35, 13);
             this.lblClassStatic.TabIndex = 3;
             this.lblClassStatic.Text = "Class:";
-            // 
-            // cbClass
-            // 
-            this.cbClass.FormattingEnabled = true;
-            this.cbClass.Location = new System.Drawing.Point(59, 32);
-            this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(100, 21);
-            this.cbClass.TabIndex = 4;
-            // 
-            // btnSetClass
-            // 
-            this.btnSetClass.Location = new System.Drawing.Point(165, 32);
-            this.btnSetClass.Name = "btnSetClass";
-            this.btnSetClass.Size = new System.Drawing.Size(34, 21);
-            this.btnSetClass.TabIndex = 5;
-            this.btnSetClass.Text = "Set";
-            this.btnSetClass.UseVisualStyleBackColor = true;
             // 
             // lblLevelStatic
             // 
@@ -160,17 +146,17 @@
             // tbSkillPoints
             // 
             this.tbSkillPoints.HideSelection = false;
-            this.tbSkillPoints.Location = new System.Drawing.Point(144, 84);
+            this.tbSkillPoints.Location = new System.Drawing.Point(82, 84);
             this.tbSkillPoints.Name = "tbSkillPoints";
             this.tbSkillPoints.ReadOnly = true;
-            this.tbSkillPoints.Size = new System.Drawing.Size(31, 20);
+            this.tbSkillPoints.Size = new System.Drawing.Size(25, 20);
             this.tbSkillPoints.TabIndex = 26;
-            this.tbSkillPoints.Text = "9999";
+            this.tbSkillPoints.Text = "999";
             // 
             // lblSkillPointsStatic
             // 
             this.lblSkillPointsStatic.AutoSize = true;
-            this.lblSkillPointsStatic.Location = new System.Drawing.Point(83, 87);
+            this.lblSkillPointsStatic.Location = new System.Drawing.Point(12, 87);
             this.lblSkillPointsStatic.Name = "lblSkillPointsStatic";
             this.lblSkillPointsStatic.Size = new System.Drawing.Size(61, 13);
             this.lblSkillPointsStatic.TabIndex = 25;
@@ -184,6 +170,7 @@
             this.btnTalentTree.TabIndex = 29;
             this.btnTalentTree.Text = "Talents";
             this.btnTalentTree.UseVisualStyleBackColor = true;
+            this.btnTalentTree.Click += new System.EventHandler(this.btnTalentTree_Click);
             // 
             // btnSpells
             // 
@@ -227,12 +214,13 @@
             // tbStrength
             // 
             this.tbStrength.HideSelection = false;
-            this.tbStrength.Location = new System.Drawing.Point(82, 112);
+            this.tbStrength.Location = new System.Drawing.Point(75, 112);
             this.tbStrength.Name = "tbStrength";
             this.tbStrength.ReadOnly = true;
-            this.tbStrength.Size = new System.Drawing.Size(25, 20);
+            this.tbStrength.Size = new System.Drawing.Size(32, 20);
             this.tbStrength.TabIndex = 9;
             this.tbStrength.Text = "999";
+            this.tbStrength.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label1
             // 
@@ -255,12 +243,13 @@
             // tbIntelligence
             // 
             this.tbIntelligence.HideSelection = false;
-            this.tbIntelligence.Location = new System.Drawing.Point(82, 137);
+            this.tbIntelligence.Location = new System.Drawing.Point(75, 137);
             this.tbIntelligence.Name = "tbIntelligence";
             this.tbIntelligence.ReadOnly = true;
-            this.tbIntelligence.Size = new System.Drawing.Size(25, 20);
+            this.tbIntelligence.Size = new System.Drawing.Size(32, 20);
             this.tbIntelligence.TabIndex = 12;
             this.tbIntelligence.Text = "999";
+            this.tbIntelligence.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblDexterity
             // 
@@ -274,12 +263,13 @@
             // tbDexterity
             // 
             this.tbDexterity.HideSelection = false;
-            this.tbDexterity.Location = new System.Drawing.Point(82, 162);
+            this.tbDexterity.Location = new System.Drawing.Point(75, 162);
             this.tbDexterity.Name = "tbDexterity";
             this.tbDexterity.ReadOnly = true;
-            this.tbDexterity.Size = new System.Drawing.Size(25, 20);
+            this.tbDexterity.Size = new System.Drawing.Size(32, 20);
             this.tbDexterity.TabIndex = 14;
             this.tbDexterity.Text = "999";
+            this.tbDexterity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnIncreaseStrength
             // 
@@ -338,12 +328,13 @@
             // tbHealth
             // 
             this.tbHealth.HideSelection = false;
-            this.tbHealth.Location = new System.Drawing.Point(202, 112);
+            this.tbHealth.Location = new System.Drawing.Point(188, 112);
             this.tbHealth.Name = "tbHealth";
             this.tbHealth.ReadOnly = true;
-            this.tbHealth.Size = new System.Drawing.Size(31, 20);
+            this.tbHealth.Size = new System.Drawing.Size(45, 20);
             this.tbHealth.TabIndex = 20;
             this.tbHealth.Text = "9999";
+            this.tbHealth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblPhysicalDamageStatic
             // 
@@ -357,10 +348,10 @@
             // tbPhysicalDamage
             // 
             this.tbPhysicalDamage.HideSelection = false;
-            this.tbPhysicalDamage.Location = new System.Drawing.Point(192, 190);
+            this.tbPhysicalDamage.Location = new System.Drawing.Point(171, 190);
             this.tbPhysicalDamage.Name = "tbPhysicalDamage";
             this.tbPhysicalDamage.ReadOnly = true;
-            this.tbPhysicalDamage.Size = new System.Drawing.Size(41, 20);
+            this.tbPhysicalDamage.Size = new System.Drawing.Size(62, 20);
             this.tbPhysicalDamage.TabIndex = 22;
             this.tbPhysicalDamage.Text = "99999";
             this.tbPhysicalDamage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -377,12 +368,13 @@
             // tbMana
             // 
             this.tbMana.HideSelection = false;
-            this.tbMana.Location = new System.Drawing.Point(202, 137);
+            this.tbMana.Location = new System.Drawing.Point(188, 137);
             this.tbMana.Name = "tbMana";
             this.tbMana.ReadOnly = true;
-            this.tbMana.Size = new System.Drawing.Size(31, 20);
+            this.tbMana.Size = new System.Drawing.Size(45, 20);
             this.tbMana.TabIndex = 24;
             this.tbMana.Text = "9999";
+            this.tbMana.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblArmour
             // 
@@ -396,12 +388,13 @@
             // tbArmour
             // 
             this.tbArmour.HideSelection = false;
-            this.tbArmour.Location = new System.Drawing.Point(202, 162);
+            this.tbArmour.Location = new System.Drawing.Point(188, 162);
             this.tbArmour.Name = "tbArmour";
             this.tbArmour.ReadOnly = true;
-            this.tbArmour.Size = new System.Drawing.Size(31, 20);
+            this.tbArmour.Size = new System.Drawing.Size(45, 20);
             this.tbArmour.TabIndex = 28;
             this.tbArmour.Text = "9999";
+            this.tbArmour.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblElementalDamageStatic
             // 
@@ -415,10 +408,10 @@
             // tbElementalDamage
             // 
             this.tbElementalDamage.HideSelection = false;
-            this.tbElementalDamage.Location = new System.Drawing.Point(192, 242);
+            this.tbElementalDamage.Location = new System.Drawing.Point(171, 242);
             this.tbElementalDamage.Name = "tbElementalDamage";
             this.tbElementalDamage.ReadOnly = true;
-            this.tbElementalDamage.Size = new System.Drawing.Size(41, 20);
+            this.tbElementalDamage.Size = new System.Drawing.Size(62, 20);
             this.tbElementalDamage.TabIndex = 32;
             this.tbElementalDamage.Text = "99999";
             this.tbElementalDamage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -435,10 +428,10 @@
             // tbCriticalChance
             // 
             this.tbCriticalChance.HideSelection = false;
-            this.tbCriticalChance.Location = new System.Drawing.Point(192, 294);
+            this.tbCriticalChance.Location = new System.Drawing.Point(171, 294);
             this.tbCriticalChance.Name = "tbCriticalChance";
             this.tbCriticalChance.ReadOnly = true;
-            this.tbCriticalChance.Size = new System.Drawing.Size(41, 20);
+            this.tbCriticalChance.Size = new System.Drawing.Size(62, 20);
             this.tbCriticalChance.TabIndex = 34;
             this.tbCriticalChance.Text = "99.99%";
             this.tbCriticalChance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -455,10 +448,10 @@
             // tbCriticalDamage
             // 
             this.tbCriticalDamage.HideSelection = false;
-            this.tbCriticalDamage.Location = new System.Drawing.Point(192, 320);
+            this.tbCriticalDamage.Location = new System.Drawing.Point(171, 320);
             this.tbCriticalDamage.Name = "tbCriticalDamage";
             this.tbCriticalDamage.ReadOnly = true;
-            this.tbCriticalDamage.Size = new System.Drawing.Size(41, 20);
+            this.tbCriticalDamage.Size = new System.Drawing.Size(62, 20);
             this.tbCriticalDamage.TabIndex = 36;
             this.tbCriticalDamage.Text = "999%";
             this.tbCriticalDamage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -484,10 +477,10 @@
             // tbPhysicalReduction
             // 
             this.tbPhysicalReduction.HideSelection = false;
-            this.tbPhysicalReduction.Location = new System.Drawing.Point(192, 348);
+            this.tbPhysicalReduction.Location = new System.Drawing.Point(171, 348);
             this.tbPhysicalReduction.Name = "tbPhysicalReduction";
             this.tbPhysicalReduction.ReadOnly = true;
-            this.tbPhysicalReduction.Size = new System.Drawing.Size(41, 20);
+            this.tbPhysicalReduction.Size = new System.Drawing.Size(62, 20);
             this.tbPhysicalReduction.TabIndex = 39;
             this.tbPhysicalReduction.Text = "99%";
             this.tbPhysicalReduction.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -504,10 +497,10 @@
             // tbElementalResistance
             // 
             this.tbElementalResistance.HideSelection = false;
-            this.tbElementalResistance.Location = new System.Drawing.Point(192, 374);
+            this.tbElementalResistance.Location = new System.Drawing.Point(171, 374);
             this.tbElementalResistance.Name = "tbElementalResistance";
             this.tbElementalResistance.ReadOnly = true;
-            this.tbElementalResistance.Size = new System.Drawing.Size(41, 20);
+            this.tbElementalResistance.Size = new System.Drawing.Size(62, 20);
             this.tbElementalResistance.TabIndex = 41;
             this.tbElementalResistance.Text = "99%";
             this.tbElementalResistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -524,10 +517,10 @@
             // tbHealthRegeneration
             // 
             this.tbHealthRegeneration.HideSelection = false;
-            this.tbHealthRegeneration.Location = new System.Drawing.Point(192, 400);
+            this.tbHealthRegeneration.Location = new System.Drawing.Point(171, 400);
             this.tbHealthRegeneration.Name = "tbHealthRegeneration";
             this.tbHealthRegeneration.ReadOnly = true;
-            this.tbHealthRegeneration.Size = new System.Drawing.Size(41, 20);
+            this.tbHealthRegeneration.Size = new System.Drawing.Size(62, 20);
             this.tbHealthRegeneration.TabIndex = 43;
             this.tbHealthRegeneration.Text = "999/s";
             this.tbHealthRegeneration.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -544,10 +537,10 @@
             // tbManaRegeneration
             // 
             this.tbManaRegeneration.HideSelection = false;
-            this.tbManaRegeneration.Location = new System.Drawing.Point(192, 426);
+            this.tbManaRegeneration.Location = new System.Drawing.Point(171, 426);
             this.tbManaRegeneration.Name = "tbManaRegeneration";
             this.tbManaRegeneration.ReadOnly = true;
-            this.tbManaRegeneration.Size = new System.Drawing.Size(41, 20);
+            this.tbManaRegeneration.Size = new System.Drawing.Size(62, 20);
             this.tbManaRegeneration.TabIndex = 45;
             this.tbManaRegeneration.Text = "999/s";
             this.tbManaRegeneration.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -584,10 +577,10 @@
             // tbPhysicalDamageIncrease
             // 
             this.tbPhysicalDamageIncrease.HideSelection = false;
-            this.tbPhysicalDamageIncrease.Location = new System.Drawing.Point(192, 216);
+            this.tbPhysicalDamageIncrease.Location = new System.Drawing.Point(171, 216);
             this.tbPhysicalDamageIncrease.Name = "tbPhysicalDamageIncrease";
             this.tbPhysicalDamageIncrease.ReadOnly = true;
-            this.tbPhysicalDamageIncrease.Size = new System.Drawing.Size(41, 20);
+            this.tbPhysicalDamageIncrease.Size = new System.Drawing.Size(62, 20);
             this.tbPhysicalDamageIncrease.TabIndex = 52;
             this.tbPhysicalDamageIncrease.Text = "99%";
             this.tbPhysicalDamageIncrease.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -604,10 +597,10 @@
             // tbElementalDamageIncrease
             // 
             this.tbElementalDamageIncrease.HideSelection = false;
-            this.tbElementalDamageIncrease.Location = new System.Drawing.Point(192, 268);
+            this.tbElementalDamageIncrease.Location = new System.Drawing.Point(171, 268);
             this.tbElementalDamageIncrease.Name = "tbElementalDamageIncrease";
             this.tbElementalDamageIncrease.ReadOnly = true;
-            this.tbElementalDamageIncrease.Size = new System.Drawing.Size(41, 20);
+            this.tbElementalDamageIncrease.Size = new System.Drawing.Size(62, 20);
             this.tbElementalDamageIncrease.TabIndex = 54;
             this.tbElementalDamageIncrease.Text = "99%";
             this.tbElementalDamageIncrease.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -621,11 +614,43 @@
             this.lblElementalDamageIncrease.TabIndex = 53;
             this.lblElementalDamageIncrease.Text = "Elemental Damage Increase:";
             // 
+            // tbClass
+            // 
+            this.tbClass.HideSelection = false;
+            this.tbClass.Location = new System.Drawing.Point(59, 32);
+            this.tbClass.Name = "tbClass";
+            this.tbClass.ReadOnly = true;
+            this.tbClass.Size = new System.Drawing.Size(100, 20);
+            this.tbClass.TabIndex = 55;
+            this.tbClass.Text = "Class";
+            // 
+            // tbTalentPoints
+            // 
+            this.tbTalentPoints.HideSelection = false;
+            this.tbTalentPoints.Location = new System.Drawing.Point(214, 84);
+            this.tbTalentPoints.Name = "tbTalentPoints";
+            this.tbTalentPoints.ReadOnly = true;
+            this.tbTalentPoints.Size = new System.Drawing.Size(19, 20);
+            this.tbTalentPoints.TabIndex = 57;
+            this.tbTalentPoints.Text = "99";
+            // 
+            // lblTalentPointsStatic
+            // 
+            this.lblTalentPointsStatic.AutoSize = true;
+            this.lblTalentPointsStatic.Location = new System.Drawing.Point(141, 87);
+            this.lblTalentPointsStatic.Name = "lblTalentPointsStatic";
+            this.lblTalentPointsStatic.Size = new System.Drawing.Size(72, 13);
+            this.lblTalentPointsStatic.TabIndex = 56;
+            this.lblTalentPointsStatic.Text = "Talent Points:";
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(246, 478);
+            this.Controls.Add(this.tbTalentPoints);
+            this.Controls.Add(this.lblTalentPointsStatic);
+            this.Controls.Add(this.tbClass);
             this.Controls.Add(this.tbElementalDamageIncrease);
             this.Controls.Add(this.lblElementalDamageIncrease);
             this.Controls.Add(this.tbPhysicalDamageIncrease);
@@ -675,13 +700,12 @@
             this.Controls.Add(this.lblStrengthStatic);
             this.Controls.Add(this.tbLevel);
             this.Controls.Add(this.lblLevelStatic);
-            this.Controls.Add(this.btnSetClass);
-            this.Controls.Add(this.cbClass);
             this.Controls.Add(this.lblClassStatic);
             this.Controls.Add(this.btnSetName);
             this.Controls.Add(this.tbNameSet);
             this.Controls.Add(this.lblNameStatic);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "CharacterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -697,8 +721,6 @@
         private System.Windows.Forms.Label lblNameStatic;
         private System.Windows.Forms.TextBox tbNameSet;
         private System.Windows.Forms.Label lblClassStatic;
-        private System.Windows.Forms.ComboBox cbClass;
-        private System.Windows.Forms.Button btnSetClass;
         private System.Windows.Forms.Label lblLevelStatic;
         private System.Windows.Forms.TextBox tbLevel;
         private System.Windows.Forms.Button btnSetName;
@@ -749,5 +771,8 @@
         private System.Windows.Forms.Label lblPhysicalDamageIncrease;
         private System.Windows.Forms.TextBox tbElementalDamageIncrease;
         private System.Windows.Forms.Label lblElementalDamageIncrease;
+        private System.Windows.Forms.TextBox tbClass;
+        private System.Windows.Forms.TextBox tbTalentPoints;
+        private System.Windows.Forms.Label lblTalentPointsStatic;
     }
 }

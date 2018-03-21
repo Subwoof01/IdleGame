@@ -11,10 +11,10 @@ namespace IdleGame
         public int level;
         public int gold;
         public int healthBase;
-        public int healthRegenerationBase;
+        public double healthRegenerationBase;
         public int healthCurrent;
         public int manaBase;
-        public int manaRegenerationBase;
+        public double manaRegenerationBase;
         public int manaCurrent;
         public int armour;
         public int damageBaseMin;
