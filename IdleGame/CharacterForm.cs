@@ -18,7 +18,8 @@ namespace IdleGame
         private Player _player;
         private InventoryForm _inventoryForm;
         private WarriorTalentTree warriorTalentForm;
-        
+        private SkillBook skillBook;
+
 
         public void OnOpen()
         {
@@ -72,6 +73,8 @@ namespace IdleGame
 
             if (warriorTalentForm != null)
                 warriorTalentForm.UpdateText();
+            if (skillBook != null)
+                skillBook.UpdateForm();
         }
 
         private void ClosedForm(object sender, FormClosedEventArgs e)
@@ -128,9 +131,8 @@ namespace IdleGame
 
         private void btnSpells_Click(object sender, EventArgs e)
         {
-            if (_player.playerClass.Equals(Player.Class.Warrior))
-            {
-            }
+            skillBook = new SkillBook(_player);
+            skillBook.Show();
         }
 
         public CharacterForm(MainForm mainForm, Player player, InventoryForm inventoryForm)

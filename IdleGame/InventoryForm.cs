@@ -291,9 +291,9 @@ namespace IdleGame
             int itemChance = random.Next();
 
             if (itemChance % 2 == 0)
-                _player.AddItem(Armour.Generate(1, 90));
+                _player.AddItem(Armour.Generate(1, 5));
             else
-                _player.AddItem(Weapon.Generate(1, 90));
+                _player.AddItem(Weapon.Generate(1, 5));
 
             _mainForm.UpdateText();
         }

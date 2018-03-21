@@ -113,6 +113,8 @@
     <Compile Include="CharacterForm.Designer.cs">
       <DependentUpon>CharacterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Skills\Skill.cs" />
+    <Compile Include="Skills\Warrior\PowerStrike.cs" />
     <Compile Include="Statistic.cs" />
     <Compile Include="Talents\Warrior\ArmouredToTheTeeth.cs" />
     <Compile Include="Talents\Warrior\IronSkin.cs" />
@@ -125,12 +127,11 @@
       <DependentUpon>CombatForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Talents\Warrior\WeaponMastery.cs" />
-    <Compile Include="WarriorSkill.cs" />
-    <Compile Include="WarriorSkillTree.cs">
+    <Compile Include="SkillBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WarriorSkillTree.Designer.cs">
-      <DependentUpon>WarriorSkillTree.cs</DependentUpon>
+    <Compile Include="SkillBook.Designer.cs">
+      <DependentUpon>SkillBook.cs</DependentUpon>
     </Compile>
     <Compile Include="WarriorTalentTree.cs">
       <SubType>Form</SubType>
@@ -167,8 +168,8 @@
     <EmbeddedResource Include="CombatForm.resx">
       <DependentUpon>CombatForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WarriorSkillTree.resx">
-      <DependentUpon>WarriorSkillTree.cs</DependentUpon>
+    <EmbeddedResource Include="SkillBook.resx">
+      <DependentUpon>SkillBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WarriorTalentTree.resx">
       <DependentUpon>WarriorTalentTree.cs</DependentUpon>
@@ -190,12 +191,20 @@
     <Folder Include="Saves\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\ActionBarSlot.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ActionBarSlotSelected.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Character.ico" />
     <Content Include="Resources\Crossed Swords.png" />
     <Content Include="Resources\Icon.ico" />
     <Content Include="Resources\Inventory.ico" />
     <Content Include="Resources\Shop.ico" />
-    <Content Include="Resources\Spell Icons\Warrior\PowerStrike.png" />
+    <Content Include="Resources\SpellIcons\Warrior\PowerStrike.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\TalentIcons\Warrior\ArmouredToTheTeeth.png" />
     <Content Include="Resources\TalentIcons\Warrior\IronSkin.png" />
     <Content Include="Resources\TalentIcons\Warrior\Tree.png" />

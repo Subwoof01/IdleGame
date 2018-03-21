@@ -1,4 +1,5 @@
 ﻿using IdleGame.Attributes;
+using IdleGame.Skills;
 using IdleGame.Talents;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace IdleGame
 
         public PlayerStat[] attributes;
         public Talent[] talents;
+        public Skill[] skills;
+        public Skill[] actionBar;
         public Item[] inventory;
         public Item[] equipment;
         public int inventorySlotsMax;
@@ -24,16 +27,6 @@ namespace IdleGame
         public int talentPoints;
         public int experienceNextLevel;
         public int experienceCurrent;
-
-        public void SetAttributes(PlayerStat[] _attributes)
-        {
-            attributes = _attributes;
-        }
-
-        public void SetTalents(Talent[] _talents)
-        {
-            talents = _talents;
-        }
 
         public void AddItem(Item item)
         {
@@ -46,6 +39,11 @@ namespace IdleGame
                     break;
                 }
             }
+        }
+
+        public void SetActionBar(Skill[] skills)
+        {
+            actionBar = skills;
         }
 
         public void IncreaseExp(int exp)
@@ -69,6 +67,11 @@ namespace IdleGame
                 this.skillPoints += 5;
                 // Give the player 1 talent point.
                 this.talentPoints++;
+
+                foreach (Skill skill in skills)
+                {
+                    skill.SetRank(this);
+                }
             }
         }
 
@@ -88,6 +91,8 @@ namespace IdleGame
             inventory = new Item[inventorySlotsMax];
             equipment = new Item[10];
             inventorySlotsUsed = 0;
+
+            actionBar = new Skill[9];
 
             name = "Subwoofy";
             healthRegenerationBase = 1;

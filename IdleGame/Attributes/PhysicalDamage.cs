@@ -8,8 +8,8 @@ namespace IdleGame.Attributes
 {
     public class PhysicalDamage : PlayerStat
     {
-        private int baseMin;
-        private int baseMax;
+        private int _baseMin;
+        private int _baseMax;
 
         public override double Final()
         {
@@ -27,7 +27,7 @@ namespace IdleGame.Attributes
             if (mainHand != null)
                 mainHandDamageMin = mainHand.damageMin;
 
-            return (baseMin + mainHandDamageMin) * (1 + AttributeBonus()) * (1 + ItemBonus()) * (1 + TalentBonus());
+            return (_baseMin + mainHandDamageMin) * (1 + AttributeBonus()) * (1 + ItemBonus()) * (1 + TalentBonus());
         }
 
         public double MaxFinal()
@@ -41,7 +41,7 @@ namespace IdleGame.Attributes
             if (mainHand != null)
                 mainHandDamageMax = mainHand.damageMax;
 
-            return (baseMax + mainHandDamageMax) * (1 + AttributeBonus()) * (1 + ItemBonus()) * (1 + TalentBonus());
+            return (_baseMax + mainHandDamageMax) * (1 + AttributeBonus()) * (1 + ItemBonus()) * (1 + TalentBonus());
         }
 
         private double AttributeBonus()
@@ -76,11 +76,11 @@ namespace IdleGame.Attributes
             return 0;
         }
 
-        public PhysicalDamage(Player player, int _baseMin, int _baseMax)
+        public PhysicalDamage(Player player, int baseMin, int baseMax)
         {
             _player = player;
-            baseMin = _baseMin;
-            baseMax = _baseMax;
+            _baseMin = baseMin;
+            _baseMax = baseMax;
         }
     }
 }

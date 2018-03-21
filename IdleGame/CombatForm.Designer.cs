@@ -48,6 +48,24 @@
             this.lblCombatLogStatic = new System.Windows.Forms.Label();
             this.timerAction = new System.Windows.Forms.Timer(this.components);
             this.btnWeaponAttack = new System.Windows.Forms.Button();
+            this.pbActionBarSlot9 = new System.Windows.Forms.PictureBox();
+            this.pbActionBarSlot8 = new System.Windows.Forms.PictureBox();
+            this.pbActionBarSlot7 = new System.Windows.Forms.PictureBox();
+            this.pbActionBarSlot6 = new System.Windows.Forms.PictureBox();
+            this.pbActionBarSlot5 = new System.Windows.Forms.PictureBox();
+            this.pbActionBarSlot4 = new System.Windows.Forms.PictureBox();
+            this.pbActionBarSlot3 = new System.Windows.Forms.PictureBox();
+            this.pbActionBarSlot2 = new System.Windows.Forms.PictureBox();
+            this.pbActionBarSlot1 = new System.Windows.Forms.PictureBox();
+            this.ttActionSlot1 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttActionSlot2 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttActionSlot3 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttActionSlot4 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttActionSlot5 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttActionSlot6 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttActionSlot7 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttActionSlot8 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttActionSlot9 = new System.Windows.Forms.ToolTip(this.components);
             this.actionSpeedBarEnemy = new IdleGame.ExperienceBar();
             this.manaBarEnemy = new IdleGame.ManaBar();
             this.healthBarEnemy = new IdleGame.HealthBar();
@@ -55,6 +73,15 @@
             this.manaBar = new IdleGame.ManaBar();
             this.healthBar = new IdleGame.HealthBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMana
@@ -97,9 +124,9 @@
             // lbCombatLog
             // 
             this.lbCombatLog.FormattingEnabled = true;
-            this.lbCombatLog.Location = new System.Drawing.Point(396, 147);
+            this.lbCombatLog.Location = new System.Drawing.Point(426, 147);
             this.lbCombatLog.Name = "lbCombatLog";
-            this.lbCombatLog.Size = new System.Drawing.Size(199, 160);
+            this.lbCombatLog.Size = new System.Drawing.Size(169, 69);
             this.lbCombatLog.TabIndex = 37;
             // 
             // lblManaEnemy
@@ -195,7 +222,7 @@
             // lblCombatLogStatic
             // 
             this.lblCombatLogStatic.AutoSize = true;
-            this.lblCombatLogStatic.Location = new System.Drawing.Point(393, 131);
+            this.lblCombatLogStatic.Location = new System.Drawing.Point(423, 131);
             this.lblCombatLogStatic.Name = "lblCombatLogStatic";
             this.lblCombatLogStatic.Size = new System.Drawing.Size(67, 13);
             this.lblCombatLogStatic.TabIndex = 51;
@@ -209,13 +236,175 @@
             // 
             // btnWeaponAttack
             // 
-            this.btnWeaponAttack.Location = new System.Drawing.Point(12, 147);
+            this.btnWeaponAttack.Location = new System.Drawing.Point(12, 132);
             this.btnWeaponAttack.Name = "btnWeaponAttack";
             this.btnWeaponAttack.Size = new System.Drawing.Size(75, 35);
             this.btnWeaponAttack.TabIndex = 52;
             this.btnWeaponAttack.Text = "Weapon Attack";
             this.btnWeaponAttack.UseVisualStyleBackColor = true;
             this.btnWeaponAttack.Click += new System.EventHandler(this.btnWeaponAttack_Click);
+            // 
+            // pbActionBarSlot9
+            // 
+            this.pbActionBarSlot9.Image = global::IdleGame.Properties.Resources.ActionBarSlot;
+            this.pbActionBarSlot9.Location = new System.Drawing.Point(380, 175);
+            this.pbActionBarSlot9.Name = "pbActionBarSlot9";
+            this.pbActionBarSlot9.Size = new System.Drawing.Size(40, 40);
+            this.pbActionBarSlot9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbActionBarSlot9.TabIndex = 61;
+            this.pbActionBarSlot9.TabStop = false;
+            this.pbActionBarSlot9.Click += new System.EventHandler(this.pbActionBarSlot9_Click);
+            // 
+            // pbActionBarSlot8
+            // 
+            this.pbActionBarSlot8.Image = global::IdleGame.Properties.Resources.ActionBarSlot;
+            this.pbActionBarSlot8.Location = new System.Drawing.Point(334, 175);
+            this.pbActionBarSlot8.Name = "pbActionBarSlot8";
+            this.pbActionBarSlot8.Size = new System.Drawing.Size(40, 40);
+            this.pbActionBarSlot8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbActionBarSlot8.TabIndex = 60;
+            this.pbActionBarSlot8.TabStop = false;
+            this.pbActionBarSlot8.Click += new System.EventHandler(this.pbActionBarSlot8_Click);
+            // 
+            // pbActionBarSlot7
+            // 
+            this.pbActionBarSlot7.Image = global::IdleGame.Properties.Resources.ActionBarSlot;
+            this.pbActionBarSlot7.Location = new System.Drawing.Point(288, 175);
+            this.pbActionBarSlot7.Name = "pbActionBarSlot7";
+            this.pbActionBarSlot7.Size = new System.Drawing.Size(40, 40);
+            this.pbActionBarSlot7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbActionBarSlot7.TabIndex = 59;
+            this.pbActionBarSlot7.TabStop = false;
+            this.pbActionBarSlot7.Click += new System.EventHandler(this.pbActionBarSlot7_Click);
+            // 
+            // pbActionBarSlot6
+            // 
+            this.pbActionBarSlot6.Image = global::IdleGame.Properties.Resources.ActionBarSlot;
+            this.pbActionBarSlot6.Location = new System.Drawing.Point(242, 175);
+            this.pbActionBarSlot6.Name = "pbActionBarSlot6";
+            this.pbActionBarSlot6.Size = new System.Drawing.Size(40, 40);
+            this.pbActionBarSlot6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbActionBarSlot6.TabIndex = 58;
+            this.pbActionBarSlot6.TabStop = false;
+            this.pbActionBarSlot6.Click += new System.EventHandler(this.pbActionBarSlot6_Click);
+            // 
+            // pbActionBarSlot5
+            // 
+            this.pbActionBarSlot5.Image = global::IdleGame.Properties.Resources.ActionBarSlot;
+            this.pbActionBarSlot5.Location = new System.Drawing.Point(196, 175);
+            this.pbActionBarSlot5.Name = "pbActionBarSlot5";
+            this.pbActionBarSlot5.Size = new System.Drawing.Size(40, 40);
+            this.pbActionBarSlot5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbActionBarSlot5.TabIndex = 57;
+            this.pbActionBarSlot5.TabStop = false;
+            this.pbActionBarSlot5.Click += new System.EventHandler(this.pbActionBarSlot5_Click);
+            // 
+            // pbActionBarSlot4
+            // 
+            this.pbActionBarSlot4.Image = global::IdleGame.Properties.Resources.ActionBarSlot;
+            this.pbActionBarSlot4.Location = new System.Drawing.Point(150, 175);
+            this.pbActionBarSlot4.Name = "pbActionBarSlot4";
+            this.pbActionBarSlot4.Size = new System.Drawing.Size(40, 40);
+            this.pbActionBarSlot4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbActionBarSlot4.TabIndex = 56;
+            this.pbActionBarSlot4.TabStop = false;
+            this.pbActionBarSlot4.Click += new System.EventHandler(this.pbActionBarSlot4_Click);
+            // 
+            // pbActionBarSlot3
+            // 
+            this.pbActionBarSlot3.Image = global::IdleGame.Properties.Resources.ActionBarSlot;
+            this.pbActionBarSlot3.Location = new System.Drawing.Point(104, 175);
+            this.pbActionBarSlot3.Name = "pbActionBarSlot3";
+            this.pbActionBarSlot3.Size = new System.Drawing.Size(40, 40);
+            this.pbActionBarSlot3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbActionBarSlot3.TabIndex = 55;
+            this.pbActionBarSlot3.TabStop = false;
+            this.pbActionBarSlot3.Click += new System.EventHandler(this.pbActionBarSlot3_Click);
+            // 
+            // pbActionBarSlot2
+            // 
+            this.pbActionBarSlot2.Image = global::IdleGame.Properties.Resources.ActionBarSlot;
+            this.pbActionBarSlot2.Location = new System.Drawing.Point(58, 175);
+            this.pbActionBarSlot2.Name = "pbActionBarSlot2";
+            this.pbActionBarSlot2.Size = new System.Drawing.Size(40, 40);
+            this.pbActionBarSlot2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbActionBarSlot2.TabIndex = 54;
+            this.pbActionBarSlot2.TabStop = false;
+            this.pbActionBarSlot2.Click += new System.EventHandler(this.pbActionBarSlot2_Click);
+            // 
+            // pbActionBarSlot1
+            // 
+            this.pbActionBarSlot1.Image = global::IdleGame.Properties.Resources.ActionBarSlot;
+            this.pbActionBarSlot1.Location = new System.Drawing.Point(12, 175);
+            this.pbActionBarSlot1.Name = "pbActionBarSlot1";
+            this.pbActionBarSlot1.Size = new System.Drawing.Size(40, 40);
+            this.pbActionBarSlot1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbActionBarSlot1.TabIndex = 53;
+            this.pbActionBarSlot1.TabStop = false;
+            this.pbActionBarSlot1.Click += new System.EventHandler(this.pbActionBarSlot1_Click);
+            // 
+            // ttActionSlot1
+            // 
+            this.ttActionSlot1.AutomaticDelay = 50;
+            this.ttActionSlot1.AutoPopDelay = 5000;
+            this.ttActionSlot1.InitialDelay = 50;
+            this.ttActionSlot1.ReshowDelay = 10;
+            // 
+            // ttActionSlot2
+            // 
+            this.ttActionSlot2.AutomaticDelay = 50;
+            this.ttActionSlot2.AutoPopDelay = 5000;
+            this.ttActionSlot2.InitialDelay = 50;
+            this.ttActionSlot2.ReshowDelay = 10;
+            // 
+            // ttActionSlot3
+            // 
+            this.ttActionSlot3.AutomaticDelay = 50;
+            this.ttActionSlot3.AutoPopDelay = 5000;
+            this.ttActionSlot3.InitialDelay = 50;
+            this.ttActionSlot3.ReshowDelay = 10;
+            // 
+            // ttActionSlot4
+            // 
+            this.ttActionSlot4.AutomaticDelay = 50;
+            this.ttActionSlot4.AutoPopDelay = 5000;
+            this.ttActionSlot4.InitialDelay = 50;
+            this.ttActionSlot4.ReshowDelay = 10;
+            // 
+            // ttActionSlot5
+            // 
+            this.ttActionSlot5.AutomaticDelay = 50;
+            this.ttActionSlot5.AutoPopDelay = 5000;
+            this.ttActionSlot5.InitialDelay = 50;
+            this.ttActionSlot5.ReshowDelay = 10;
+            // 
+            // ttActionSlot6
+            // 
+            this.ttActionSlot6.AutomaticDelay = 50;
+            this.ttActionSlot6.AutoPopDelay = 5000;
+            this.ttActionSlot6.InitialDelay = 50;
+            this.ttActionSlot6.ReshowDelay = 10;
+            // 
+            // ttActionSlot7
+            // 
+            this.ttActionSlot7.AutomaticDelay = 50;
+            this.ttActionSlot7.AutoPopDelay = 5000;
+            this.ttActionSlot7.InitialDelay = 50;
+            this.ttActionSlot7.ReshowDelay = 10;
+            // 
+            // ttActionSlot8
+            // 
+            this.ttActionSlot8.AutomaticDelay = 50;
+            this.ttActionSlot8.AutoPopDelay = 5000;
+            this.ttActionSlot8.InitialDelay = 50;
+            this.ttActionSlot8.ReshowDelay = 10;
+            // 
+            // ttActionSlot9
+            // 
+            this.ttActionSlot9.AutomaticDelay = 50;
+            this.ttActionSlot9.AutoPopDelay = 5000;
+            this.ttActionSlot9.InitialDelay = 50;
+            this.ttActionSlot9.ReshowDelay = 10;
             // 
             // actionSpeedBarEnemy
             // 
@@ -263,7 +452,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 319);
+            this.ClientSize = new System.Drawing.Size(607, 225);
+            this.Controls.Add(this.pbActionBarSlot9);
+            this.Controls.Add(this.pbActionBarSlot8);
+            this.Controls.Add(this.pbActionBarSlot7);
+            this.Controls.Add(this.pbActionBarSlot6);
+            this.Controls.Add(this.pbActionBarSlot5);
+            this.Controls.Add(this.pbActionBarSlot4);
+            this.Controls.Add(this.pbActionBarSlot3);
+            this.Controls.Add(this.pbActionBarSlot2);
+            this.Controls.Add(this.pbActionBarSlot1);
             this.Controls.Add(this.btnWeaponAttack);
             this.Controls.Add(this.lblCombatLogStatic);
             this.Controls.Add(this.lblCurrentActionEnemyStatic);
@@ -288,10 +486,20 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.healthBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "CombatForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TravelForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,5 +531,23 @@
         private System.Windows.Forms.Label lblCombatLogStatic;
         private System.Windows.Forms.Timer timerAction;
         private System.Windows.Forms.Button btnWeaponAttack;
+        private System.Windows.Forms.PictureBox pbActionBarSlot9;
+        private System.Windows.Forms.PictureBox pbActionBarSlot8;
+        private System.Windows.Forms.PictureBox pbActionBarSlot7;
+        private System.Windows.Forms.PictureBox pbActionBarSlot6;
+        private System.Windows.Forms.PictureBox pbActionBarSlot5;
+        private System.Windows.Forms.PictureBox pbActionBarSlot4;
+        private System.Windows.Forms.PictureBox pbActionBarSlot3;
+        private System.Windows.Forms.PictureBox pbActionBarSlot2;
+        private System.Windows.Forms.PictureBox pbActionBarSlot1;
+        private System.Windows.Forms.ToolTip ttActionSlot1;
+        private System.Windows.Forms.ToolTip ttActionSlot2;
+        private System.Windows.Forms.ToolTip ttActionSlot3;
+        private System.Windows.Forms.ToolTip ttActionSlot4;
+        private System.Windows.Forms.ToolTip ttActionSlot5;
+        private System.Windows.Forms.ToolTip ttActionSlot6;
+        private System.Windows.Forms.ToolTip ttActionSlot7;
+        private System.Windows.Forms.ToolTip ttActionSlot8;
+        private System.Windows.Forms.ToolTip ttActionSlot9;
     }
 }

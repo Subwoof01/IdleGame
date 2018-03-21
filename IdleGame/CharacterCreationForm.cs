@@ -1,4 +1,6 @@
 ﻿using IdleGame.Attributes;
+using IdleGame.Skills;
+using IdleGame.Skills.Warrior;
 using IdleGame.Talents;
 using IdleGame.Talents.Warrior;
 using System;
@@ -30,7 +32,7 @@ namespace IdleGame
         {
             player = new Player(Player.Class.Warrior);
 
-            PlayerStat[] attributes = new PlayerStat[]
+            player.attributes = new PlayerStat[]
             {
                 new Strength(player, 10),
                 new Intelligence(player, 3),
@@ -48,18 +50,28 @@ namespace IdleGame
                 new ManaRegeneration(player),
             };
 
-            Talent[] talents = new Talent[]
+            player.talents = new Talent[]
             {
                 new WeaponMastery(player),
                 new IronSkin(player),
                 new ArmouredToTheTeeth(player)
             };
 
-            player.SetAttributes(attributes);
-            player.SetTalents(talents);
+            player.skills = new Skill[]
+            {
+                new PowerStrike(player),
+                new PowerStrike(player),
+                new PowerStrike(player),
+                new PowerStrike(player),
+                new PowerStrike(player),
+                new PowerStrike(player),
+                new PowerStrike(player),
+                new PowerStrike(player),
+                new PowerStrike(player)
+            };
 
-            player.healthCurrent = (int)attributes[(int)PlayerStat.Attribute.Health].Final();
-            player.manaCurrent = (int)attributes[(int)PlayerStat.Attribute.Mana].Final();
+            player.healthCurrent = (int)player.attributes[(int)PlayerStat.Attribute.Health].Final();
+            player.manaCurrent = (int)player.attributes[(int)PlayerStat.Attribute.Mana].Final();
 
             OpenMainForm();
         }
