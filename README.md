@@ -1,5 +1,10 @@
 # IdleGame
-Current version: v0.2a
+Current version: v0.2a (Mar 21, 2018)
+* Started on implementing combat.
+* Improved most of the code to be more object-oriented.
+* Implemented skill book.
+* Added the first warrior skill for testing purposes.
+* Added more functionality to combat.
 
 # Changelog
 v0.1a (Mar 16, 2018):
