@@ -13,26 +13,26 @@ namespace IdleGame
     public partial class WarriorTalentTree : Form
     {
         private Player _player;
-        private WarriorTree _warrior;
         private CharacterForm _characterForm;
+        public enum Talent { WeaponMastery, IronSkin, ArmouredToTheTeeth };
 
         private void pbWeaponMastery_Click(object sender, EventArgs e)
         {
-            _warrior.IncreaseTalentLevel(WarriorTree.Talent.WeaponMastery);
+            _player.talents[(int)Talent.WeaponMastery].IncreaseLevel();
             UpdateText();
             _characterForm.UpdateStats();
         }
 
         private void pbIronSkin_Click(object sender, EventArgs e)
         {
-            _warrior.IncreaseTalentLevel(WarriorTree.Talent.IronSkin);
+            _player.talents[(int)Talent.IronSkin].IncreaseLevel();
             UpdateText();
             _characterForm.UpdateStats();
         }
 
         private void pbArmouredToTheTeeth_Click(object sender, EventArgs e)
         {
-            _warrior.IncreaseTalentLevel(WarriorTree.Talent.ArmouredToTheTeeth);
+            _player.talents[(int)Talent.ArmouredToTheTeeth].IncreaseLevel();
             UpdateText();
             _characterForm.UpdateStats();
         }
@@ -41,26 +41,22 @@ namespace IdleGame
         {
             tbTalentPoints.Text = _player.talentPoints.ToString();
 
-            lblWeaponMasteryLevel.Text = $"{_warrior.weaponMasteryLevel}/{_warrior.weaponMasteryMax}";
-            ttWeaponMastery.SetToolTip(pbWeaponMastery, $"Increases physical damage by {_warrior.WeaponMasteryBonus() * 100}%");
+            lblWeaponMasteryLevel.Text = $"{_player.talents[(int)Talent.WeaponMastery].currentLevel}/{_player.talents[(int)Talent.WeaponMastery].maxLevel}";
+            ttWeaponMastery.SetToolTip(pbWeaponMastery, $"Increases physical damage by {_player.talents[(int)Talent.WeaponMastery].Effect() * 100}%");
 
-            lblIronSkinLevel.Text = $"{_warrior.ironSkinLevel}/{_warrior.ironSkinMax}";
-            ttIronSkin.SetToolTip(pbIronSkin, $"Increases armour by {_warrior.IronSkinBonus()*100}%");
+            lblIronSkinLevel.Text = $"{_player.talents[(int)Talent.IronSkin].currentLevel}/{_player.talents[(int)Talent.IronSkin].maxLevel}";
+            ttIronSkin.SetToolTip(pbIronSkin, $"Increases armour by {_player.talents[(int)Talent.IronSkin].Effect() * 100}%");
 
-            lblArmouredToTheTeeth.Text = $"{_warrior.armouredToTheTeethLevel}/{_warrior.armouredToTheTeethMax}";
-            ttArmouredToTheTeeth.SetToolTip(pbArmouredToTheTeeth, $"Increases physical damage by 1% for every {6 - _warrior.armouredToTheTeethLevel} points of armour you have.");
+            lblArmouredToTheTeeth.Text = $"{_player.talents[(int)Talent.ArmouredToTheTeeth].currentLevel}/{_player.talents[(int)Talent.ArmouredToTheTeeth].maxLevel}";
+            ttArmouredToTheTeeth.SetToolTip(pbArmouredToTheTeeth, $"Increases physical damage by 1% for every {6 - _player.talents[(int)Talent.ArmouredToTheTeeth].currentLevel} points of armour you have.");
         }
 
-        public WarriorTalentTree(TalentTree talentTree, Player player, CharacterForm characterForm)
+        public WarriorTalentTree(Player player, CharacterForm characterForm)
         {
             InitializeComponent();
 
             _characterForm = characterForm;
             _player = player;
-
-            // We do this to make sure the program doesn't crash if something fucks up somewhere.
-            if (talentTree is WarriorTree)
-                _warrior = (WarriorTree)talentTree;
 
             UpdateText();
         }

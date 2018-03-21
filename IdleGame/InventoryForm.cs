@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IdleGame.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,7 +43,7 @@ namespace IdleGame
                 }
 
                 // If player meets lvl/str/int/dex requirements and item is of correct equip slot, equip item.
-                if (itemEquip != null && itemEquip.equipSlot.Equals(slot) && _player.level >= itemEquip.levelRequirement && _player.strengthFinal() >= itemEquip.strengthRequirement && _player.intelligenceFinal() >= itemEquip.intelligenceRequirement && _player.dexterityFinal() >= itemEquip.dexterityRequirement)
+                if (itemEquip != null && itemEquip.equipSlot.Equals(slot) && _player.level >= itemEquip.levelRequirement && _player.attributes[(int)PlayerStat.Attribute.Strength].Final() >= itemEquip.strengthRequirement && _player.attributes[(int)PlayerStat.Attribute.Intelligence].Final() >= itemEquip.intelligenceRequirement && _player.attributes[(int)PlayerStat.Attribute.Dexterity].Final() >= itemEquip.dexterityRequirement)
                 {
                     if (_player.equipment[(int)slot] != null)
                         equipped = _player.equipment[(int)slot];
@@ -91,9 +92,9 @@ namespace IdleGame
                         $"\t\t Player - Item \n" +
                         $"Slot:\t\t {Enum.GetName(typeof(Item.Equip), slot)} - {Enum.GetName(typeof(Item.Equip), itemEquip.equipSlot)} \n" +
                         $"Level:\t\t {_player.level} - {itemEquip.levelRequirement} \n" +
-                        $"Strength:\t {_player.strengthFinal()} - {itemEquip.strengthRequirement} \n" +
-                        $"Intelligence:\t {_player.intelligenceFinal()} - {itemEquip.intelligenceRequirement} \n" +
-                        $"Dexterity:\t {_player.dexterityFinal()} - {itemEquip.dexterityRequirement}", "Not Yet", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        $"Strength:\t {_player.attributes[(int)PlayerStat.Attribute.Strength].Final()} - {itemEquip.strengthRequirement} \n" +
+                        $"Intelligence:\t {_player.attributes[(int)PlayerStat.Attribute.Intelligence].Final()} - {itemEquip.intelligenceRequirement} \n" +
+                        $"Dexterity:\t {_player.attributes[(int)PlayerStat.Attribute.Dexterity].Final()} - {itemEquip.dexterityRequirement}", "Not Yet", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 

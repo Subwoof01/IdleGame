@@ -46,13 +46,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Armour.cs" />
-    <Compile Include="CharacterClass.cs" />
+    <Compile Include="Attributes\ArmourStat.cs" />
+    <Compile Include="Attributes\CriticalChance.cs" />
+    <Compile Include="Attributes\CriticalDamage.cs" />
+    <Compile Include="Attributes\Dexterity.cs" />
+    <Compile Include="Attributes\ElementalDamage.cs" />
+    <Compile Include="Attributes\ElementalResistance.cs" />
+    <Compile Include="Attributes\Health.cs" />
+    <Compile Include="Attributes\HealthRegeneration.cs" />
+    <Compile Include="Attributes\Intelligence.cs" />
+    <Compile Include="Attributes\Mana.cs" />
+    <Compile Include="Attributes\ManaRegeneration.cs" />
+    <Compile Include="Attributes\PhysicalDamage.cs" />
+    <Compile Include="Attributes\PhysicalResistance.cs" />
+    <Compile Include="Attributes\PlayerStat.cs" />
+    <Compile Include="Attributes\Strength.cs" />
     <Compile Include="CharacterCreationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CharacterCreationForm.Designer.cs">
       <DependentUpon>CharacterCreationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enemy.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="ExperienceBar.cs">
       <Generator>ExperienceBar</Generator>
@@ -99,8 +114,24 @@
       <DependentUpon>CharacterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Statistic.cs" />
+    <Compile Include="Talents\Warrior\ArmouredToTheTeeth.cs" />
+    <Compile Include="Talents\Warrior\IronSkin.cs" />
+    <Compile Include="Talents\Talent.cs" />
     <Compile Include="TalentTree.cs" />
-    <Compile Include="WarriorTree.cs" />
+    <Compile Include="CombatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CombatForm.Designer.cs">
+      <DependentUpon>CombatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Talents\Warrior\WeaponMastery.cs" />
+    <Compile Include="WarriorSkill.cs" />
+    <Compile Include="WarriorSkillTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WarriorSkillTree.Designer.cs">
+      <DependentUpon>WarriorSkillTree.cs</DependentUpon>
+    </Compile>
     <Compile Include="WarriorTalentTree.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,9 +159,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ShopForm.resx">
       <DependentUpon>ShopForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CombatForm.resx">
+      <DependentUpon>CombatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WarriorSkillTree.resx">
+      <DependentUpon>WarriorSkillTree.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WarriorTalentTree.resx">
       <DependentUpon>WarriorTalentTree.cs</DependentUpon>
@@ -153,9 +191,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Character.ico" />
+    <Content Include="Resources\Crossed Swords.png" />
     <Content Include="Resources\Icon.ico" />
     <Content Include="Resources\Inventory.ico" />
     <Content Include="Resources\Shop.ico" />
+    <Content Include="Resources\Spell Icons\Warrior\PowerStrike.png" />
     <Content Include="Resources\TalentIcons\Warrior\ArmouredToTheTeeth.png" />
     <Content Include="Resources\TalentIcons\Warrior\IronSkin.png" />
     <Content Include="Resources\TalentIcons\Warrior\Tree.png" />

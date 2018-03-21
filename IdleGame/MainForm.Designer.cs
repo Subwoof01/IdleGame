@@ -121,6 +121,7 @@
             this.btnTravel.TabIndex = 9;
             this.btnTravel.Text = "Travel";
             this.btnTravel.UseVisualStyleBackColor = true;
+            this.btnTravel.Click += new System.EventHandler(this.btnTravel_Click);
             // 
             // btnShop
             // 

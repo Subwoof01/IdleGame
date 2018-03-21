@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IdleGame.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,9 +17,10 @@ namespace IdleGame
     {
         private Player _player;
 
-        CharacterForm character;
-        InventoryForm inventory;
-        ShopForm shop;
+        private CharacterForm character;
+        private InventoryForm inventory;
+        private ShopForm shop;
+        private CombatForm combat;
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
@@ -43,15 +45,15 @@ namespace IdleGame
         {
             // Update player stat text.
             lblName.Text = _player.name;
-            lblClass.Text = Enum.GetName(typeof(CharacterClass.Classes), _player.playerClass);
-            lblHealth.Text = $"{_player.healthCurrent}/{_player.healthFinal()}";
-            lblMana.Text = $"{_player.manaCurrent}/{_player.manaFinal()}";
+            lblClass.Text = Enum.GetName(typeof(Player.Class), _player.playerClass);
+            lblHealth.Text = $"{_player.healthCurrent}/{(int)_player.attributes[(int)PlayerStat.Attribute.Health].Final()}";
+            lblMana.Text = $"{_player.manaCurrent}/{(int)_player.attributes[(int)PlayerStat.Attribute.Mana].Final()}";
             lblExperience.Text = $"{_player.experienceCurrent}/{_player.experienceNextLevel}";
 
-            healthBar.Maximum = _player.healthFinal();
+            healthBar.Maximum = (int)_player.attributes[(int)PlayerStat.Attribute.Health].Final();
             healthBar.Value = _player.healthCurrent;
 
-            manaBar.Maximum = _player.manaFinal();
+            manaBar.Maximum = (int)_player.attributes[(int)PlayerStat.Attribute.Mana].Final();
             manaBar.Value = _player.manaCurrent;
 
             experienceBar.Maximum = _player.experienceNextLevel;
@@ -85,15 +87,21 @@ namespace IdleGame
             InitializeComponent();
 
             // Pass the player instance to the WarriorTree object so we can read its values there. (Needed for tooltips).
-            WarriorTree warrior;
-            if (player.playerTalentTree is WarriorTree)
-            {
-                warrior = (WarriorTree)player.playerTalentTree;
-                warrior.WarriorTreeSetPlayer(player);
-            }
+            //WarriorTalent warrior;
+            //if (player.playerClass.Equals(Player.Class.Warrior))
+            //{
+            //    warrior = player.warriorTree;
+            //    warrior.WarriorTreeSetPlayer(player);
+            //}
             
             _player = player;
             UpdateText();
+        }
+
+        private void btnTravel_Click(object sender, EventArgs e)
+        {
+            combat = new CombatForm(_player);
+            combat.Show();
         }
     }
 }

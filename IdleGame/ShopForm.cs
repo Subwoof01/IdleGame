@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IdleGame.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,7 @@ namespace IdleGame
         {
             if (_player.gold >= healCost)
             {
-                _player.healthCurrent = _player.healthFinal();
+                _player.healthCurrent = (int)_player.attributes[(int)PlayerStat.Attribute.Health].Final();
                 _player.gold -= healCost;
             }
             _mainForm.UpdateText();
@@ -53,7 +54,7 @@ namespace IdleGame
 
         public void UpdateText()
         {
-            healCost = (_player.healthFinal() - _player.healthCurrent) / 3;
+            healCost = ((int)_player.attributes[(int)PlayerStat.Attribute.Health].Final() - _player.healthCurrent) / 3;
             btnHeal.Text = $"Heal ({healCost}g)";
         }
 
