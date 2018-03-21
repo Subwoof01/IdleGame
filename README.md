@@ -1,5 +1,6 @@
 # IdleGame
 Current version: v0.2a (Mar 21, 2018)
+
 Latest changes:
 * Started on implementing combat.
 * Improved most of the code to be more object-oriented.
