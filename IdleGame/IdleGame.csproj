@@ -115,6 +115,8 @@
     </Compile>
     <Compile Include="Skills\Skill.cs" />
     <Compile Include="Skills\Warrior\PowerStrike.cs" />
+    <Compile Include="States\Burning.cs" />
+    <Compile Include="States\State.cs" />
     <Compile Include="Statistic.cs" />
     <Compile Include="Talents\Warrior\ArmouredToTheTeeth.cs" />
     <Compile Include="Talents\Warrior\IronSkin.cs" />
@@ -203,6 +205,24 @@
     <Content Include="Resources\Inventory.ico" />
     <Content Include="Resources\Shop.ico" />
     <Content Include="Resources\SpellIcons\Warrior\PowerStrike.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\StateIcons\Angered.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\StateIcons\Bleeding.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\StateIcons\Burning.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\StateIcons\Feared.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\StateIcons\Freezing.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\StateIcons\Poisoned.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\TalentIcons\Warrior\ArmouredToTheTeeth.png" />

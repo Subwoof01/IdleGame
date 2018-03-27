@@ -1,4 +1,6 @@
 ﻿using IdleGame.Attributes;
+using IdleGame.Skills;
+using IdleGame.States;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static IdleGame.Item;
 
 namespace IdleGame
 {
@@ -29,6 +32,8 @@ namespace IdleGame
         private int _enemyAttackProgress;
         private string _enemyCurrentActionText;
 
+        private int _time;
+
         private void UpdateFrame()
         {
             // Player updates.
@@ -47,13 +52,18 @@ namespace IdleGame
             {
                 if (_player.actionBar[i] != null)
                 {
-                    _actionSlots[i].Image = _player.actionBar[i].image;
-                    _actionSlotTooltips[i].ToolTipTitle = _player.actionBar[i].name;
-                    _actionSlotTooltips[i].SetToolTip(_actionSlots[i], _player.actionBar[i].ToolTip());
+                    if (_actionSlots[i].Image != _player.actionBar[i].image)
+                        _actionSlots[i].Image = _player.actionBar[i].image;
+                    if (!_actionSlotTooltips[i].ToolTipTitle.Equals(_player.actionBar[i].name))
+                        _actionSlotTooltips[i].ToolTipTitle = _player.actionBar[i].name;
+                    if (!_actionSlotTooltips[i].GetToolTip(_actionSlots[i]).Equals(_player.actionBar[i].ToolTip()))
+                        _actionSlotTooltips[i].SetToolTip(_actionSlots[i], _player.actionBar[i].ToolTip());
                 }
             }
 
             // Enemy updates.
+            lblEnemyName.Text = _enemy.name;
+            lblEnemyType.Text = Enum.GetName(typeof(Enemy.Type), _enemy.type);
             actionSpeedBarEnemy.Maximum = _enemyAttackSpeed;
             healthBarEnemy.Maximum = _enemy.healthBase;
             healthBarEnemy.Value = _enemy.healthCurrent;
@@ -64,7 +74,25 @@ namespace IdleGame
             actionSpeedBarEnemy.Value = _enemyAttackProgress;
             tbCurrentActionEnemy.Text = _enemyCurrentActionText;
 
-            // Combat log updates.
+            // State updates.
+            if (_time % 500 == 0)
+            {
+                tlpEnemyStates.Controls.Clear();
+                if (_enemy.states.Count > 0)
+                {
+                    for (int i = 0; i < _enemy.states.Count; i++)
+                    {
+                        PictureBox state = new PictureBox();
+                        state.Image = _enemy.states[i].image;
+                        state.SizeMode = PictureBoxSizeMode.StretchImage;
+                        state.Size = new Size(20, 20);
+                        tlpEnemyStates.Controls.Add(state);
+                    }
+                }
+            }
+
+            // Combatlog updates.
+            lbCombatLog.TopIndex = lbCombatLog.Items.Count - 1;
         }
 
         private void SetAttackSpeed()
@@ -95,63 +123,125 @@ namespace IdleGame
         {
             _playerAttackProgress += timerAction.Interval;
             _enemyAttackProgress += timerAction.Interval;
+            _time += timerAction.Interval;
 
             if (_playerAttackProgress >= _playerAttackSpeed)
             {
+                double lastDamage;
+
+                #region Action Effects (Player)
                 switch (_playerCurrentAction)
                 {
                     case Action.ActionSlot1:
                         if (_player.actionBar[(int)Action.ActionSlot1] != null)
-                            _player.actionBar[(int)Action.ActionSlot1].Effect(_enemy);
+                        {
+                            lastDamage = _player.actionBar[(int)Action.ActionSlot1].Effect(_enemy, _time);
+                            lbCombatLog.Items.Add($"{_player.actionBar[(int)Action.ActionSlot1].name} hits {_enemy.name} for {lastDamage.ToString("0")} {Enum.GetName(typeof(Skill.DamageType), _player.actionBar[(int)Action.ActionSlot1].damageType)}.");
+                        }
                         break;
                     case Action.ActionSlot2:
                         if (_player.actionBar[(int)Action.ActionSlot2] != null)
-                            _player.actionBar[(int)Action.ActionSlot2].Effect(_enemy);
+                        {
+                            lastDamage = _player.actionBar[(int)Action.ActionSlot2].Effect(_enemy, _time);
+                            lbCombatLog.Items.Add($"{_player.actionBar[(int)Action.ActionSlot2].name} hits {_enemy.name} for {lastDamage.ToString("0")} {Enum.GetName(typeof(Skill.DamageType), _player.actionBar[(int)Action.ActionSlot2].damageType)}.");
+                        }
                         break;
                     case Action.ActionSlot3:
                         if (_player.actionBar[(int)Action.ActionSlot3] != null)
-                            _player.actionBar[(int)Action.ActionSlot3].Effect(_enemy);
+                        {
+                            lastDamage = _player.actionBar[(int)Action.ActionSlot3].Effect(_enemy, _time);
+                            lbCombatLog.Items.Add($"{_player.actionBar[(int)Action.ActionSlot3].name} hits {_enemy.name} for {lastDamage.ToString("0")} {Enum.GetName(typeof(Skill.DamageType), _player.actionBar[(int)Action.ActionSlot3].damageType)}.");
+                        }
                         break;
                     case Action.ActionSlot4:
                         if (_player.actionBar[(int)Action.ActionSlot4] != null)
-                            _player.actionBar[(int)Action.ActionSlot4].Effect(_enemy);
+                        {
+                            lastDamage = _player.actionBar[(int)Action.ActionSlot4].Effect(_enemy, _time);
+                            lbCombatLog.Items.Add($"{_player.actionBar[(int)Action.ActionSlot4].name} hits {_enemy.name} for {lastDamage.ToString("0")} {Enum.GetName(typeof(Skill.DamageType), _player.actionBar[(int)Action.ActionSlot4].damageType)}.");
+                        }
                         break;
                     case Action.ActionSlot5:
                         if (_player.actionBar[(int)Action.ActionSlot5] != null)
-                            _player.actionBar[(int)Action.ActionSlot5].Effect(_enemy);
+                        {
+                            lastDamage = _player.actionBar[(int)Action.ActionSlot5].Effect(_enemy, _time);
+                            lbCombatLog.Items.Add($"{_player.actionBar[(int)Action.ActionSlot5].name} hits {_enemy.name} for {lastDamage.ToString("0")} {Enum.GetName(typeof(Skill.DamageType), _player.actionBar[(int)Action.ActionSlot5].damageType)}.");
+                        }
                         break;
                     case Action.ActionSlot6:
                         if (_player.actionBar[(int)Action.ActionSlot6] != null)
-                            _player.actionBar[(int)Action.ActionSlot6].Effect(_enemy);
+                        {
+                            lastDamage = _player.actionBar[(int)Action.ActionSlot6].Effect(_enemy, _time);
+                            lbCombatLog.Items.Add($"{_player.actionBar[(int)Action.ActionSlot6].name} hits {_enemy.name} for {lastDamage.ToString("0")} {Enum.GetName(typeof(Skill.DamageType), _player.actionBar[(int)Action.ActionSlot6].damageType)}.");
+                        }
                         break;
                     case Action.ActionSlot7:
                         if (_player.actionBar[(int)Action.ActionSlot7] != null)
-                            _player.actionBar[(int)Action.ActionSlot7].Effect(_enemy);
+                        {
+                            lastDamage = _player.actionBar[(int)Action.ActionSlot7].Effect(_enemy, _time);
+                            lbCombatLog.Items.Add($"{_player.actionBar[(int)Action.ActionSlot7].name} hits {_enemy.name} for {lastDamage.ToString("0")} {Enum.GetName(typeof(Skill.DamageType), _player.actionBar[(int)Action.ActionSlot7].damageType)}.");
+                        }
                         break;
                     case Action.ActionSlot8:
                         if (_player.actionBar[(int)Action.ActionSlot8] != null)
-                            _player.actionBar[(int)Action.ActionSlot8].Effect(_enemy);
+                        {
+                            lastDamage = _player.actionBar[(int)Action.ActionSlot8].Effect(_enemy, _time);
+                            lbCombatLog.Items.Add($"{_player.actionBar[(int)Action.ActionSlot8].name} hits {_enemy.name} for {lastDamage.ToString("0")} {Enum.GetName(typeof(Skill.DamageType), _player.actionBar[(int)Action.ActionSlot8].damageType)}.");
+                        }
                         break;
                     case Action.ActionSlot9:
                         if (_player.actionBar[(int)Action.ActionSlot9] != null)
-                            _player.actionBar[(int)Action.ActionSlot9].Effect(_enemy);
+                        {
+                            lastDamage = _player.actionBar[(int)Action.ActionSlot9].Effect(_enemy, _time);
+                            lbCombatLog.Items.Add($"{_player.actionBar[(int)Action.ActionSlot9].name} hits {_enemy.name} for {lastDamage.ToString("0")} {Enum.GetName(typeof(Skill.DamageType), _player.actionBar[(int)Action.ActionSlot9].damageType)}.");
+                        }
                         break;
                     case Action.WeaponAttack:
-                        _player.WeaponAttack(_enemy);
+                        lastDamage = _player.WeaponAttack(_enemy);
+                        if (_player.equipment[(int)Equip.MainHand] != null)
+                        {
+                            Weapon weapon = (Weapon)_player.equipment[(int)Equip.MainHand];
+                            lbCombatLog.Items.Add($"{weapon.name} hits {_enemy.name} for {lastDamage.ToString("0")} Physical.");
+                        }
                         break;
+
                 }
                 _playerAttackProgress = 0;
             }
+            #endregion
 
             if (_enemyAttackProgress >= _enemyAttackSpeed)
             {
-                _enemy.Attack(_player);
+                double lastDamage;
+
+                lastDamage = _enemy.Attack(_player);
+
+                lbCombatLog.Items.Add($"{_enemy.name} hits you for {lastDamage.ToString("0")} Physical.");
+
                 _enemyAttackProgress = 0;
+            }
+
+
+            if (_enemy.states.Count > 0)
+            {
+                for (int i = _enemy.states.Count - 1; i >= 0; i--)
+                {
+                    if (_enemy.states[i].startTime + _enemy.states[i].duration < _time)
+                    {
+                        _enemy.states.Remove(_enemy.states[i]);
+                    }
+                    else if (_time > _enemy.states[i].lastTime + _enemy.states[i].tickSpeed)
+                    {
+                        _enemy.states[i].lastTime = _time;
+                        double lastDamage = _enemy.states[i].Effect();
+                        lbCombatLog.Items.Add($"{_enemy.name} {_enemy.states[i].flavourText} for {lastDamage.ToString("0")} Elemental.");
+                    }
+                }
             }
 
             UpdateFrame();
         }
 
+        #region Action selection.
         private void btnWeaponAttack_Click(object sender, EventArgs e)
         {
             Weapon weapon = (Weapon)_player.equipment[(int)Item.Equip.MainHand];
@@ -257,12 +347,13 @@ namespace IdleGame
                 _playerCurrentAction = Action.ActionSlot9;
             }
         }
+        #endregion
 
         public CombatForm(Player player)
         {
             InitializeComponent();
             _player = player;
-            _enemy = new Enemy("Enemy", 2, 100, 100, 0.5, 24, 0.5, 10, 1, 10, 1.9);
+            _enemy = new Enemy("Goblin", Enemy.Type.Goblinoid, 2, 100, 10000, 0.5, 24, 0.5, 10, 10, 20, 1.9);
 
             _playerAttackProgress = 0;
             _enemyAttackProgress = 0;
@@ -275,6 +366,13 @@ namespace IdleGame
 
             _actionSlots = new PictureBox[] { pbActionBarSlot1, pbActionBarSlot2, pbActionBarSlot3, pbActionBarSlot4, pbActionBarSlot5, pbActionBarSlot6, pbActionBarSlot7, pbActionBarSlot8, pbActionBarSlot9 };
             _actionSlotTooltips = new ToolTip[] { ttActionSlot1, ttActionSlot2, ttActionSlot3, ttActionSlot4, ttActionSlot5, ttActionSlot6, ttActionSlot7, ttActionSlot8, ttActionSlot9 };
+
+            _time = 0;
+
+            //PictureBox test = new PictureBox();
+            //test.Image = Image.FromFile(@"C:\Users\Subwoof\Source\Repos\IdleGame\IdleGame\Resources\SpellIcons\Warrior\PowerStrike.png");
+            //test.SizeMode = PictureBoxSizeMode.StretchImage;
+            //test.Size = new Size(20, 20);
 
             SetAttackSpeed();
         }

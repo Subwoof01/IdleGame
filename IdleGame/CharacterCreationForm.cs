@@ -37,7 +37,7 @@ namespace IdleGame
                 new Strength(player, 10),
                 new Intelligence(player, 3),
                 new Dexterity(player, 6),
-                new Health(player, 100),
+                new Health(player, 1000),
                 new Mana(player, 20),
                 new ArmourStat(player),
                 new PhysicalDamage(player, 1, 2),

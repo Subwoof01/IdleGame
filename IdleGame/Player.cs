@@ -1,5 +1,6 @@
 ﻿using IdleGame.Attributes;
 using IdleGame.Skills;
+using IdleGame.States;
 using IdleGame.Talents;
 using System;
 using System.Collections.Generic;
@@ -75,13 +76,15 @@ namespace IdleGame
             }
         }
 
-        public void WeaponAttack(Enemy enemy)
+        public double WeaponAttack(Enemy enemy)
         {
             Random random = new Random();
             PhysicalDamage physicalDamage = (PhysicalDamage)this.attributes[(int)PlayerStat.Attribute.PhysicalDamage];
 
             int damage = random.Next((int)physicalDamage.MinFinal(), (int)physicalDamage.MaxFinal());
             enemy.healthCurrent -= (int)(damage * (1 - enemy.PhysicalResistance()));
+
+            return damage * (1 - enemy.PhysicalResistance());
         }
 
         // Constructor.
@@ -93,6 +96,8 @@ namespace IdleGame
             inventorySlotsUsed = 0;
 
             actionBar = new Skill[9];
+
+            states = new List<State>();
 
             name = "Subwoofy";
             healthRegenerationBase = 1;
