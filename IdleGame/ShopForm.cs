@@ -33,6 +33,7 @@ namespace IdleGame
             //    general.Add();
             //}
 
+            // Generate a random amount of armours and weapons to populate the shop.
             for (int i = 0; i < armourAmount; i++)
             {
                 armour.Add(Armour.Generate((currentPlayerLevel > 5) ? currentPlayerLevel - 5 : 1, currentPlayerLevel + 5));

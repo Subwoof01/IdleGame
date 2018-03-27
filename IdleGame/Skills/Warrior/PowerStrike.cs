@@ -1,4 +1,5 @@
 ﻿using IdleGame.Attributes;
+using IdleGame.States;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -19,9 +20,10 @@ namespace IdleGame.Skills.Warrior
             return damagePhysical.MaxFinal() * (1 + 0.05 * currentRank);
         }
 
-        public override double Effect(Enemy enemy)
+        public override double Effect(Enemy enemy, int _starTime)
         {
             enemy.healthCurrent -= (int)(Damage() * (1 - enemy.PhysicalResistance()));
+            enemy.states.Add(new Burning(_starTime, 10000, 1000, enemy, _player));
             return Damage() * (1 - enemy.PhysicalResistance());
         }
 

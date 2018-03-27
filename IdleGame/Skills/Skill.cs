@@ -37,6 +37,6 @@ namespace IdleGame.Skills
 
         public abstract string ToolTip();
 
-        public abstract double Effect(Enemy enemy);
+        public abstract double Effect(Enemy enemy, int _startTime);
     }
 }

@@ -37,15 +37,25 @@ namespace IdleGame
 
         private void btnShop_Click(object sender, EventArgs e)
         {
+            shop = new ShopForm(_player, this);
+
+            // Store if it's the first time opening the shop.
             bool firstTime = true;
-            var oldTime = DateTime.UtcNow;
+
+            // Store the time of opening the shop.
+            DateTime oldTime = new DateTime();
+
+            // If it's the first time opening the shop window, or an hour has past since last generating items.
             if (oldTime.AddHours(1) > oldTime || firstTime)
             {
+                // Save the current time.
                 oldTime = DateTime.UtcNow;
                 firstTime = false;
+
+                // Generate items to fill the shop.
+                shop.FillShop(_player.level);
             }
-            shop = new ShopForm(_player, this);
-            shop.FillShop(_player.level);
+
             shop.Show();
         }
 
@@ -77,7 +87,7 @@ namespace IdleGame
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // TODO
+            // TODO: Figure out how serialization works.
         }
 
         private void btnLoad_Click(object sender, EventArgs e)

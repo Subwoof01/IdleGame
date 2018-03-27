@@ -72,6 +72,8 @@
             this.actionSpeedBar = new IdleGame.ExperienceBar();
             this.manaBar = new IdleGame.ManaBar();
             this.healthBar = new IdleGame.HealthBar();
+            this.tlpPlayerStates = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpEnemyStates = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot8)).BeginInit();
@@ -126,7 +128,7 @@
             this.lbCombatLog.FormattingEnabled = true;
             this.lbCombatLog.Location = new System.Drawing.Point(426, 147);
             this.lbCombatLog.Name = "lbCombatLog";
-            this.lbCombatLog.Size = new System.Drawing.Size(310, 69);
+            this.lbCombatLog.Size = new System.Drawing.Size(330, 69);
             this.lbCombatLog.TabIndex = 37;
             // 
             // lblManaEnemy
@@ -181,7 +183,7 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Location = new System.Drawing.Point(7, 126);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(735, 2);
+            this.label1.Size = new System.Drawing.Size(750, 2);
             this.label1.TabIndex = 46;
             this.label1.Text = " ";
             // 
@@ -448,11 +450,48 @@
             this.healthBar.Size = new System.Drawing.Size(167, 25);
             this.healthBar.TabIndex = 34;
             // 
+            // tlpPlayerStates
+            // 
+            this.tlpPlayerStates.AutoSize = true;
+            this.tlpPlayerStates.ColumnCount = 3;
+            this.tlpPlayerStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpPlayerStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpPlayerStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tlpPlayerStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpPlayerStates.Location = new System.Drawing.Point(7, 9);
+            this.tlpPlayerStates.Name = "tlpPlayerStates";
+            this.tlpPlayerStates.RowCount = 4;
+            this.tlpPlayerStates.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpPlayerStates.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpPlayerStates.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tlpPlayerStates.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tlpPlayerStates.Size = new System.Drawing.Size(79, 113);
+            this.tlpPlayerStates.TabIndex = 63;
+            // 
+            // tlpEnemyStates
+            // 
+            this.tlpEnemyStates.ColumnCount = 3;
+            this.tlpEnemyStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpEnemyStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpEnemyStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tlpEnemyStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpEnemyStates.Location = new System.Drawing.Point(677, 9);
+            this.tlpEnemyStates.Name = "tlpEnemyStates";
+            this.tlpEnemyStates.RowCount = 4;
+            this.tlpEnemyStates.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpEnemyStates.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpEnemyStates.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tlpEnemyStates.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tlpEnemyStates.Size = new System.Drawing.Size(79, 113);
+            this.tlpEnemyStates.TabIndex = 64;
+            // 
             // CombatForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 226);
+            this.ClientSize = new System.Drawing.Size(765, 226);
+            this.Controls.Add(this.tlpEnemyStates);
+            this.Controls.Add(this.tlpPlayerStates);
             this.Controls.Add(this.pbActionBarSlot9);
             this.Controls.Add(this.pbActionBarSlot8);
             this.Controls.Add(this.pbActionBarSlot7);
@@ -549,5 +588,7 @@
         private System.Windows.Forms.ToolTip ttActionSlot7;
         private System.Windows.Forms.ToolTip ttActionSlot8;
         private System.Windows.Forms.ToolTip ttActionSlot9;
+        private System.Windows.Forms.TableLayoutPanel tlpPlayerStates;
+        private System.Windows.Forms.TableLayoutPanel tlpEnemyStates;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using IdleGame.Attributes;
+using IdleGame.States;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,8 @@ namespace IdleGame
         {
             name = _name;
             type = _type;
+
+            states = new List<State>();
 
             level = lvl;
             gold = reward;
