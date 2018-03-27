@@ -1,5 +1,5 @@
 # IdleGame
-Current version: v0.2-apha.1 (Mar 21, 2018)
+Current version: v0.2-apha.2 (Mar 21, 2018)
 
 Latest changes:
 * Started on implementing combat.
@@ -32,3 +32,9 @@ v0.2-alpha.1 (Mar 21, 2018):
 * Implemented skill book.
 * Added the first warrior skill for testing purposes.
 * Added more functionality to combat.
+
+v0.2-alpha.2 (Mar 28, 2018):
+* Implemented shop mechanics.
+* Implemented more combat functionality.
+* Fixed progress bar flicker.
+* Started work on buff and debuff states.
