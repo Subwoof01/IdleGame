@@ -13,6 +13,7 @@ namespace IdleGame
         public HealthBar()
         {
             this.SetStyle(ControlStyles.UserPaint, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
         protected override void OnPaint(PaintEventArgs e)

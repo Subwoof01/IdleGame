@@ -37,7 +37,15 @@ namespace IdleGame
 
         private void btnShop_Click(object sender, EventArgs e)
         {
+            bool firstTime = true;
+            var oldTime = DateTime.UtcNow;
+            if (oldTime.AddHours(1) > oldTime || firstTime)
+            {
+                oldTime = DateTime.UtcNow;
+                firstTime = false;
+            }
             shop = new ShopForm(_player, this);
+            shop.FillShop(_player.level);
             shop.Show();
         }
 

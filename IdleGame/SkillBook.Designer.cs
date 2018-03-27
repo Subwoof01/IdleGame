@@ -31,56 +31,56 @@
             this.components = new System.ComponentModel.Container();
             this.ttSkillOne = new System.Windows.Forms.ToolTip(this.components);
             this.pbSkillOne = new System.Windows.Forms.PictureBox();
+            this.pbSkillTwo = new System.Windows.Forms.PictureBox();
+            this.pbSkillThree = new System.Windows.Forms.PictureBox();
+            this.pbSkillFour = new System.Windows.Forms.PictureBox();
+            this.pbSkillFive = new System.Windows.Forms.PictureBox();
+            this.pbSkillSix = new System.Windows.Forms.PictureBox();
+            this.pbSkillSeven = new System.Windows.Forms.PictureBox();
+            this.pbSkillEight = new System.Windows.Forms.PictureBox();
+            this.pbSkillNine = new System.Windows.Forms.PictureBox();
+            this.pbSkillTen = new System.Windows.Forms.PictureBox();
             this.pnlSkillOne = new System.Windows.Forms.Panel();
             this.lblSkillOneType = new System.Windows.Forms.Label();
             this.lblSkillOneNextRank = new System.Windows.Forms.Label();
             this.lblSkillOneLearned = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblSkillTwoType = new System.Windows.Forms.Label();
-            this.lblSkillTwoNextRank = new System.Windows.Forms.Label();
-            this.lblSkillTwoLearned = new System.Windows.Forms.Label();
-            this.pbSkillTwo = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblSkillThreeType = new System.Windows.Forms.Label();
-            this.lblSkillThreeNextRank = new System.Windows.Forms.Label();
-            this.lblSkillThreeLearned = new System.Windows.Forms.Label();
-            this.pbSkillThree = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblSkillFourType = new System.Windows.Forms.Label();
-            this.lblSkillFourNextRank = new System.Windows.Forms.Label();
-            this.lblSkillFourLearned = new System.Windows.Forms.Label();
-            this.pbSkillFour = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblSkillFiveType = new System.Windows.Forms.Label();
-            this.lblSkillFiveNextRank = new System.Windows.Forms.Label();
-            this.lblSkillFiveLearned = new System.Windows.Forms.Label();
-            this.pbSkillFive = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lblSkillSixType = new System.Windows.Forms.Label();
-            this.lblSkillSixNextRank = new System.Windows.Forms.Label();
-            this.lblSkillSixLearned = new System.Windows.Forms.Label();
-            this.pbSkillSix = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.lblSkillSevenType = new System.Windows.Forms.Label();
-            this.lblSkillSevenNextRank = new System.Windows.Forms.Label();
-            this.lblSkillSevenLearned = new System.Windows.Forms.Label();
-            this.pbSkillSeven = new System.Windows.Forms.PictureBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.lblSkillEightType = new System.Windows.Forms.Label();
-            this.lblSkillEightNextRank = new System.Windows.Forms.Label();
-            this.lblSkillEightLearned = new System.Windows.Forms.Label();
-            this.pbSkillEight = new System.Windows.Forms.PictureBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.lblSkillNineType = new System.Windows.Forms.Label();
-            this.lblSkillNineNextRank = new System.Windows.Forms.Label();
-            this.lblSkillNineLearned = new System.Windows.Forms.Label();
-            this.pbSkillNine = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lblSkillTenType = new System.Windows.Forms.Label();
             this.lblSkillTenNextRank = new System.Windows.Forms.Label();
             this.lblSkillTenLearned = new System.Windows.Forms.Label();
-            this.pbSkillTen = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.lblSkillNineType = new System.Windows.Forms.Label();
+            this.lblSkillNineNextRank = new System.Windows.Forms.Label();
+            this.lblSkillNineLearned = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lblSkillEightType = new System.Windows.Forms.Label();
+            this.lblSkillEightNextRank = new System.Windows.Forms.Label();
+            this.lblSkillEightLearned = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSkillTwoType = new System.Windows.Forms.Label();
+            this.lblSkillTwoNextRank = new System.Windows.Forms.Label();
+            this.lblSkillTwoLearned = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblSkillThreeType = new System.Windows.Forms.Label();
+            this.lblSkillThreeNextRank = new System.Windows.Forms.Label();
+            this.lblSkillThreeLearned = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblSkillFourType = new System.Windows.Forms.Label();
+            this.lblSkillFourNextRank = new System.Windows.Forms.Label();
+            this.lblSkillFourLearned = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblSkillFiveType = new System.Windows.Forms.Label();
+            this.lblSkillFiveNextRank = new System.Windows.Forms.Label();
+            this.lblSkillFiveLearned = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblSkillSixType = new System.Windows.Forms.Label();
+            this.lblSkillSixNextRank = new System.Windows.Forms.Label();
+            this.lblSkillSixLearned = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lblSkillSevenType = new System.Windows.Forms.Label();
+            this.lblSkillSevenNextRank = new System.Windows.Forms.Label();
+            this.lblSkillSevenLearned = new System.Windows.Forms.Label();
             this.ttSkillTwo = new System.Windows.Forms.ToolTip(this.components);
             this.ttSkillThree = new System.Windows.Forms.ToolTip(this.components);
             this.ttSkillFour = new System.Windows.Forms.ToolTip(this.components);
@@ -100,26 +100,26 @@
             this.pbActionBarSlot8 = new System.Windows.Forms.PictureBox();
             this.pbActionBarSlot9 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbSkillOne)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillTwo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillThree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillFour)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillFive)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillSix)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillSeven)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillEight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillNine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillTen)).BeginInit();
             this.pnlSkillOne.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillTwo)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillThree)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillFour)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillFive)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillSix)).BeginInit();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillSeven)).BeginInit();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillEight)).BeginInit();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillNine)).BeginInit();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillTen)).BeginInit();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot3)).BeginInit();
@@ -147,8 +147,97 @@
             this.pbSkillOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbSkillOne.TabIndex = 0;
             this.pbSkillOne.TabStop = false;
-            this.ttSkillOne.SetToolTip(this.pbSkillOne, "tooltip");
             this.pbSkillOne.Click += new System.EventHandler(this.pbSkillOne_Click);
+            // 
+            // pbSkillTwo
+            // 
+            this.pbSkillTwo.Location = new System.Drawing.Point(3, 3);
+            this.pbSkillTwo.Name = "pbSkillTwo";
+            this.pbSkillTwo.Size = new System.Drawing.Size(40, 40);
+            this.pbSkillTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbSkillTwo.TabIndex = 0;
+            this.pbSkillTwo.TabStop = false;
+            this.pbSkillTwo.Click += new System.EventHandler(this.pbSkillTwo_Click);
+            // 
+            // pbSkillThree
+            // 
+            this.pbSkillThree.Location = new System.Drawing.Point(3, 3);
+            this.pbSkillThree.Name = "pbSkillThree";
+            this.pbSkillThree.Size = new System.Drawing.Size(40, 40);
+            this.pbSkillThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbSkillThree.TabIndex = 0;
+            this.pbSkillThree.TabStop = false;
+            this.pbSkillThree.Click += new System.EventHandler(this.pbSkillThree_Click);
+            // 
+            // pbSkillFour
+            // 
+            this.pbSkillFour.Location = new System.Drawing.Point(3, 3);
+            this.pbSkillFour.Name = "pbSkillFour";
+            this.pbSkillFour.Size = new System.Drawing.Size(40, 40);
+            this.pbSkillFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbSkillFour.TabIndex = 0;
+            this.pbSkillFour.TabStop = false;
+            this.pbSkillFour.Click += new System.EventHandler(this.pbSkillFour_Click);
+            // 
+            // pbSkillFive
+            // 
+            this.pbSkillFive.Location = new System.Drawing.Point(3, 3);
+            this.pbSkillFive.Name = "pbSkillFive";
+            this.pbSkillFive.Size = new System.Drawing.Size(40, 40);
+            this.pbSkillFive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbSkillFive.TabIndex = 0;
+            this.pbSkillFive.TabStop = false;
+            this.pbSkillFive.Click += new System.EventHandler(this.pbSkillFive_Click);
+            // 
+            // pbSkillSix
+            // 
+            this.pbSkillSix.Location = new System.Drawing.Point(3, 3);
+            this.pbSkillSix.Name = "pbSkillSix";
+            this.pbSkillSix.Size = new System.Drawing.Size(40, 40);
+            this.pbSkillSix.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbSkillSix.TabIndex = 0;
+            this.pbSkillSix.TabStop = false;
+            this.pbSkillSix.Click += new System.EventHandler(this.pbSkillSix_Click);
+            // 
+            // pbSkillSeven
+            // 
+            this.pbSkillSeven.Location = new System.Drawing.Point(3, 3);
+            this.pbSkillSeven.Name = "pbSkillSeven";
+            this.pbSkillSeven.Size = new System.Drawing.Size(40, 40);
+            this.pbSkillSeven.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbSkillSeven.TabIndex = 0;
+            this.pbSkillSeven.TabStop = false;
+            this.pbSkillSeven.Click += new System.EventHandler(this.pbSkillSeven_Click);
+            // 
+            // pbSkillEight
+            // 
+            this.pbSkillEight.Location = new System.Drawing.Point(3, 3);
+            this.pbSkillEight.Name = "pbSkillEight";
+            this.pbSkillEight.Size = new System.Drawing.Size(40, 40);
+            this.pbSkillEight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbSkillEight.TabIndex = 0;
+            this.pbSkillEight.TabStop = false;
+            this.pbSkillEight.Click += new System.EventHandler(this.pbSkillEight_Click);
+            // 
+            // pbSkillNine
+            // 
+            this.pbSkillNine.Location = new System.Drawing.Point(3, 3);
+            this.pbSkillNine.Name = "pbSkillNine";
+            this.pbSkillNine.Size = new System.Drawing.Size(40, 40);
+            this.pbSkillNine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbSkillNine.TabIndex = 0;
+            this.pbSkillNine.TabStop = false;
+            this.pbSkillNine.Click += new System.EventHandler(this.pbSkillNine_Click);
+            // 
+            // pbSkillTen
+            // 
+            this.pbSkillTen.Location = new System.Drawing.Point(3, 3);
+            this.pbSkillTen.Name = "pbSkillTen";
+            this.pbSkillTen.Size = new System.Drawing.Size(40, 40);
+            this.pbSkillTen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbSkillTen.TabIndex = 0;
+            this.pbSkillTen.TabStop = false;
+            this.pbSkillTen.Click += new System.EventHandler(this.pbSkillTen_Click);
             // 
             // pnlSkillOne
             // 
@@ -218,355 +307,44 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(116, 281);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // panel1
-            // 
-            this.panel1.AutoSize = true;
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Controls.Add(this.lblSkillTwoType);
-            this.panel1.Controls.Add(this.lblSkillTwoNextRank);
-            this.panel1.Controls.Add(this.lblSkillTwoLearned);
-            this.panel1.Controls.Add(this.pbSkillTwo);
-            this.panel1.Location = new System.Drawing.Point(3, 55);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(52, 46);
-            this.panel1.TabIndex = 1;
-            // 
-            // lblSkillTwoType
-            // 
-            this.lblSkillTwoType.AutoSize = true;
-            this.lblSkillTwoType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillTwoType.Location = new System.Drawing.Point(49, 30);
-            this.lblSkillTwoType.Name = "lblSkillTwoType";
-            this.lblSkillTwoType.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillTwoType.TabIndex = 3;
-            // 
-            // lblSkillTwoNextRank
-            // 
-            this.lblSkillTwoNextRank.AutoSize = true;
-            this.lblSkillTwoNextRank.Location = new System.Drawing.Point(49, 16);
-            this.lblSkillTwoNextRank.Name = "lblSkillTwoNextRank";
-            this.lblSkillTwoNextRank.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillTwoNextRank.TabIndex = 2;
-            // 
-            // lblSkillTwoLearned
-            // 
-            this.lblSkillTwoLearned.AutoSize = true;
-            this.lblSkillTwoLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillTwoLearned.Location = new System.Drawing.Point(49, 3);
-            this.lblSkillTwoLearned.Name = "lblSkillTwoLearned";
-            this.lblSkillTwoLearned.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillTwoLearned.TabIndex = 1;
-            // 
-            // pbSkillTwo
-            // 
-            this.pbSkillTwo.Location = new System.Drawing.Point(3, 3);
-            this.pbSkillTwo.Name = "pbSkillTwo";
-            this.pbSkillTwo.Size = new System.Drawing.Size(40, 40);
-            this.pbSkillTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbSkillTwo.TabIndex = 0;
-            this.pbSkillTwo.TabStop = false;
-            this.ttSkillOne.SetToolTip(this.pbSkillTwo, "tooltip");
-            this.pbSkillTwo.Click += new System.EventHandler(this.pbSkillTwo_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.AutoSize = true;
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel2.Controls.Add(this.lblSkillThreeType);
-            this.panel2.Controls.Add(this.lblSkillThreeNextRank);
-            this.panel2.Controls.Add(this.lblSkillThreeLearned);
-            this.panel2.Controls.Add(this.pbSkillThree);
-            this.panel2.Location = new System.Drawing.Point(3, 107);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(52, 46);
-            this.panel2.TabIndex = 2;
-            // 
-            // lblSkillThreeType
-            // 
-            this.lblSkillThreeType.AutoSize = true;
-            this.lblSkillThreeType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillThreeType.Location = new System.Drawing.Point(49, 30);
-            this.lblSkillThreeType.Name = "lblSkillThreeType";
-            this.lblSkillThreeType.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillThreeType.TabIndex = 3;
-            // 
-            // lblSkillThreeNextRank
-            // 
-            this.lblSkillThreeNextRank.AutoSize = true;
-            this.lblSkillThreeNextRank.Location = new System.Drawing.Point(49, 16);
-            this.lblSkillThreeNextRank.Name = "lblSkillThreeNextRank";
-            this.lblSkillThreeNextRank.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillThreeNextRank.TabIndex = 2;
-            // 
-            // lblSkillThreeLearned
-            // 
-            this.lblSkillThreeLearned.AutoSize = true;
-            this.lblSkillThreeLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillThreeLearned.Location = new System.Drawing.Point(49, 3);
-            this.lblSkillThreeLearned.Name = "lblSkillThreeLearned";
-            this.lblSkillThreeLearned.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillThreeLearned.TabIndex = 1;
-            // 
-            // pbSkillThree
-            // 
-            this.pbSkillThree.Location = new System.Drawing.Point(3, 3);
-            this.pbSkillThree.Name = "pbSkillThree";
-            this.pbSkillThree.Size = new System.Drawing.Size(40, 40);
-            this.pbSkillThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbSkillThree.TabIndex = 0;
-            this.pbSkillThree.TabStop = false;
-            this.ttSkillOne.SetToolTip(this.pbSkillThree, "tooltip");
-            this.pbSkillThree.Click += new System.EventHandler(this.pbSkillThree_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.AutoSize = true;
-            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel3.Controls.Add(this.lblSkillFourType);
-            this.panel3.Controls.Add(this.lblSkillFourNextRank);
-            this.panel3.Controls.Add(this.lblSkillFourLearned);
-            this.panel3.Controls.Add(this.pbSkillFour);
-            this.panel3.Location = new System.Drawing.Point(3, 161);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(52, 44);
-            this.panel3.TabIndex = 3;
-            // 
-            // lblSkillFourType
-            // 
-            this.lblSkillFourType.AutoSize = true;
-            this.lblSkillFourType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillFourType.Location = new System.Drawing.Point(49, 30);
-            this.lblSkillFourType.Name = "lblSkillFourType";
-            this.lblSkillFourType.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillFourType.TabIndex = 3;
-            // 
-            // lblSkillFourNextRank
-            // 
-            this.lblSkillFourNextRank.AutoSize = true;
-            this.lblSkillFourNextRank.Location = new System.Drawing.Point(49, 16);
-            this.lblSkillFourNextRank.Name = "lblSkillFourNextRank";
-            this.lblSkillFourNextRank.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillFourNextRank.TabIndex = 2;
-            // 
-            // lblSkillFourLearned
-            // 
-            this.lblSkillFourLearned.AutoSize = true;
-            this.lblSkillFourLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillFourLearned.Location = new System.Drawing.Point(49, 3);
-            this.lblSkillFourLearned.Name = "lblSkillFourLearned";
-            this.lblSkillFourLearned.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillFourLearned.TabIndex = 1;
-            // 
-            // pbSkillFour
-            // 
-            this.pbSkillFour.Location = new System.Drawing.Point(3, 3);
-            this.pbSkillFour.Name = "pbSkillFour";
-            this.pbSkillFour.Size = new System.Drawing.Size(40, 40);
-            this.pbSkillFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbSkillFour.TabIndex = 0;
-            this.pbSkillFour.TabStop = false;
-            this.ttSkillOne.SetToolTip(this.pbSkillFour, "tooltip");
-            this.pbSkillFour.Click += new System.EventHandler(this.pbSkillFour_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.AutoSize = true;
-            this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel4.Controls.Add(this.lblSkillFiveType);
-            this.panel4.Controls.Add(this.lblSkillFiveNextRank);
-            this.panel4.Controls.Add(this.lblSkillFiveLearned);
-            this.panel4.Controls.Add(this.pbSkillFive);
-            this.panel4.Location = new System.Drawing.Point(3, 211);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(52, 46);
-            this.panel4.TabIndex = 4;
-            // 
-            // lblSkillFiveType
-            // 
-            this.lblSkillFiveType.AutoSize = true;
-            this.lblSkillFiveType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillFiveType.Location = new System.Drawing.Point(49, 30);
-            this.lblSkillFiveType.Name = "lblSkillFiveType";
-            this.lblSkillFiveType.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillFiveType.TabIndex = 3;
-            // 
-            // lblSkillFiveNextRank
-            // 
-            this.lblSkillFiveNextRank.AutoSize = true;
-            this.lblSkillFiveNextRank.Location = new System.Drawing.Point(49, 16);
-            this.lblSkillFiveNextRank.Name = "lblSkillFiveNextRank";
-            this.lblSkillFiveNextRank.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillFiveNextRank.TabIndex = 2;
-            // 
-            // lblSkillFiveLearned
-            // 
-            this.lblSkillFiveLearned.AutoSize = true;
-            this.lblSkillFiveLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillFiveLearned.Location = new System.Drawing.Point(49, 3);
-            this.lblSkillFiveLearned.Name = "lblSkillFiveLearned";
-            this.lblSkillFiveLearned.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillFiveLearned.TabIndex = 1;
-            // 
-            // pbSkillFive
-            // 
-            this.pbSkillFive.Location = new System.Drawing.Point(3, 3);
-            this.pbSkillFive.Name = "pbSkillFive";
-            this.pbSkillFive.Size = new System.Drawing.Size(40, 40);
-            this.pbSkillFive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbSkillFive.TabIndex = 0;
-            this.pbSkillFive.TabStop = false;
-            this.ttSkillOne.SetToolTip(this.pbSkillFive, "tooltip");
-            this.pbSkillFive.Click += new System.EventHandler(this.pbSkillFive_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.AutoSize = true;
-            this.panel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel5.Controls.Add(this.lblSkillSixType);
-            this.panel5.Controls.Add(this.lblSkillSixNextRank);
-            this.panel5.Controls.Add(this.lblSkillSixLearned);
-            this.panel5.Controls.Add(this.pbSkillSix);
-            this.panel5.Location = new System.Drawing.Point(61, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(52, 46);
-            this.panel5.TabIndex = 5;
-            // 
-            // lblSkillSixType
-            // 
-            this.lblSkillSixType.AutoSize = true;
-            this.lblSkillSixType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillSixType.Location = new System.Drawing.Point(49, 30);
-            this.lblSkillSixType.Name = "lblSkillSixType";
-            this.lblSkillSixType.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillSixType.TabIndex = 3;
-            // 
-            // lblSkillSixNextRank
-            // 
-            this.lblSkillSixNextRank.AutoSize = true;
-            this.lblSkillSixNextRank.Location = new System.Drawing.Point(49, 16);
-            this.lblSkillSixNextRank.Name = "lblSkillSixNextRank";
-            this.lblSkillSixNextRank.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillSixNextRank.TabIndex = 2;
-            // 
-            // lblSkillSixLearned
-            // 
-            this.lblSkillSixLearned.AutoSize = true;
-            this.lblSkillSixLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillSixLearned.Location = new System.Drawing.Point(49, 3);
-            this.lblSkillSixLearned.Name = "lblSkillSixLearned";
-            this.lblSkillSixLearned.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillSixLearned.TabIndex = 1;
-            // 
-            // pbSkillSix
-            // 
-            this.pbSkillSix.Location = new System.Drawing.Point(3, 3);
-            this.pbSkillSix.Name = "pbSkillSix";
-            this.pbSkillSix.Size = new System.Drawing.Size(40, 40);
-            this.pbSkillSix.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbSkillSix.TabIndex = 0;
-            this.pbSkillSix.TabStop = false;
-            this.ttSkillOne.SetToolTip(this.pbSkillSix, "tooltip");
-            this.pbSkillSix.Click += new System.EventHandler(this.pbSkillSix_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.AutoSize = true;
-            this.panel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel6.Controls.Add(this.lblSkillSevenType);
-            this.panel6.Controls.Add(this.lblSkillSevenNextRank);
-            this.panel6.Controls.Add(this.lblSkillSevenLearned);
-            this.panel6.Controls.Add(this.pbSkillSeven);
-            this.panel6.Location = new System.Drawing.Point(61, 55);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(52, 46);
-            this.panel6.TabIndex = 6;
-            // 
-            // lblSkillSevenType
-            // 
-            this.lblSkillSevenType.AutoSize = true;
-            this.lblSkillSevenType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillSevenType.Location = new System.Drawing.Point(49, 30);
-            this.lblSkillSevenType.Name = "lblSkillSevenType";
-            this.lblSkillSevenType.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillSevenType.TabIndex = 3;
-            // 
-            // lblSkillSevenNextRank
-            // 
-            this.lblSkillSevenNextRank.AutoSize = true;
-            this.lblSkillSevenNextRank.Location = new System.Drawing.Point(49, 16);
-            this.lblSkillSevenNextRank.Name = "lblSkillSevenNextRank";
-            this.lblSkillSevenNextRank.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillSevenNextRank.TabIndex = 2;
-            // 
-            // lblSkillSevenLearned
-            // 
-            this.lblSkillSevenLearned.AutoSize = true;
-            this.lblSkillSevenLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillSevenLearned.Location = new System.Drawing.Point(49, 3);
-            this.lblSkillSevenLearned.Name = "lblSkillSevenLearned";
-            this.lblSkillSevenLearned.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillSevenLearned.TabIndex = 1;
-            // 
-            // pbSkillSeven
-            // 
-            this.pbSkillSeven.Location = new System.Drawing.Point(3, 3);
-            this.pbSkillSeven.Name = "pbSkillSeven";
-            this.pbSkillSeven.Size = new System.Drawing.Size(40, 40);
-            this.pbSkillSeven.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbSkillSeven.TabIndex = 0;
-            this.pbSkillSeven.TabStop = false;
-            this.ttSkillOne.SetToolTip(this.pbSkillSeven, "tooltip");
-            this.pbSkillSeven.Click += new System.EventHandler(this.pbSkillSeven_Click);
-            // 
-            // panel7
-            // 
-            this.panel7.AutoSize = true;
-            this.panel7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel7.Controls.Add(this.lblSkillEightType);
-            this.panel7.Controls.Add(this.lblSkillEightNextRank);
-            this.panel7.Controls.Add(this.lblSkillEightLearned);
-            this.panel7.Controls.Add(this.pbSkillEight);
-            this.panel7.Location = new System.Drawing.Point(61, 107);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(52, 46);
-            this.panel7.TabIndex = 4;
-            // 
-            // lblSkillEightType
-            // 
-            this.lblSkillEightType.AutoSize = true;
-            this.lblSkillEightType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillEightType.Location = new System.Drawing.Point(49, 30);
-            this.lblSkillEightType.Name = "lblSkillEightType";
-            this.lblSkillEightType.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillEightType.TabIndex = 3;
-            // 
-            // lblSkillEightNextRank
-            // 
-            this.lblSkillEightNextRank.AutoSize = true;
-            this.lblSkillEightNextRank.Location = new System.Drawing.Point(49, 16);
-            this.lblSkillEightNextRank.Name = "lblSkillEightNextRank";
-            this.lblSkillEightNextRank.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillEightNextRank.TabIndex = 2;
-            // 
-            // lblSkillEightLearned
-            // 
-            this.lblSkillEightLearned.AutoSize = true;
-            this.lblSkillEightLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillEightLearned.Location = new System.Drawing.Point(49, 3);
-            this.lblSkillEightLearned.Name = "lblSkillEightLearned";
-            this.lblSkillEightLearned.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillEightLearned.TabIndex = 1;
-            // 
-            // pbSkillEight
-            // 
-            this.pbSkillEight.Location = new System.Drawing.Point(3, 3);
-            this.pbSkillEight.Name = "pbSkillEight";
-            this.pbSkillEight.Size = new System.Drawing.Size(40, 40);
-            this.pbSkillEight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbSkillEight.TabIndex = 0;
-            this.pbSkillEight.TabStop = false;
-            this.ttSkillOne.SetToolTip(this.pbSkillEight, "tooltip");
-            this.pbSkillEight.Click += new System.EventHandler(this.pbSkillEight_Click);
+            // panel9
+            // 
+            this.panel9.AutoSize = true;
+            this.panel9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel9.Controls.Add(this.lblSkillTenType);
+            this.panel9.Controls.Add(this.lblSkillTenNextRank);
+            this.panel9.Controls.Add(this.lblSkillTenLearned);
+            this.panel9.Controls.Add(this.pbSkillTen);
+            this.panel9.Location = new System.Drawing.Point(61, 211);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(52, 46);
+            this.panel9.TabIndex = 8;
+            // 
+            // lblSkillTenType
+            // 
+            this.lblSkillTenType.AutoSize = true;
+            this.lblSkillTenType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillTenType.Location = new System.Drawing.Point(49, 30);
+            this.lblSkillTenType.Name = "lblSkillTenType";
+            this.lblSkillTenType.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillTenType.TabIndex = 3;
+            // 
+            // lblSkillTenNextRank
+            // 
+            this.lblSkillTenNextRank.AutoSize = true;
+            this.lblSkillTenNextRank.Location = new System.Drawing.Point(49, 16);
+            this.lblSkillTenNextRank.Name = "lblSkillTenNextRank";
+            this.lblSkillTenNextRank.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillTenNextRank.TabIndex = 2;
+            // 
+            // lblSkillTenLearned
+            // 
+            this.lblSkillTenLearned.AutoSize = true;
+            this.lblSkillTenLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillTenLearned.Location = new System.Drawing.Point(49, 3);
+            this.lblSkillTenLearned.Name = "lblSkillTenLearned";
+            this.lblSkillTenLearned.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillTenLearned.TabIndex = 1;
             // 
             // panel8
             // 
@@ -607,66 +385,278 @@
             this.lblSkillNineLearned.Size = new System.Drawing.Size(0, 13);
             this.lblSkillNineLearned.TabIndex = 1;
             // 
-            // pbSkillNine
+            // panel7
             // 
-            this.pbSkillNine.Location = new System.Drawing.Point(3, 3);
-            this.pbSkillNine.Name = "pbSkillNine";
-            this.pbSkillNine.Size = new System.Drawing.Size(40, 40);
-            this.pbSkillNine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbSkillNine.TabIndex = 0;
-            this.pbSkillNine.TabStop = false;
-            this.ttSkillOne.SetToolTip(this.pbSkillNine, "tooltip");
-            this.pbSkillNine.Click += new System.EventHandler(this.pbSkillNine_Click);
+            this.panel7.AutoSize = true;
+            this.panel7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel7.Controls.Add(this.lblSkillEightType);
+            this.panel7.Controls.Add(this.lblSkillEightNextRank);
+            this.panel7.Controls.Add(this.lblSkillEightLearned);
+            this.panel7.Controls.Add(this.pbSkillEight);
+            this.panel7.Location = new System.Drawing.Point(61, 107);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(52, 46);
+            this.panel7.TabIndex = 4;
             // 
-            // panel9
+            // lblSkillEightType
             // 
-            this.panel9.AutoSize = true;
-            this.panel9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel9.Controls.Add(this.lblSkillTenType);
-            this.panel9.Controls.Add(this.lblSkillTenNextRank);
-            this.panel9.Controls.Add(this.lblSkillTenLearned);
-            this.panel9.Controls.Add(this.pbSkillTen);
-            this.panel9.Location = new System.Drawing.Point(61, 211);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(52, 46);
-            this.panel9.TabIndex = 8;
+            this.lblSkillEightType.AutoSize = true;
+            this.lblSkillEightType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillEightType.Location = new System.Drawing.Point(49, 30);
+            this.lblSkillEightType.Name = "lblSkillEightType";
+            this.lblSkillEightType.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillEightType.TabIndex = 3;
             // 
-            // lblSkillTenType
+            // lblSkillEightNextRank
             // 
-            this.lblSkillTenType.AutoSize = true;
-            this.lblSkillTenType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillTenType.Location = new System.Drawing.Point(49, 30);
-            this.lblSkillTenType.Name = "lblSkillTenType";
-            this.lblSkillTenType.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillTenType.TabIndex = 3;
+            this.lblSkillEightNextRank.AutoSize = true;
+            this.lblSkillEightNextRank.Location = new System.Drawing.Point(49, 16);
+            this.lblSkillEightNextRank.Name = "lblSkillEightNextRank";
+            this.lblSkillEightNextRank.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillEightNextRank.TabIndex = 2;
             // 
-            // lblSkillTenNextRank
+            // lblSkillEightLearned
             // 
-            this.lblSkillTenNextRank.AutoSize = true;
-            this.lblSkillTenNextRank.Location = new System.Drawing.Point(49, 16);
-            this.lblSkillTenNextRank.Name = "lblSkillTenNextRank";
-            this.lblSkillTenNextRank.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillTenNextRank.TabIndex = 2;
+            this.lblSkillEightLearned.AutoSize = true;
+            this.lblSkillEightLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillEightLearned.Location = new System.Drawing.Point(49, 3);
+            this.lblSkillEightLearned.Name = "lblSkillEightLearned";
+            this.lblSkillEightLearned.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillEightLearned.TabIndex = 1;
             // 
-            // lblSkillTenLearned
+            // panel1
             // 
-            this.lblSkillTenLearned.AutoSize = true;
-            this.lblSkillTenLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkillTenLearned.Location = new System.Drawing.Point(49, 3);
-            this.lblSkillTenLearned.Name = "lblSkillTenLearned";
-            this.lblSkillTenLearned.Size = new System.Drawing.Size(0, 13);
-            this.lblSkillTenLearned.TabIndex = 1;
+            this.panel1.AutoSize = true;
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.Controls.Add(this.lblSkillTwoType);
+            this.panel1.Controls.Add(this.lblSkillTwoNextRank);
+            this.panel1.Controls.Add(this.lblSkillTwoLearned);
+            this.panel1.Controls.Add(this.pbSkillTwo);
+            this.panel1.Location = new System.Drawing.Point(3, 55);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(52, 46);
+            this.panel1.TabIndex = 1;
             // 
-            // pbSkillTen
+            // lblSkillTwoType
             // 
-            this.pbSkillTen.Location = new System.Drawing.Point(3, 3);
-            this.pbSkillTen.Name = "pbSkillTen";
-            this.pbSkillTen.Size = new System.Drawing.Size(40, 40);
-            this.pbSkillTen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbSkillTen.TabIndex = 0;
-            this.pbSkillTen.TabStop = false;
-            this.ttSkillOne.SetToolTip(this.pbSkillTen, "tooltip");
-            this.pbSkillTen.Click += new System.EventHandler(this.pbSkillTen_Click);
+            this.lblSkillTwoType.AutoSize = true;
+            this.lblSkillTwoType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillTwoType.Location = new System.Drawing.Point(49, 30);
+            this.lblSkillTwoType.Name = "lblSkillTwoType";
+            this.lblSkillTwoType.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillTwoType.TabIndex = 3;
+            // 
+            // lblSkillTwoNextRank
+            // 
+            this.lblSkillTwoNextRank.AutoSize = true;
+            this.lblSkillTwoNextRank.Location = new System.Drawing.Point(49, 16);
+            this.lblSkillTwoNextRank.Name = "lblSkillTwoNextRank";
+            this.lblSkillTwoNextRank.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillTwoNextRank.TabIndex = 2;
+            // 
+            // lblSkillTwoLearned
+            // 
+            this.lblSkillTwoLearned.AutoSize = true;
+            this.lblSkillTwoLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillTwoLearned.Location = new System.Drawing.Point(49, 3);
+            this.lblSkillTwoLearned.Name = "lblSkillTwoLearned";
+            this.lblSkillTwoLearned.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillTwoLearned.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.Controls.Add(this.lblSkillThreeType);
+            this.panel2.Controls.Add(this.lblSkillThreeNextRank);
+            this.panel2.Controls.Add(this.lblSkillThreeLearned);
+            this.panel2.Controls.Add(this.pbSkillThree);
+            this.panel2.Location = new System.Drawing.Point(3, 107);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(52, 46);
+            this.panel2.TabIndex = 2;
+            // 
+            // lblSkillThreeType
+            // 
+            this.lblSkillThreeType.AutoSize = true;
+            this.lblSkillThreeType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillThreeType.Location = new System.Drawing.Point(49, 30);
+            this.lblSkillThreeType.Name = "lblSkillThreeType";
+            this.lblSkillThreeType.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillThreeType.TabIndex = 3;
+            // 
+            // lblSkillThreeNextRank
+            // 
+            this.lblSkillThreeNextRank.AutoSize = true;
+            this.lblSkillThreeNextRank.Location = new System.Drawing.Point(49, 16);
+            this.lblSkillThreeNextRank.Name = "lblSkillThreeNextRank";
+            this.lblSkillThreeNextRank.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillThreeNextRank.TabIndex = 2;
+            // 
+            // lblSkillThreeLearned
+            // 
+            this.lblSkillThreeLearned.AutoSize = true;
+            this.lblSkillThreeLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillThreeLearned.Location = new System.Drawing.Point(49, 3);
+            this.lblSkillThreeLearned.Name = "lblSkillThreeLearned";
+            this.lblSkillThreeLearned.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillThreeLearned.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.AutoSize = true;
+            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.Controls.Add(this.lblSkillFourType);
+            this.panel3.Controls.Add(this.lblSkillFourNextRank);
+            this.panel3.Controls.Add(this.lblSkillFourLearned);
+            this.panel3.Controls.Add(this.pbSkillFour);
+            this.panel3.Location = new System.Drawing.Point(3, 161);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(52, 44);
+            this.panel3.TabIndex = 3;
+            // 
+            // lblSkillFourType
+            // 
+            this.lblSkillFourType.AutoSize = true;
+            this.lblSkillFourType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillFourType.Location = new System.Drawing.Point(49, 30);
+            this.lblSkillFourType.Name = "lblSkillFourType";
+            this.lblSkillFourType.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillFourType.TabIndex = 3;
+            // 
+            // lblSkillFourNextRank
+            // 
+            this.lblSkillFourNextRank.AutoSize = true;
+            this.lblSkillFourNextRank.Location = new System.Drawing.Point(49, 16);
+            this.lblSkillFourNextRank.Name = "lblSkillFourNextRank";
+            this.lblSkillFourNextRank.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillFourNextRank.TabIndex = 2;
+            // 
+            // lblSkillFourLearned
+            // 
+            this.lblSkillFourLearned.AutoSize = true;
+            this.lblSkillFourLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillFourLearned.Location = new System.Drawing.Point(49, 3);
+            this.lblSkillFourLearned.Name = "lblSkillFourLearned";
+            this.lblSkillFourLearned.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillFourLearned.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.AutoSize = true;
+            this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel4.Controls.Add(this.lblSkillFiveType);
+            this.panel4.Controls.Add(this.lblSkillFiveNextRank);
+            this.panel4.Controls.Add(this.lblSkillFiveLearned);
+            this.panel4.Controls.Add(this.pbSkillFive);
+            this.panel4.Location = new System.Drawing.Point(3, 211);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(52, 46);
+            this.panel4.TabIndex = 4;
+            // 
+            // lblSkillFiveType
+            // 
+            this.lblSkillFiveType.AutoSize = true;
+            this.lblSkillFiveType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillFiveType.Location = new System.Drawing.Point(49, 30);
+            this.lblSkillFiveType.Name = "lblSkillFiveType";
+            this.lblSkillFiveType.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillFiveType.TabIndex = 3;
+            // 
+            // lblSkillFiveNextRank
+            // 
+            this.lblSkillFiveNextRank.AutoSize = true;
+            this.lblSkillFiveNextRank.Location = new System.Drawing.Point(49, 16);
+            this.lblSkillFiveNextRank.Name = "lblSkillFiveNextRank";
+            this.lblSkillFiveNextRank.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillFiveNextRank.TabIndex = 2;
+            // 
+            // lblSkillFiveLearned
+            // 
+            this.lblSkillFiveLearned.AutoSize = true;
+            this.lblSkillFiveLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillFiveLearned.Location = new System.Drawing.Point(49, 3);
+            this.lblSkillFiveLearned.Name = "lblSkillFiveLearned";
+            this.lblSkillFiveLearned.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillFiveLearned.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.AutoSize = true;
+            this.panel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel5.Controls.Add(this.lblSkillSixType);
+            this.panel5.Controls.Add(this.lblSkillSixNextRank);
+            this.panel5.Controls.Add(this.lblSkillSixLearned);
+            this.panel5.Controls.Add(this.pbSkillSix);
+            this.panel5.Location = new System.Drawing.Point(61, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(52, 46);
+            this.panel5.TabIndex = 5;
+            // 
+            // lblSkillSixType
+            // 
+            this.lblSkillSixType.AutoSize = true;
+            this.lblSkillSixType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillSixType.Location = new System.Drawing.Point(49, 30);
+            this.lblSkillSixType.Name = "lblSkillSixType";
+            this.lblSkillSixType.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillSixType.TabIndex = 3;
+            // 
+            // lblSkillSixNextRank
+            // 
+            this.lblSkillSixNextRank.AutoSize = true;
+            this.lblSkillSixNextRank.Location = new System.Drawing.Point(49, 16);
+            this.lblSkillSixNextRank.Name = "lblSkillSixNextRank";
+            this.lblSkillSixNextRank.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillSixNextRank.TabIndex = 2;
+            // 
+            // lblSkillSixLearned
+            // 
+            this.lblSkillSixLearned.AutoSize = true;
+            this.lblSkillSixLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillSixLearned.Location = new System.Drawing.Point(49, 3);
+            this.lblSkillSixLearned.Name = "lblSkillSixLearned";
+            this.lblSkillSixLearned.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillSixLearned.TabIndex = 1;
+            // 
+            // panel6
+            // 
+            this.panel6.AutoSize = true;
+            this.panel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel6.Controls.Add(this.lblSkillSevenType);
+            this.panel6.Controls.Add(this.lblSkillSevenNextRank);
+            this.panel6.Controls.Add(this.lblSkillSevenLearned);
+            this.panel6.Controls.Add(this.pbSkillSeven);
+            this.panel6.Location = new System.Drawing.Point(61, 55);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(52, 46);
+            this.panel6.TabIndex = 6;
+            // 
+            // lblSkillSevenType
+            // 
+            this.lblSkillSevenType.AutoSize = true;
+            this.lblSkillSevenType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillSevenType.Location = new System.Drawing.Point(49, 30);
+            this.lblSkillSevenType.Name = "lblSkillSevenType";
+            this.lblSkillSevenType.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillSevenType.TabIndex = 3;
+            // 
+            // lblSkillSevenNextRank
+            // 
+            this.lblSkillSevenNextRank.AutoSize = true;
+            this.lblSkillSevenNextRank.Location = new System.Drawing.Point(49, 16);
+            this.lblSkillSevenNextRank.Name = "lblSkillSevenNextRank";
+            this.lblSkillSevenNextRank.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillSevenNextRank.TabIndex = 2;
+            // 
+            // lblSkillSevenLearned
+            // 
+            this.lblSkillSevenLearned.AutoSize = true;
+            this.lblSkillSevenLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkillSevenLearned.Location = new System.Drawing.Point(49, 3);
+            this.lblSkillSevenLearned.Name = "lblSkillSevenLearned";
+            this.lblSkillSevenLearned.Size = new System.Drawing.Size(0, 13);
+            this.lblSkillSevenLearned.TabIndex = 1;
             // 
             // ttSkillTwo
             // 
@@ -862,37 +852,37 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Skill Book";
             ((System.ComponentModel.ISupportInitialize)(this.pbSkillOne)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillTwo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillThree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillFour)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillFive)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillSix)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillSeven)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillEight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillNine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkillTen)).EndInit();
             this.pnlSkillOne.ResumeLayout(false);
             this.pnlSkillOne.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillTwo)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillThree)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillFour)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillFive)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillSix)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillSeven)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillEight)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillNine)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkillTen)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot3)).EndInit();

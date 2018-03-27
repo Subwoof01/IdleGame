@@ -10,7 +10,7 @@ namespace IdleGame.Attributes
     {
         public override double Final()
         {
-            return (1 + AttributeBonus()) * (1 + ItemBonus());
+            return AttributeBonus() + ItemBonus();
         }
 
         private double AttributeBonus()

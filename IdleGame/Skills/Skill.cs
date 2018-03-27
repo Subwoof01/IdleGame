@@ -10,12 +10,14 @@ namespace IdleGame.Skills
     public abstract class Skill
     {
         public enum Type { Active, Passive };
+        public enum DamageType { Elemental, Physical };
         public int[] levelRank;
         public int currentRank;
         public Type type;
         public double castTime;
         public Image image;
         public string name;
+        public DamageType damageType;
 
         public void SetRank(Player player)
         {
@@ -35,6 +37,6 @@ namespace IdleGame.Skills
 
         public abstract string ToolTip();
 
-        public abstract void Effect(Enemy enemy);
+        public abstract double Effect(Enemy enemy);
     }
 }

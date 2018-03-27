@@ -87,7 +87,7 @@
             // lblMana
             // 
             this.lblMana.AutoSize = true;
-            this.lblMana.Location = new System.Drawing.Point(188, 59);
+            this.lblMana.Location = new System.Drawing.Point(265, 59);
             this.lblMana.Name = "lblMana";
             this.lblMana.Size = new System.Drawing.Size(60, 13);
             this.lblMana.TabIndex = 32;
@@ -97,7 +97,7 @@
             // 
             this.lblHealth.AutoSize = true;
             this.lblHealth.BackColor = System.Drawing.Color.Transparent;
-            this.lblHealth.Location = new System.Drawing.Point(188, 32);
+            this.lblHealth.Location = new System.Drawing.Point(265, 32);
             this.lblHealth.Name = "lblHealth";
             this.lblHealth.Size = new System.Drawing.Size(60, 13);
             this.lblHealth.TabIndex = 31;
@@ -106,7 +106,7 @@
             // lblClass
             // 
             this.lblClass.AutoSize = true;
-            this.lblClass.Location = new System.Drawing.Point(97, 9);
+            this.lblClass.Location = new System.Drawing.Point(174, 9);
             this.lblClass.Name = "lblClass";
             this.lblClass.Size = new System.Drawing.Size(59, 13);
             this.lblClass.TabIndex = 30;
@@ -115,7 +115,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(12, 9);
+            this.lblName.Location = new System.Drawing.Point(89, 9);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(35, 13);
             this.lblName.TabIndex = 29;
@@ -126,13 +126,13 @@
             this.lbCombatLog.FormattingEnabled = true;
             this.lbCombatLog.Location = new System.Drawing.Point(426, 147);
             this.lbCombatLog.Name = "lbCombatLog";
-            this.lbCombatLog.Size = new System.Drawing.Size(169, 69);
+            this.lbCombatLog.Size = new System.Drawing.Size(310, 69);
             this.lbCombatLog.TabIndex = 37;
             // 
             // lblManaEnemy
             // 
             this.lblManaEnemy.AutoSize = true;
-            this.lblManaEnemy.Location = new System.Drawing.Point(534, 59);
+            this.lblManaEnemy.Location = new System.Drawing.Point(611, 59);
             this.lblManaEnemy.Name = "lblManaEnemy";
             this.lblManaEnemy.Size = new System.Drawing.Size(60, 13);
             this.lblManaEnemy.TabIndex = 41;
@@ -142,7 +142,7 @@
             // 
             this.lblHealthEnemy.AutoSize = true;
             this.lblHealthEnemy.BackColor = System.Drawing.Color.Transparent;
-            this.lblHealthEnemy.Location = new System.Drawing.Point(534, 32);
+            this.lblHealthEnemy.Location = new System.Drawing.Point(611, 32);
             this.lblHealthEnemy.Name = "lblHealthEnemy";
             this.lblHealthEnemy.Size = new System.Drawing.Size(60, 13);
             this.lblHealthEnemy.TabIndex = 40;
@@ -151,7 +151,7 @@
             // lblEnemyType
             // 
             this.lblEnemyType.AutoSize = true;
-            this.lblEnemyType.Location = new System.Drawing.Point(443, 9);
+            this.lblEnemyType.Location = new System.Drawing.Point(520, 9);
             this.lblEnemyType.Name = "lblEnemyType";
             this.lblEnemyType.Size = new System.Drawing.Size(59, 13);
             this.lblEnemyType.TabIndex = 39;
@@ -160,7 +160,7 @@
             // lblEnemyName
             // 
             this.lblEnemyName.AutoSize = true;
-            this.lblEnemyName.Location = new System.Drawing.Point(358, 9);
+            this.lblEnemyName.Location = new System.Drawing.Point(435, 9);
             this.lblEnemyName.Name = "lblEnemyName";
             this.lblEnemyName.Size = new System.Drawing.Size(35, 13);
             this.lblEnemyName.TabIndex = 38;
@@ -169,7 +169,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(254, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(331, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(101, 110);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -179,15 +179,15 @@
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(5, 126);
+            this.label1.Location = new System.Drawing.Point(7, 126);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(600, 2);
+            this.label1.Size = new System.Drawing.Size(735, 2);
             this.label1.TabIndex = 46;
             this.label1.Text = " ";
             // 
             // tbCurrentAction
             // 
-            this.tbCurrentAction.Location = new System.Drawing.Point(88, 102);
+            this.tbCurrentAction.Location = new System.Drawing.Point(165, 102);
             this.tbCurrentAction.Name = "tbCurrentAction";
             this.tbCurrentAction.ReadOnly = true;
             this.tbCurrentAction.Size = new System.Drawing.Size(160, 20);
@@ -196,7 +196,7 @@
             // lblCurrentActionStatic
             // 
             this.lblCurrentActionStatic.AutoSize = true;
-            this.lblCurrentActionStatic.Location = new System.Drawing.Point(12, 105);
+            this.lblCurrentActionStatic.Location = new System.Drawing.Point(89, 105);
             this.lblCurrentActionStatic.Name = "lblCurrentActionStatic";
             this.lblCurrentActionStatic.Size = new System.Drawing.Size(76, 13);
             this.lblCurrentActionStatic.TabIndex = 48;
@@ -205,7 +205,7 @@
             // lblCurrentActionEnemyStatic
             // 
             this.lblCurrentActionEnemyStatic.AutoSize = true;
-            this.lblCurrentActionEnemyStatic.Location = new System.Drawing.Point(358, 105);
+            this.lblCurrentActionEnemyStatic.Location = new System.Drawing.Point(435, 105);
             this.lblCurrentActionEnemyStatic.Name = "lblCurrentActionEnemyStatic";
             this.lblCurrentActionEnemyStatic.Size = new System.Drawing.Size(76, 13);
             this.lblCurrentActionEnemyStatic.TabIndex = 50;
@@ -213,7 +213,7 @@
             // 
             // tbCurrentActionEnemy
             // 
-            this.tbCurrentActionEnemy.Location = new System.Drawing.Point(434, 102);
+            this.tbCurrentActionEnemy.Location = new System.Drawing.Point(511, 102);
             this.tbCurrentActionEnemy.Name = "tbCurrentActionEnemy";
             this.tbCurrentActionEnemy.ReadOnly = true;
             this.tbCurrentActionEnemy.Size = new System.Drawing.Size(160, 20);
@@ -408,42 +408,42 @@
             // 
             // actionSpeedBarEnemy
             // 
-            this.actionSpeedBarEnemy.Location = new System.Drawing.Point(361, 82);
+            this.actionSpeedBarEnemy.Location = new System.Drawing.Point(438, 82);
             this.actionSpeedBarEnemy.Name = "actionSpeedBarEnemy";
             this.actionSpeedBarEnemy.Size = new System.Drawing.Size(233, 14);
             this.actionSpeedBarEnemy.TabIndex = 44;
             // 
             // manaBarEnemy
             // 
-            this.manaBarEnemy.Location = new System.Drawing.Point(361, 56);
+            this.manaBarEnemy.Location = new System.Drawing.Point(438, 56);
             this.manaBarEnemy.Name = "manaBarEnemy";
             this.manaBarEnemy.Size = new System.Drawing.Size(167, 20);
             this.manaBarEnemy.TabIndex = 43;
             // 
             // healthBarEnemy
             // 
-            this.healthBarEnemy.Location = new System.Drawing.Point(361, 25);
+            this.healthBarEnemy.Location = new System.Drawing.Point(438, 25);
             this.healthBarEnemy.Name = "healthBarEnemy";
             this.healthBarEnemy.Size = new System.Drawing.Size(167, 25);
             this.healthBarEnemy.TabIndex = 42;
             // 
             // actionSpeedBar
             // 
-            this.actionSpeedBar.Location = new System.Drawing.Point(15, 82);
+            this.actionSpeedBar.Location = new System.Drawing.Point(92, 82);
             this.actionSpeedBar.Name = "actionSpeedBar";
             this.actionSpeedBar.Size = new System.Drawing.Size(233, 14);
             this.actionSpeedBar.TabIndex = 36;
             // 
             // manaBar
             // 
-            this.manaBar.Location = new System.Drawing.Point(15, 56);
+            this.manaBar.Location = new System.Drawing.Point(92, 56);
             this.manaBar.Name = "manaBar";
             this.manaBar.Size = new System.Drawing.Size(167, 20);
             this.manaBar.TabIndex = 35;
             // 
             // healthBar
             // 
-            this.healthBar.Location = new System.Drawing.Point(15, 25);
+            this.healthBar.Location = new System.Drawing.Point(92, 25);
             this.healthBar.Name = "healthBar";
             this.healthBar.Size = new System.Drawing.Size(167, 25);
             this.healthBar.TabIndex = 34;
@@ -452,7 +452,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 225);
+            this.ClientSize = new System.Drawing.Size(748, 226);
             this.Controls.Add(this.pbActionBarSlot9);
             this.Controls.Add(this.pbActionBarSlot8);
             this.Controls.Add(this.pbActionBarSlot7);

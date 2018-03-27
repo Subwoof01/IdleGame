@@ -13,6 +13,7 @@ namespace IdleGame
         public ManaBar()
         {
             this.SetStyle(ControlStyles.UserPaint, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
         protected override void OnPaint(PaintEventArgs e)

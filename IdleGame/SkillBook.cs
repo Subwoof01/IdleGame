@@ -119,7 +119,7 @@ namespace IdleGame
 
         private void pbSkillOne_Click(object sender, EventArgs e)
         {
-            if (_player.skills[0] != null)
+            if (_player.skills[0] != null && _selectedSlot != null)
             {
                 _selectedSlot.Image = _player.skills[0].image;
                 _player.actionBar[_actionSlotIndex] = _player.skills[0];
@@ -128,7 +128,7 @@ namespace IdleGame
 
         private void pbSkillTwo_Click(object sender, EventArgs e)
         {
-            if (_player.skills[1] != null)
+            if (_player.skills[1] != null && _selectedSlot != null)
             {
                 _selectedSlot.Image = _player.skills[1].image;
                 _player.actionBar[_actionSlotIndex] = _player.skills[1];
@@ -137,7 +137,7 @@ namespace IdleGame
 
         private void pbSkillThree_Click(object sender, EventArgs e)
         {
-            if (_player.skills[2] != null)
+            if (_player.skills[2] != null && _selectedSlot != null)
             {
                 _selectedSlot.Image = _player.skills[2].image;
                 _player.actionBar[_actionSlotIndex] = _player.skills[2];
@@ -146,7 +146,7 @@ namespace IdleGame
 
         private void pbSkillFour_Click(object sender, EventArgs e)
         {
-            if (_player.skills[3] != null)
+            if (_player.skills[3] != null && _selectedSlot != null)
             {
                 _selectedSlot.Image = _player.skills[3].image;
                 _player.actionBar[_actionSlotIndex] = _player.skills[3];
@@ -155,7 +155,7 @@ namespace IdleGame
 
         private void pbSkillFive_Click(object sender, EventArgs e)
         {
-            if (_player.skills[4] != null)
+            if (_player.skills[4] != null && _selectedSlot != null)
             {
                 _selectedSlot.Image = _player.skills[4].image;
                 _player.actionBar[_actionSlotIndex] = _player.skills[4];
@@ -164,7 +164,7 @@ namespace IdleGame
 
         private void pbSkillSix_Click(object sender, EventArgs e)
         {
-            if (_player.skills[5] != null)
+            if (_player.skills[5] != null && _selectedSlot != null)
             {
                 _selectedSlot.Image = _player.skills[5].image;
                 _player.actionBar[_actionSlotIndex] = _player.skills[5];
@@ -173,7 +173,7 @@ namespace IdleGame
 
         private void pbSkillSeven_Click(object sender, EventArgs e)
         {
-            if (_player.skills[6] != null)
+            if (_player.skills[6] != null && _selectedSlot != null)
             {
                 _selectedSlot.Image = _player.skills[6].image;
                 _player.actionBar[_actionSlotIndex] = _player.skills[6];
@@ -182,7 +182,7 @@ namespace IdleGame
 
         private void pbSkillEight_Click(object sender, EventArgs e)
         {
-            if (_player.skills[7] != null)
+            if (_player.skills[7] != null && _selectedSlot != null)
             {
                 _selectedSlot.Image = _player.skills[7].image;
                 _player.actionBar[_actionSlotIndex] = _player.skills[7];
@@ -191,7 +191,7 @@ namespace IdleGame
 
         private void pbSkillNine_Click(object sender, EventArgs e)
         {
-            if (_player.skills[8] != null)
+            if (_player.skills[8] != null && _selectedSlot != null)
             {
                 _selectedSlot.Image = _player.skills[8].image;
                 _player.actionBar[_actionSlotIndex] = _player.skills[8];
@@ -200,7 +200,7 @@ namespace IdleGame
 
         private void pbSkillTen_Click(object sender, EventArgs e)
         {
-            if (_player.skills[9] != null)
+            if (_player.skills[9] != null && _selectedSlot != null)
             {
                 _selectedSlot.Image = _player.skills[9].image;
                 _player.actionBar[_actionSlotIndex] = _player.skills[9];

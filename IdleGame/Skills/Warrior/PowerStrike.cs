@@ -19,9 +19,10 @@ namespace IdleGame.Skills.Warrior
             return damagePhysical.MaxFinal() * (1 + 0.05 * currentRank);
         }
 
-        public override void Effect(Enemy enemy)
+        public override double Effect(Enemy enemy)
         {
             enemy.healthCurrent -= (int)(Damage() * (1 - enemy.PhysicalResistance()));
+            return Damage() * (1 - enemy.PhysicalResistance());
         }
 
         public override string ToolTip()
@@ -34,6 +35,7 @@ namespace IdleGame.Skills.Warrior
             _player = player;
             name = "Power Strike";
             type = Type.Active;
+            damageType = DamageType.Physical;
             levelRank = new int[] { 2, 6, 9, 14, 19, 25, 31, 39, 47, 58, 71, 92 };
             currentRank = 0;
             castTime = 2;

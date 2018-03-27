@@ -75,13 +75,15 @@ namespace IdleGame
             }
         }
 
-        public void WeaponAttack(Enemy enemy)
+        public double WeaponAttack(Enemy enemy)
         {
             Random random = new Random();
             PhysicalDamage physicalDamage = (PhysicalDamage)this.attributes[(int)PlayerStat.Attribute.PhysicalDamage];
 
             int damage = random.Next((int)physicalDamage.MinFinal(), (int)physicalDamage.MaxFinal());
             enemy.healthCurrent -= (int)(damage * (1 - enemy.PhysicalResistance()));
+
+            return damage * (1 - enemy.PhysicalResistance());
         }
 
         // Constructor.
