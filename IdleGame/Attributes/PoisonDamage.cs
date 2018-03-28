@@ -6,30 +6,28 @@ using System.Threading.Tasks;
 
 namespace IdleGame.Attributes
 {
-    public class ElementalResistance : PlayerStat
+    public class PoisonDamage : PlayerStat
     {
         public override double Final()
         {
-            return (1 + AttributeBonus()) * (1 + ItemBonus());
+            return AttributeBonus() + ItemBonus();
         }
 
         private double AttributeBonus()
         {
-            return _player.attributes[(int)Attribute.Intelligence].Final() * 0.0001;
+            return 0;
         }
 
         public override double ItemBonus()
         {
-            Armour armour;
-
             double bonus = 0;
 
-            for (int i = 0; i < _player.equipment.Length; i++)
+            foreach (Item i in _player.equipment)
             {
-                if (_player.equipment[i] is Armour)
+                if (i != null)
                 {
-                    armour = (Armour)_player.equipment[i];
-                    bonus += armour.elementalResistance;
+                    bonus += i.elementalDamageBonus;
+                    bonus += i.poisonDamageBonus;
                 }
             }
 
@@ -46,7 +44,7 @@ namespace IdleGame.Attributes
             throw new NotImplementedException();
         }
 
-        public ElementalResistance(Player player)
+        public PoisonDamage(Player player)
         {
             _player = player;
         }

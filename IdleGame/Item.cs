@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace IdleGame
 {
-    public class Item : Entity
+    public abstract class Item : Entity
     {
-        public static Random random = new Random();
+        protected static Random random = new Random();
         public enum Equip { Head, Neck, Shoulder, Chest, Hands, Ring, Waist, Feet, MainHand, OffHand };
 
         public int affix;
         public Equip equipSlot;
         public Enum type;
+        public string tooltip;
 
         public int price;
 
@@ -31,5 +32,9 @@ namespace IdleGame
         // Percentual Bonuses
         public double physicalDamageBonus;
         public double elementalDamageBonus;
+        public double fireDamageBonus;
+        public double lightningDamageBonus;
+        public double coldDamageBonus;
+        public double poisonDamageBonus;
     }
 }

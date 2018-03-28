@@ -60,8 +60,8 @@
             this.tbMana = new System.Windows.Forms.TextBox();
             this.lblArmour = new System.Windows.Forms.Label();
             this.tbArmour = new System.Windows.Forms.TextBox();
-            this.lblElementalDamageStatic = new System.Windows.Forms.Label();
-            this.tbElementalDamage = new System.Windows.Forms.TextBox();
+            this.lblFireDamageStatic = new System.Windows.Forms.Label();
+            this.tbFireDamageIncrease = new System.Windows.Forms.TextBox();
             this.lblCriticalStrikeChance = new System.Windows.Forms.Label();
             this.tbCriticalChance = new System.Windows.Forms.TextBox();
             this.lblCriticalDamage = new System.Windows.Forms.Label();
@@ -69,8 +69,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lblPhysicalReduction = new System.Windows.Forms.Label();
             this.tbPhysicalReduction = new System.Windows.Forms.TextBox();
-            this.lblElementalResistance = new System.Windows.Forms.Label();
-            this.tbElementalResistance = new System.Windows.Forms.TextBox();
+            this.lblFireResistance = new System.Windows.Forms.Label();
+            this.tbFireResistance = new System.Windows.Forms.TextBox();
             this.lblHealthRegeneration = new System.Windows.Forms.Label();
             this.tbHealthRegeneration = new System.Windows.Forms.TextBox();
             this.lblManaRegeneration = new System.Windows.Forms.Label();
@@ -80,11 +80,21 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tbPhysicalDamageIncrease = new System.Windows.Forms.TextBox();
             this.lblPhysicalDamageIncrease = new System.Windows.Forms.Label();
-            this.tbElementalDamageIncrease = new System.Windows.Forms.TextBox();
-            this.lblElementalDamageIncrease = new System.Windows.Forms.Label();
+            this.tbLightningDamageIncrease = new System.Windows.Forms.TextBox();
+            this.lblLightningDamageIncrease = new System.Windows.Forms.Label();
             this.tbClass = new System.Windows.Forms.TextBox();
             this.tbTalentPoints = new System.Windows.Forms.TextBox();
             this.lblTalentPointsStatic = new System.Windows.Forms.Label();
+            this.tbLightningResistance = new System.Windows.Forms.TextBox();
+            this.lblLightningResistance = new System.Windows.Forms.Label();
+            this.tbColdResistance = new System.Windows.Forms.TextBox();
+            this.lblColdResistance = new System.Windows.Forms.Label();
+            this.tbPoisonResistance = new System.Windows.Forms.TextBox();
+            this.lblPoisonResistance = new System.Windows.Forms.Label();
+            this.tbColdDamageIncrease = new System.Windows.Forms.TextBox();
+            this.lblColdDamageIncreaseStatic = new System.Windows.Forms.Label();
+            this.tbPoisonDamageIncrease = new System.Windows.Forms.TextBox();
+            this.lblPoisonDamageIncreaseStatic = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNameStatic
@@ -164,7 +174,7 @@
             // 
             // btnTalentTree
             // 
-            this.btnTalentTree.Location = new System.Drawing.Point(129, 454);
+            this.btnTalentTree.Location = new System.Drawing.Point(129, 584);
             this.btnTalentTree.Name = "btnTalentTree";
             this.btnTalentTree.Size = new System.Drawing.Size(58, 20);
             this.btnTalentTree.TabIndex = 29;
@@ -174,7 +184,7 @@
             // 
             // btnSpells
             // 
-            this.btnSpells.Location = new System.Drawing.Point(65, 454);
+            this.btnSpells.Location = new System.Drawing.Point(65, 584);
             this.btnSpells.Name = "btnSpells";
             this.btnSpells.Size = new System.Drawing.Size(58, 20);
             this.btnSpells.TabIndex = 30;
@@ -396,30 +406,30 @@
             this.tbArmour.Text = "9999";
             this.tbArmour.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // lblElementalDamageStatic
+            // lblFireDamageStatic
             // 
-            this.lblElementalDamageStatic.AutoSize = true;
-            this.lblElementalDamageStatic.Location = new System.Drawing.Point(12, 245);
-            this.lblElementalDamageStatic.Name = "lblElementalDamageStatic";
-            this.lblElementalDamageStatic.Size = new System.Drawing.Size(99, 13);
-            this.lblElementalDamageStatic.TabIndex = 31;
-            this.lblElementalDamageStatic.Text = "Elemental Damage:";
+            this.lblFireDamageStatic.AutoSize = true;
+            this.lblFireDamageStatic.Location = new System.Drawing.Point(12, 245);
+            this.lblFireDamageStatic.Name = "lblFireDamageStatic";
+            this.lblFireDamageStatic.Size = new System.Drawing.Size(114, 13);
+            this.lblFireDamageStatic.TabIndex = 31;
+            this.lblFireDamageStatic.Text = "Fire Damage Increase:";
             // 
-            // tbElementalDamage
+            // tbFireDamageIncrease
             // 
-            this.tbElementalDamage.HideSelection = false;
-            this.tbElementalDamage.Location = new System.Drawing.Point(171, 242);
-            this.tbElementalDamage.Name = "tbElementalDamage";
-            this.tbElementalDamage.ReadOnly = true;
-            this.tbElementalDamage.Size = new System.Drawing.Size(62, 20);
-            this.tbElementalDamage.TabIndex = 32;
-            this.tbElementalDamage.Text = "99999";
-            this.tbElementalDamage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbFireDamageIncrease.HideSelection = false;
+            this.tbFireDamageIncrease.Location = new System.Drawing.Point(171, 242);
+            this.tbFireDamageIncrease.Name = "tbFireDamageIncrease";
+            this.tbFireDamageIncrease.ReadOnly = true;
+            this.tbFireDamageIncrease.Size = new System.Drawing.Size(62, 20);
+            this.tbFireDamageIncrease.TabIndex = 32;
+            this.tbFireDamageIncrease.Text = "99%";
+            this.tbFireDamageIncrease.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblCriticalStrikeChance
             // 
             this.lblCriticalStrikeChance.AutoSize = true;
-            this.lblCriticalStrikeChance.Location = new System.Drawing.Point(12, 297);
+            this.lblCriticalStrikeChance.Location = new System.Drawing.Point(12, 349);
             this.lblCriticalStrikeChance.Name = "lblCriticalStrikeChance";
             this.lblCriticalStrikeChance.Size = new System.Drawing.Size(111, 13);
             this.lblCriticalStrikeChance.TabIndex = 33;
@@ -428,7 +438,7 @@
             // tbCriticalChance
             // 
             this.tbCriticalChance.HideSelection = false;
-            this.tbCriticalChance.Location = new System.Drawing.Point(171, 294);
+            this.tbCriticalChance.Location = new System.Drawing.Point(171, 346);
             this.tbCriticalChance.Name = "tbCriticalChance";
             this.tbCriticalChance.ReadOnly = true;
             this.tbCriticalChance.Size = new System.Drawing.Size(62, 20);
@@ -439,7 +449,7 @@
             // lblCriticalDamage
             // 
             this.lblCriticalDamage.AutoSize = true;
-            this.lblCriticalDamage.Location = new System.Drawing.Point(12, 323);
+            this.lblCriticalDamage.Location = new System.Drawing.Point(12, 375);
             this.lblCriticalDamage.Name = "lblCriticalDamage";
             this.lblCriticalDamage.Size = new System.Drawing.Size(126, 13);
             this.lblCriticalDamage.TabIndex = 35;
@@ -448,7 +458,7 @@
             // tbCriticalDamage
             // 
             this.tbCriticalDamage.HideSelection = false;
-            this.tbCriticalDamage.Location = new System.Drawing.Point(171, 320);
+            this.tbCriticalDamage.Location = new System.Drawing.Point(171, 372);
             this.tbCriticalDamage.Name = "tbCriticalDamage";
             this.tbCriticalDamage.ReadOnly = true;
             this.tbCriticalDamage.Size = new System.Drawing.Size(62, 20);
@@ -459,7 +469,7 @@
             // label5
             // 
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(3, 343);
+            this.label5.Location = new System.Drawing.Point(3, 395);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(240, 2);
             this.label5.TabIndex = 37;
@@ -468,7 +478,7 @@
             // lblPhysicalReduction
             // 
             this.lblPhysicalReduction.AutoSize = true;
-            this.lblPhysicalReduction.Location = new System.Drawing.Point(12, 351);
+            this.lblPhysicalReduction.Location = new System.Drawing.Point(12, 403);
             this.lblPhysicalReduction.Name = "lblPhysicalReduction";
             this.lblPhysicalReduction.Size = new System.Drawing.Size(144, 13);
             this.lblPhysicalReduction.TabIndex = 38;
@@ -477,7 +487,7 @@
             // tbPhysicalReduction
             // 
             this.tbPhysicalReduction.HideSelection = false;
-            this.tbPhysicalReduction.Location = new System.Drawing.Point(171, 348);
+            this.tbPhysicalReduction.Location = new System.Drawing.Point(171, 400);
             this.tbPhysicalReduction.Name = "tbPhysicalReduction";
             this.tbPhysicalReduction.ReadOnly = true;
             this.tbPhysicalReduction.Size = new System.Drawing.Size(62, 20);
@@ -485,30 +495,30 @@
             this.tbPhysicalReduction.Text = "99%";
             this.tbPhysicalReduction.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // lblElementalResistance
+            // lblFireResistance
             // 
-            this.lblElementalResistance.AutoSize = true;
-            this.lblElementalResistance.Location = new System.Drawing.Point(12, 377);
-            this.lblElementalResistance.Name = "lblElementalResistance";
-            this.lblElementalResistance.Size = new System.Drawing.Size(155, 13);
-            this.lblElementalResistance.TabIndex = 40;
-            this.lblElementalResistance.Text = "Elemental Damage Resistance:";
+            this.lblFireResistance.AutoSize = true;
+            this.lblFireResistance.Location = new System.Drawing.Point(12, 429);
+            this.lblFireResistance.Name = "lblFireResistance";
+            this.lblFireResistance.Size = new System.Drawing.Size(126, 13);
+            this.lblFireResistance.TabIndex = 40;
+            this.lblFireResistance.Text = "Fire Damage Resistance:";
             // 
-            // tbElementalResistance
+            // tbFireResistance
             // 
-            this.tbElementalResistance.HideSelection = false;
-            this.tbElementalResistance.Location = new System.Drawing.Point(171, 374);
-            this.tbElementalResistance.Name = "tbElementalResistance";
-            this.tbElementalResistance.ReadOnly = true;
-            this.tbElementalResistance.Size = new System.Drawing.Size(62, 20);
-            this.tbElementalResistance.TabIndex = 41;
-            this.tbElementalResistance.Text = "99%";
-            this.tbElementalResistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbFireResistance.HideSelection = false;
+            this.tbFireResistance.Location = new System.Drawing.Point(171, 426);
+            this.tbFireResistance.Name = "tbFireResistance";
+            this.tbFireResistance.ReadOnly = true;
+            this.tbFireResistance.Size = new System.Drawing.Size(62, 20);
+            this.tbFireResistance.TabIndex = 41;
+            this.tbFireResistance.Text = "99%";
+            this.tbFireResistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblHealthRegeneration
             // 
             this.lblHealthRegeneration.AutoSize = true;
-            this.lblHealthRegeneration.Location = new System.Drawing.Point(12, 403);
+            this.lblHealthRegeneration.Location = new System.Drawing.Point(12, 533);
             this.lblHealthRegeneration.Name = "lblHealthRegeneration";
             this.lblHealthRegeneration.Size = new System.Drawing.Size(108, 13);
             this.lblHealthRegeneration.TabIndex = 42;
@@ -517,7 +527,7 @@
             // tbHealthRegeneration
             // 
             this.tbHealthRegeneration.HideSelection = false;
-            this.tbHealthRegeneration.Location = new System.Drawing.Point(171, 400);
+            this.tbHealthRegeneration.Location = new System.Drawing.Point(171, 530);
             this.tbHealthRegeneration.Name = "tbHealthRegeneration";
             this.tbHealthRegeneration.ReadOnly = true;
             this.tbHealthRegeneration.Size = new System.Drawing.Size(62, 20);
@@ -528,7 +538,7 @@
             // lblManaRegeneration
             // 
             this.lblManaRegeneration.AutoSize = true;
-            this.lblManaRegeneration.Location = new System.Drawing.Point(12, 429);
+            this.lblManaRegeneration.Location = new System.Drawing.Point(12, 559);
             this.lblManaRegeneration.Name = "lblManaRegeneration";
             this.lblManaRegeneration.Size = new System.Drawing.Size(104, 13);
             this.lblManaRegeneration.TabIndex = 44;
@@ -537,7 +547,7 @@
             // tbManaRegeneration
             // 
             this.tbManaRegeneration.HideSelection = false;
-            this.tbManaRegeneration.Location = new System.Drawing.Point(171, 426);
+            this.tbManaRegeneration.Location = new System.Drawing.Point(171, 556);
             this.tbManaRegeneration.Name = "tbManaRegeneration";
             this.tbManaRegeneration.ReadOnly = true;
             this.tbManaRegeneration.Size = new System.Drawing.Size(62, 20);
@@ -548,7 +558,7 @@
             // label11
             // 
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label11.Location = new System.Drawing.Point(3, 449);
+            this.label11.Location = new System.Drawing.Point(3, 579);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(240, 2);
             this.label11.TabIndex = 48;
@@ -556,7 +566,7 @@
             // 
             // btnReload
             // 
-            this.btnReload.Location = new System.Drawing.Point(3, 454);
+            this.btnReload.Location = new System.Drawing.Point(3, 584);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(50, 20);
             this.btnReload.TabIndex = 49;
@@ -566,7 +576,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(192, 454);
+            this.button1.Location = new System.Drawing.Point(192, 584);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(47, 21);
             this.button1.TabIndex = 50;
@@ -594,25 +604,25 @@
             this.lblPhysicalDamageIncrease.TabIndex = 51;
             this.lblPhysicalDamageIncrease.Text = "Physical Damage Increase:";
             // 
-            // tbElementalDamageIncrease
+            // tbLightningDamageIncrease
             // 
-            this.tbElementalDamageIncrease.HideSelection = false;
-            this.tbElementalDamageIncrease.Location = new System.Drawing.Point(171, 268);
-            this.tbElementalDamageIncrease.Name = "tbElementalDamageIncrease";
-            this.tbElementalDamageIncrease.ReadOnly = true;
-            this.tbElementalDamageIncrease.Size = new System.Drawing.Size(62, 20);
-            this.tbElementalDamageIncrease.TabIndex = 54;
-            this.tbElementalDamageIncrease.Text = "99%";
-            this.tbElementalDamageIncrease.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbLightningDamageIncrease.HideSelection = false;
+            this.tbLightningDamageIncrease.Location = new System.Drawing.Point(171, 268);
+            this.tbLightningDamageIncrease.Name = "tbLightningDamageIncrease";
+            this.tbLightningDamageIncrease.ReadOnly = true;
+            this.tbLightningDamageIncrease.Size = new System.Drawing.Size(62, 20);
+            this.tbLightningDamageIncrease.TabIndex = 54;
+            this.tbLightningDamageIncrease.Text = "99%";
+            this.tbLightningDamageIncrease.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // lblElementalDamageIncrease
+            // lblLightningDamageIncrease
             // 
-            this.lblElementalDamageIncrease.AutoSize = true;
-            this.lblElementalDamageIncrease.Location = new System.Drawing.Point(12, 271);
-            this.lblElementalDamageIncrease.Name = "lblElementalDamageIncrease";
-            this.lblElementalDamageIncrease.Size = new System.Drawing.Size(143, 13);
-            this.lblElementalDamageIncrease.TabIndex = 53;
-            this.lblElementalDamageIncrease.Text = "Elemental Damage Increase:";
+            this.lblLightningDamageIncrease.AutoSize = true;
+            this.lblLightningDamageIncrease.Location = new System.Drawing.Point(12, 271);
+            this.lblLightningDamageIncrease.Name = "lblLightningDamageIncrease";
+            this.lblLightningDamageIncrease.Size = new System.Drawing.Size(140, 13);
+            this.lblLightningDamageIncrease.TabIndex = 53;
+            this.lblLightningDamageIncrease.Text = "Lightning Damage Increase:";
             // 
             // tbClass
             // 
@@ -643,16 +653,126 @@
             this.lblTalentPointsStatic.TabIndex = 56;
             this.lblTalentPointsStatic.Text = "Talent Points:";
             // 
+            // tbLightningResistance
+            // 
+            this.tbLightningResistance.HideSelection = false;
+            this.tbLightningResistance.Location = new System.Drawing.Point(171, 452);
+            this.tbLightningResistance.Name = "tbLightningResistance";
+            this.tbLightningResistance.ReadOnly = true;
+            this.tbLightningResistance.Size = new System.Drawing.Size(62, 20);
+            this.tbLightningResistance.TabIndex = 59;
+            this.tbLightningResistance.Text = "99%";
+            this.tbLightningResistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblLightningResistance
+            // 
+            this.lblLightningResistance.AutoSize = true;
+            this.lblLightningResistance.Location = new System.Drawing.Point(12, 455);
+            this.lblLightningResistance.Name = "lblLightningResistance";
+            this.lblLightningResistance.Size = new System.Drawing.Size(152, 13);
+            this.lblLightningResistance.TabIndex = 58;
+            this.lblLightningResistance.Text = "Lightning Damage Resistance:";
+            // 
+            // tbColdResistance
+            // 
+            this.tbColdResistance.HideSelection = false;
+            this.tbColdResistance.Location = new System.Drawing.Point(171, 478);
+            this.tbColdResistance.Name = "tbColdResistance";
+            this.tbColdResistance.ReadOnly = true;
+            this.tbColdResistance.Size = new System.Drawing.Size(62, 20);
+            this.tbColdResistance.TabIndex = 61;
+            this.tbColdResistance.Text = "99%";
+            this.tbColdResistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblColdResistance
+            // 
+            this.lblColdResistance.AutoSize = true;
+            this.lblColdResistance.Location = new System.Drawing.Point(12, 481);
+            this.lblColdResistance.Name = "lblColdResistance";
+            this.lblColdResistance.Size = new System.Drawing.Size(130, 13);
+            this.lblColdResistance.TabIndex = 60;
+            this.lblColdResistance.Text = "Cold Damage Resistance:";
+            // 
+            // tbPoisonResistance
+            // 
+            this.tbPoisonResistance.HideSelection = false;
+            this.tbPoisonResistance.Location = new System.Drawing.Point(171, 504);
+            this.tbPoisonResistance.Name = "tbPoisonResistance";
+            this.tbPoisonResistance.ReadOnly = true;
+            this.tbPoisonResistance.Size = new System.Drawing.Size(62, 20);
+            this.tbPoisonResistance.TabIndex = 63;
+            this.tbPoisonResistance.Text = "99%";
+            this.tbPoisonResistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblPoisonResistance
+            // 
+            this.lblPoisonResistance.AutoSize = true;
+            this.lblPoisonResistance.Location = new System.Drawing.Point(12, 507);
+            this.lblPoisonResistance.Name = "lblPoisonResistance";
+            this.lblPoisonResistance.Size = new System.Drawing.Size(141, 13);
+            this.lblPoisonResistance.TabIndex = 62;
+            this.lblPoisonResistance.Text = "Poison Damage Resistance:";
+            // 
+            // tbColdDamageIncrease
+            // 
+            this.tbColdDamageIncrease.HideSelection = false;
+            this.tbColdDamageIncrease.Location = new System.Drawing.Point(171, 294);
+            this.tbColdDamageIncrease.Name = "tbColdDamageIncrease";
+            this.tbColdDamageIncrease.ReadOnly = true;
+            this.tbColdDamageIncrease.Size = new System.Drawing.Size(62, 20);
+            this.tbColdDamageIncrease.TabIndex = 65;
+            this.tbColdDamageIncrease.Text = "99%";
+            this.tbColdDamageIncrease.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblColdDamageIncreaseStatic
+            // 
+            this.lblColdDamageIncreaseStatic.AutoSize = true;
+            this.lblColdDamageIncreaseStatic.Location = new System.Drawing.Point(12, 297);
+            this.lblColdDamageIncreaseStatic.Name = "lblColdDamageIncreaseStatic";
+            this.lblColdDamageIncreaseStatic.Size = new System.Drawing.Size(118, 13);
+            this.lblColdDamageIncreaseStatic.TabIndex = 64;
+            this.lblColdDamageIncreaseStatic.Text = "Cold Damage Increase:";
+            // 
+            // tbPoisonDamageIncrease
+            // 
+            this.tbPoisonDamageIncrease.HideSelection = false;
+            this.tbPoisonDamageIncrease.Location = new System.Drawing.Point(171, 320);
+            this.tbPoisonDamageIncrease.Name = "tbPoisonDamageIncrease";
+            this.tbPoisonDamageIncrease.ReadOnly = true;
+            this.tbPoisonDamageIncrease.Size = new System.Drawing.Size(62, 20);
+            this.tbPoisonDamageIncrease.TabIndex = 67;
+            this.tbPoisonDamageIncrease.Text = "99%";
+            this.tbPoisonDamageIncrease.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblPoisonDamageIncreaseStatic
+            // 
+            this.lblPoisonDamageIncreaseStatic.AutoSize = true;
+            this.lblPoisonDamageIncreaseStatic.Location = new System.Drawing.Point(12, 323);
+            this.lblPoisonDamageIncreaseStatic.Name = "lblPoisonDamageIncreaseStatic";
+            this.lblPoisonDamageIncreaseStatic.Size = new System.Drawing.Size(129, 13);
+            this.lblPoisonDamageIncreaseStatic.TabIndex = 66;
+            this.lblPoisonDamageIncreaseStatic.Text = "Poison Damage Increase:";
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(246, 478);
+            this.ClientSize = new System.Drawing.Size(246, 609);
+            this.Controls.Add(this.tbPoisonDamageIncrease);
+            this.Controls.Add(this.lblPoisonDamageIncreaseStatic);
+            this.Controls.Add(this.tbColdDamageIncrease);
+            this.Controls.Add(this.lblColdDamageIncreaseStatic);
+            this.Controls.Add(this.tbPoisonResistance);
+            this.Controls.Add(this.lblPoisonResistance);
+            this.Controls.Add(this.tbColdResistance);
+            this.Controls.Add(this.lblColdResistance);
+            this.Controls.Add(this.tbLightningResistance);
+            this.Controls.Add(this.lblLightningResistance);
             this.Controls.Add(this.tbTalentPoints);
             this.Controls.Add(this.lblTalentPointsStatic);
             this.Controls.Add(this.tbClass);
-            this.Controls.Add(this.tbElementalDamageIncrease);
-            this.Controls.Add(this.lblElementalDamageIncrease);
+            this.Controls.Add(this.tbLightningDamageIncrease);
+            this.Controls.Add(this.lblLightningDamageIncrease);
             this.Controls.Add(this.tbPhysicalDamageIncrease);
             this.Controls.Add(this.lblPhysicalDamageIncrease);
             this.Controls.Add(this.button1);
@@ -664,8 +784,8 @@
             this.Controls.Add(this.lblManaRegeneration);
             this.Controls.Add(this.tbHealthRegeneration);
             this.Controls.Add(this.lblHealthRegeneration);
-            this.Controls.Add(this.tbElementalResistance);
-            this.Controls.Add(this.lblElementalResistance);
+            this.Controls.Add(this.tbFireResistance);
+            this.Controls.Add(this.lblFireResistance);
             this.Controls.Add(this.tbPhysicalReduction);
             this.Controls.Add(this.lblPhysicalReduction);
             this.Controls.Add(this.label5);
@@ -673,8 +793,8 @@
             this.Controls.Add(this.lblCriticalDamage);
             this.Controls.Add(this.tbCriticalChance);
             this.Controls.Add(this.lblCriticalStrikeChance);
-            this.Controls.Add(this.tbElementalDamage);
-            this.Controls.Add(this.lblElementalDamageStatic);
+            this.Controls.Add(this.tbFireDamageIncrease);
+            this.Controls.Add(this.lblFireDamageStatic);
             this.Controls.Add(this.btnSpells);
             this.Controls.Add(this.btnTalentTree);
             this.Controls.Add(this.tbArmour);
@@ -749,8 +869,8 @@
         private System.Windows.Forms.TextBox tbMana;
         private System.Windows.Forms.Label lblArmour;
         private System.Windows.Forms.TextBox tbArmour;
-        private System.Windows.Forms.Label lblElementalDamageStatic;
-        private System.Windows.Forms.TextBox tbElementalDamage;
+        private System.Windows.Forms.Label lblFireDamageStatic;
+        private System.Windows.Forms.TextBox tbFireDamageIncrease;
         private System.Windows.Forms.Label lblCriticalStrikeChance;
         private System.Windows.Forms.TextBox tbCriticalChance;
         private System.Windows.Forms.Label lblCriticalDamage;
@@ -758,8 +878,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblPhysicalReduction;
         private System.Windows.Forms.TextBox tbPhysicalReduction;
-        private System.Windows.Forms.Label lblElementalResistance;
-        private System.Windows.Forms.TextBox tbElementalResistance;
+        private System.Windows.Forms.Label lblFireResistance;
+        private System.Windows.Forms.TextBox tbFireResistance;
         private System.Windows.Forms.Label lblHealthRegeneration;
         private System.Windows.Forms.TextBox tbHealthRegeneration;
         private System.Windows.Forms.Label lblManaRegeneration;
@@ -769,10 +889,20 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tbPhysicalDamageIncrease;
         private System.Windows.Forms.Label lblPhysicalDamageIncrease;
-        private System.Windows.Forms.TextBox tbElementalDamageIncrease;
-        private System.Windows.Forms.Label lblElementalDamageIncrease;
+        private System.Windows.Forms.TextBox tbLightningDamageIncrease;
+        private System.Windows.Forms.Label lblLightningDamageIncrease;
         private System.Windows.Forms.TextBox tbClass;
         private System.Windows.Forms.TextBox tbTalentPoints;
         private System.Windows.Forms.Label lblTalentPointsStatic;
+        private System.Windows.Forms.TextBox tbLightningResistance;
+        private System.Windows.Forms.Label lblLightningResistance;
+        private System.Windows.Forms.TextBox tbColdResistance;
+        private System.Windows.Forms.Label lblColdResistance;
+        private System.Windows.Forms.TextBox tbPoisonResistance;
+        private System.Windows.Forms.Label lblPoisonResistance;
+        private System.Windows.Forms.TextBox tbColdDamageIncrease;
+        private System.Windows.Forms.Label lblColdDamageIncreaseStatic;
+        private System.Windows.Forms.TextBox tbPoisonDamageIncrease;
+        private System.Windows.Forms.Label lblPoisonDamageIncreaseStatic;
     }
 }

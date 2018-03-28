@@ -47,11 +47,17 @@
   <ItemGroup>
     <Compile Include="Armour.cs" />
     <Compile Include="Attributes\ArmourStat.cs" />
+    <Compile Include="Attributes\PoisonDamage.cs" />
+    <Compile Include="Attributes\ColdResistance.cs" />
     <Compile Include="Attributes\CriticalChance.cs" />
     <Compile Include="Attributes\CriticalDamage.cs" />
     <Compile Include="Attributes\Dexterity.cs" />
-    <Compile Include="Attributes\ElementalDamage.cs" />
-    <Compile Include="Attributes\ElementalResistance.cs" />
+    <Compile Include="Attributes\FireDamage.cs" />
+    <Compile Include="Attributes\ColdDamage.cs" />
+    <Compile Include="Attributes\LightningDamage.cs" />
+    <Compile Include="Attributes\PoisonResistance.cs" />
+    <Compile Include="Attributes\LightningResistance.cs" />
+    <Compile Include="Attributes\FireResistance.cs" />
     <Compile Include="Attributes\Health.cs" />
     <Compile Include="Attributes\HealthRegeneration.cs" />
     <Compile Include="Attributes\Intelligence.cs" />
@@ -67,7 +73,8 @@
     <Compile Include="CharacterCreationForm.Designer.cs">
       <DependentUpon>CharacterCreationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Enemy.cs" />
+    <Compile Include="Enemies\Enemy.cs" />
+    <Compile Include="Enemies\Types\Goblinoid.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="ExperienceBar.cs">
       <Generator>ExperienceBar</Generator>
@@ -116,6 +123,7 @@
     <Compile Include="Skills\Skill.cs" />
     <Compile Include="Skills\Warrior\PowerStrike.cs" />
     <Compile Include="States\Burning.cs" />
+    <Compile Include="States\Poisoned.cs" />
     <Compile Include="States\State.cs" />
     <Compile Include="Statistic.cs" />
     <Compile Include="Talents\Warrior\ArmouredToTheTeeth.cs" />
@@ -190,6 +198,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Enemies\Named\" />
     <Folder Include="Saves\" />
   </ItemGroup>
   <ItemGroup>

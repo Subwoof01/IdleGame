@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace IdleGame.Attributes
 {
-    public class ElementalDamage : PlayerStat
+    public class ColdDamage : PlayerStat
     {
         public override double Final()
         {
-            return AttributeBonus() +ItemBonus();
+            return AttributeBonus() + ItemBonus();
         }
 
         private double AttributeBonus()
@@ -24,7 +24,11 @@ namespace IdleGame.Attributes
 
             foreach (Item i in _player.equipment)
             {
-                if (i != null) bonus += i.elementalDamageBonus;
+                if (i != null)
+                {
+                    bonus += i.elementalDamageBonus;
+                    bonus += i.coldDamageBonus;
+                }
             }
 
             return bonus;
@@ -40,7 +44,7 @@ namespace IdleGame.Attributes
             throw new NotImplementedException();
         }
 
-        public ElementalDamage(Player player)
+        public ColdDamage(Player player)
         {
             _player = player;
         }

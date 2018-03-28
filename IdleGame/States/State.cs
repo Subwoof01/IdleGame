@@ -10,8 +10,10 @@ namespace IdleGame.States
     public abstract class State
     {
         //public enum States { Bleeding, Poisoned, Feared, Angered, Burning, Freezing };
+        public enum Target { Player, Enemy };
 
         public string flavourText;
+        public Target target;
 
         public int duration;
         public int startTime;

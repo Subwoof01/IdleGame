@@ -46,14 +46,19 @@ namespace IdleGame
             tbArmour.Text = _player.attributes[(int)PlayerStat.Attribute.Armour].Final().ToString();
 
             tbPhysicalDamage.Text = $"{physicalDamage.MinFinal().ToString("0.##")}-{physicalDamage.MaxFinal().ToString("0.##")}";
-            tbPhysicalDamageIncrease.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.PhysicalDamage].Final() - 1) * 100).ToString("0.##")}%";
-            tbElementalDamage.Text = "W.I.P.";
-            tbElementalDamageIncrease.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.ElementalDamage].Final() - 1) * 100).ToString("0.##")}%";
-            tbCriticalChance.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.CriticalChance].Final() - 1) * 100).ToString("0.##")}%";
-            tbCriticalDamage.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.CriticalDamage].Final() - 1) * 100).ToString("0.##")}%";
+            tbPhysicalDamageIncrease.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.PhysicalDamage].Final()) * 100).ToString("0.##")}%";
+            tbFireDamageIncrease.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.FireDamage].Final()) * 100).ToString("0.##")}%";
+            tbLightningDamageIncrease.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.LightningDamage].Final()) * 100).ToString("0.##")}%";
+            tbColdDamageIncrease.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.ColdDamage].Final()) * 100).ToString("0.##")}%";
+            tbPoisonDamageIncrease.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.PoisonDamage].Final()) * 100).ToString("0.##")}%";
+            tbCriticalChance.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.CriticalChance].Final()) * 100).ToString("0.##")}%";
+            tbCriticalDamage.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.CriticalDamage].Final()) * 100).ToString("0.##")}%";
 
-            tbPhysicalReduction.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.PhysicalResistance].Final() - 1) * 100).ToString("0.##")}%";
-            tbElementalResistance.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.ElementalResistance].Final() - 1) * 100).ToString("0.##")}%";
+            tbPhysicalReduction.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.PhysicalResistance].Final()) * 100).ToString("0.##")}%";
+            tbFireResistance.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.FireResistance].Final()) * 100).ToString("0.##")}%";
+            tbLightningResistance.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.LightningResistance].Final()) * 100).ToString("0.##")}%";
+            tbColdResistance.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.ColdResistance].Final()) * 100).ToString("0.##")}%";
+            tbPoisonResistance.Text = $"{((_player.attributes[(int)PlayerStat.Attribute.PoisonResistance].Final()) * 100).ToString("0.##")}%";
             tbHealthRegeneration.Text = $"{_player.attributes[(int)PlayerStat.Attribute.HealthRegeneration].Final()}/s";
             tbManaRegeneration.Text = $"{_player.attributes[(int)PlayerStat.Attribute.ManaRegeneration].Final()}/s";
 
@@ -116,7 +121,8 @@ namespace IdleGame
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _player.IncreaseExp(150);
+            _player.level++;
+            _player.skillPoints += 5;
             _mainForm.UpdateText();
         }
 

@@ -1,4 +1,5 @@
 ﻿using IdleGame.Attributes;
+using IdleGame.Enemies;
 using IdleGame.States;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace IdleGame.Skills.Warrior
         public override double Effect(Enemy enemy, int _starTime)
         {
             enemy.healthCurrent -= (int)(Damage() * (1 - enemy.PhysicalResistance()));
-            enemy.states.Add(new Burning(_starTime, 10000, 1000, enemy, _player));
+            enemy.states.Add(new Burning(_starTime, 10000, 1000, enemy, _player, State.Target.Enemy));
             return Damage() * (1 - enemy.PhysicalResistance());
         }
 

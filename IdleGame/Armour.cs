@@ -9,7 +9,7 @@ namespace IdleGame
     public class Armour : Item
     {
         public enum Type { Heavy, Medium, Light };
-        private enum Affix { Strength, Intelligence, Dexterity, Health, Mana, Armour, HealthRegen, ManaRegen, PhysicalResist, ElementalResist, PhysicalDamage, ElementalDamage };
+        private enum Affix { Strength, Intelligence, Dexterity, Health, Mana, Armour, HealthRegen, ManaRegen, PhysicalResist, ElementalResist, FireResist, LightningResist, ColdResist, PoisonResist, PhysicalDamage, ElementalDamage, FireDamage, LightningDamage, ColdDamage, PoisonDamage };
 
 
         // Flat bonuses.
@@ -23,6 +23,10 @@ namespace IdleGame
         // Percentual bonuses.
         public double physicalResistanceBonus;
         public double elementalResistance;
+        public double fireResistance;
+        public double lightningResistance;
+        public double coldResistance;
+        public double poisonResistance;
 
         public static Armour Generate(int itemLevelMin, int itemLevelMax)
         {
@@ -227,8 +231,16 @@ namespace IdleGame
             double manaRegen = 0;
             double physicalResist = 0;
             double elementalResist = 0;
+            double fireResist = 0;
+            double lightningResist = 0;
+            double coldResist = 0;
+            double poisonResist = 0;
             double physicalDamage = 0;
             double elementalDamage = 0;
+            double fireDamage = 0;
+            double lightningDamage = 0;
+            double coldDamage = 0;
+            double poisonDamage = 0;
             Equip slot = 0;
             Type type = 0;
             int strengthReq = 1;
@@ -297,7 +309,7 @@ namespace IdleGame
 
             for (int i = 0; i < affixAmount; i++)
             {
-                int affixChooser = random.Next(12);
+                int affixChooser = random.Next(20);
                 affixes.Add((Affix)affixChooser);
             }
             #endregion
@@ -358,12 +370,36 @@ namespace IdleGame
                 // Elemental Resistance
                 if (affix.Equals(Affix.ElementalResist))
                     elementalResist = random.Next(21) * 0.01;
+                // Fire Resistance
+                if (affix.Equals(Affix.FireResist))
+                    fireResist = random.Next(21) * 0.01;
+                // Lightning Resistance
+                if (affix.Equals(Affix.LightningResist))
+                    lightningResist = random.Next(21) * 0.01;
+                // Cold Resistance
+                if (affix.Equals(Affix.ColdResist))
+                    coldResist = random.Next(21) * 0.01;
+                // Poison Resistance
+                if (affix.Equals(Affix.PoisonResist))
+                    poisonResist = random.Next(21) * 0.01;
                 // Physical Damage 
                 if (affix.Equals(Affix.PhysicalDamage))
                     physicalDamage = random.Next(21) * 0.01;
                 // Elemental Damage
                 if (affix.Equals(Affix.ElementalDamage))
                     elementalDamage = random.Next(21) * 0.01;
+                // Fire Damage
+                if (affix.Equals(Affix.FireDamage))
+                    fireDamage = random.Next(21) * 0.01;
+                // Lightning Damage
+                if (affix.Equals(Affix.LightningDamage))
+                    lightningDamage = random.Next(21) * 0.01;
+                // Cold Damage
+                if (affix.Equals(Affix.ColdDamage))
+                    coldDamage = random.Next(21) * 0.01;
+                // Poison Damage
+                if (affix.Equals(Affix.PoisonDamage))
+                    poisonDamage = random.Next(21) * 0.01;
             }
             #endregion
 
@@ -380,10 +416,10 @@ namespace IdleGame
             // Buy and sell price
             price = (int)(20 * Math.Pow(1.024, itemLevel));
 
-            return new Armour(itemName, slot, type, itemLevel, strengthReq, intelligenceReq, dexterityReq, strength, intelligence, dexterity, health, mana, armour, healthRegen, manaRegen, physicalResist, elementalResist, physicalDamage, elementalDamage, price);
+            return new Armour(itemName, slot, type, itemLevel, strengthReq, intelligenceReq, dexterityReq, strength, intelligence, dexterity, health, mana, armour, healthRegen, manaRegen, physicalResist, elementalResist, fireResist, lightningResist, coldResist, poisonResist, physicalDamage, elementalDamage, fireDamage, lightningDamage, coldDamage, poisonDamage, price);
         }
 
-        public Armour(string _name, Equip slot, Enum armourType, int levelReq, int strReq, int intReq, int dexReq, int strBonus, int intBonus, int dexBonus, int health, int mana, int armour, double hpRegen, double mpRegen, double physRes, double eleRes, double physDmgBonus, double eleDmgBonus, int gold)
+        public Armour(string _name, Equip slot, Enum armourType, int levelReq, int strReq, int intReq, int dexReq, int strBonus, int intBonus, int dexBonus, int health, int mana, int armour, double hpRegen, double mpRegen, double physRes, double eleRes, double fireRes, double lightningRes, double coldRes, double poisonRes, double physDmgBonus, double eleDmgBonus, double fireBonus, double lightningBonus, double coldBonus, double poisonBonus, int gold)
         {
             equipSlot = slot;
             type = armourType;
@@ -406,9 +442,41 @@ namespace IdleGame
             manaRegenerationBonus = mpRegen;
             physicalResistanceBonus = physRes;
             elementalResistance = eleRes;
+            fireResistance = fireRes;
+            lightningResistance = lightningRes;
+            coldResistance = coldRes;
+            poisonResistance = poisonRes;
 
             physicalDamageBonus = physDmgBonus;
             elementalDamageBonus = eleDmgBonus;
+            fireDamageBonus = fireBonus;
+            lightningDamageBonus = lightningBonus;
+            coldDamageBonus = coldBonus;
+            poisonDamageBonus = poisonBonus;
+
+            tooltip = $"{name}\r\n---------------\r\n" +
+                $"{Enum.GetName(typeof(Item.Equip), equipSlot)} ({Enum.GetName(typeof(Armour.Type), type)})\r\n" +
+                $"{armourBonus} armour\r\n---------------\r\n" +
+                $"Lvl: {levelRequirement}, Str: {strengthRequirement}, Int: {intelligenceRequirement}, Dex: {dexterityRequirement}\r\n---------------\r\n" +
+                ((strengthBonus != 0) ? $"+{strengthBonus} to strength\r\n" : "") +
+                ((intelligenceBonus != 0) ? $"+{intelligenceBonus} to intelligence\r\n" : "") +
+                ((dexterityBonus != 0) ? $"+{dexterityBonus} to dexterity\r\n" : "") +
+                ((physicalDamageBonus != 0) ? $"+{physicalDamageBonus * 100}% to physical damage\r\n" : "") +
+                ((elementalDamageBonus != 0) ? $"+{elementalDamageBonus * 100}% to elemental damage\r\n" : "") +
+                ((fireDamageBonus != 0) ? $"+{fireDamageBonus * 100}% to fire damage\r\n" : "") +
+                ((lightningDamageBonus != 0) ? $"+{lightningDamageBonus * 100}% to lightning damage\r\n" : "") +
+                ((coldDamageBonus != 0) ? $"+{coldDamageBonus * 100}% to cold damage\r\n" : "") +
+                ((poisonDamageBonus != 0) ? $"+{poisonDamageBonus * 100}% to poison damage\r\n" : "") +
+                ((healthBonus != 0) ? $"+{healthBonus} health\r\n" : "") +
+                ((manaBonus != 0) ? $"+{manaBonus} mana\r\n" : "") +
+                ((healthRegenerationBonus != 0) ? $"+{healthRegenerationBonus} health per second\r\n" : "") +
+                ((manaRegenerationBonus != 0) ? $"+{manaRegenerationBonus} mana per second\r\n" : "") +
+                ((physicalResistanceBonus != 0) ? $"+{physicalResistanceBonus * 100}% to physical damage reduction\r\n" : "") +
+                ((elementalResistance != 0) ? $"+{elementalResistance * 100}% to elemental resistance" : "") +
+                ((fireResistance != 0) ? $"+{fireResistance * 100}% to fire resistance\r\n" : "") +
+                ((lightningResistance != 0) ? $"+{lightningResistance * 100}% to lightning resistance\r\n" : "") +
+                ((coldResistance != 0) ? $"+{coldResistance * 100}% to cold resistance\r\n" : "") +
+                ((poisonResistance != 0) ? $"+{poisonResistance * 100}% to poison resistance\r\n" : "");
         }
     }
 }

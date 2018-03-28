@@ -1,4 +1,5 @@
 ﻿using IdleGame.Attributes;
+using IdleGame.Enemies;
 using IdleGame.Skills;
 using IdleGame.States;
 using IdleGame.Talents;
