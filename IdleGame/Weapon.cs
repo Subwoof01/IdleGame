@@ -9,7 +9,7 @@ namespace IdleGame
     public class Weapon : Item
     {
         public enum Type { Axe, Mace, Sword, Staff, Polearm, Bow, Crossbow, Dagger, Wand };
-        private enum Affix { Strength, Intelligence, Dexterity, PhysicalDamage, ElementalDamage, CriticalChance, CriticalDamage };
+        private enum Affix { Strength, Intelligence, Dexterity, PhysicalDamage, ElementalDamage, FireDamage, LightningDamage, ColdDamage, PoisonDamage, CriticalChance, CriticalDamage };
 
         // true = Two-Handed, false = One-Handed.
         public bool twoHanded;
@@ -220,6 +220,10 @@ namespace IdleGame
             double speed = 0;
             double physicalDamage = 0;
             double elementalDamage = 0;
+            double fireDamage = 0;
+            double lightningDamage = 0;
+            double coldDamage = 0;
+            double poisonDamage = 0;
             Equip slot = 0;
             bool twoHanded;
             Type type = 0;
@@ -312,7 +316,7 @@ namespace IdleGame
 
             for (int i = 0; i < affixAmount; i++)
             {
-                int affixChooser = random.Next(12);
+                int affixChooser = random.Next(11);
                 affixes.Add((Affix)affixChooser);
             }
             #endregion
@@ -413,6 +417,18 @@ namespace IdleGame
                 // Elemental Damage
                 if (affix.Equals(Affix.ElementalDamage))
                     elementalDamage = random.Next(21) * 0.01;
+                // Fire Damage
+                if (affix.Equals(Affix.FireDamage))
+                    fireDamage = random.Next(21) * 0.01;
+                // Lightning Damage
+                if (affix.Equals(Affix.LightningDamage))
+                    lightningDamage = random.Next(21) * 0.01;
+                // Cold Damage
+                if (affix.Equals(Affix.ColdDamage))
+                    coldDamage = random.Next(21) * 0.01;
+                // Poison Damage
+                if (affix.Equals(Affix.PoisonDamage))
+                    poisonDamage = random.Next(21) * 0.01;
                 // Critical Chance
                 if (affix.Equals(Affix.CriticalChance))
                     criticalChance = random.Next(21) * 0.01;
@@ -435,10 +451,10 @@ namespace IdleGame
             // Buy and sell price
             price = (int)(20 * Math.Pow(1.024, itemLevel));
 
-            return new Weapon(itemName, slot, type, twoHanded, itemLevel, strengthReq, intelligenceReq, dexterityReq, strength, intelligence, dexterity, physicalDamage, elementalDamage, damageMin, damageMax, speed, criticalChance, criticalDamage, price);
+            return new Weapon(itemName, slot, type, twoHanded, itemLevel, strengthReq, intelligenceReq, dexterityReq, strength, intelligence, dexterity, physicalDamage, elementalDamage, fireDamage, lightningDamage, coldDamage, poisonDamage, damageMin, damageMax, speed, criticalChance, criticalDamage, price);
         }
 
-        public Weapon(string _name, Equip slot, Enum weaponType, bool _twoHanded, int levelReq, int strReq, int intReq, int dexReq, int strBonus, int intBonus, int dexBonus, double physDmgBonus, double eleDmgBonus, int dmgMin, int dmgMax, double _speed, double critChc, double critDmg, int gold)
+        public Weapon(string _name, Equip slot, Enum weaponType, bool _twoHanded, int levelReq, int strReq, int intReq, int dexReq, int strBonus, int intBonus, int dexBonus, double physDmgBonus, double eleDmgBonus, double fireBonus, double lightningBonus, double coldBonus, double poisonBonus, int dmgMin, int dmgMax, double _speed, double critChc, double critDmg, int gold)
         {
             equipSlot = slot;
             type = weaponType;
@@ -456,11 +472,32 @@ namespace IdleGame
             dexterityBonus = dexBonus;
             physicalDamageBonus = physDmgBonus;
             elementalDamageBonus = eleDmgBonus;
+            fireDamageBonus = fireBonus;
+            lightningDamageBonus = lightningBonus;
+            coldDamageBonus = coldBonus;
+            poisonDamageBonus = poisonBonus;
             damageMin = dmgMin;
             damageMax = dmgMax;
             speed = _speed;
             criticalChanceBonus = critChc;
             criticalDamageBonus = critDmg;
+            
+            tooltip = $"{name}\r\n---------------\r\n" +
+                ((twoHanded) ? "Two-Handed " : "One-Handed ") + $"{Enum.GetName(typeof(Weapon.Type), type)}\r\n" +
+                $"{speed.ToString("#.#")} speed\r\n" +
+                $"{damageMin} - {damageMax} damage\r\n---------------\r\n" +
+                $"Lvl: {levelRequirement}, Str: {strengthRequirement}, Int: {intelligenceRequirement}, Dex: {dexterityRequirement}\r\n---------------\r\n" +
+                ((strengthBonus != 0) ? $"+{strengthBonus} to strength\r\n" : "") +
+                ((intelligenceBonus != 0) ? $"+{intelligenceBonus} to intelligence\r\n" : "") +
+                ((dexterityBonus != 0) ? $"+{dexterityBonus} to dexterity\r\n" : "") +
+                ((physicalDamageBonus != 0) ? $"+{physicalDamageBonus * 100}% to physical damage\r\n" : "") +
+                ((elementalDamageBonus != 0) ? $"+{elementalDamageBonus * 100}% to elemental damage\r\n" : "") +
+                ((fireDamageBonus != 0) ? $"+{fireDamageBonus * 100}% to fire damage\r\n" : "") +
+                ((lightningDamageBonus != 0) ? $"+{lightningDamageBonus * 100}% to lightning damage\r\n" : "") +
+                ((coldDamageBonus != 0) ? $"+{coldDamageBonus * 100}% to cold damage\r\n" : "") +
+                ((poisonDamageBonus != 0) ? $"+{poisonDamageBonus * 100}% to poison damage\r\n" : "") +
+                ((criticalChanceBonus != 0) ? $"+{criticalChanceBonus * 100}% to critical strike chance\r\n" : "") +
+                ((criticalDamageBonus != 0) ? $"+{criticalDamageBonus * 100}% to critical strike damage" : "");
         }
     }
 }

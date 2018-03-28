@@ -108,11 +108,13 @@
             // lblClass
             // 
             this.lblClass.AutoSize = true;
-            this.lblClass.Location = new System.Drawing.Point(174, 9);
+            this.lblClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClass.Location = new System.Drawing.Point(265, 9);
             this.lblClass.Name = "lblClass";
             this.lblClass.Size = new System.Drawing.Size(59, 13);
             this.lblClass.TabIndex = 30;
             this.lblClass.Text = "Adventurer";
+            this.lblClass.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblName
             // 
@@ -153,11 +155,14 @@
             // lblEnemyType
             // 
             this.lblEnemyType.AutoSize = true;
-            this.lblEnemyType.Location = new System.Drawing.Point(520, 9);
+            this.lblEnemyType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnemyType.Location = new System.Drawing.Point(612, 9);
             this.lblEnemyType.Name = "lblEnemyType";
+            this.lblEnemyType.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblEnemyType.Size = new System.Drawing.Size(59, 13);
             this.lblEnemyType.TabIndex = 39;
             this.lblEnemyType.Text = "Adventurer";
+            this.lblEnemyType.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblEnemyName
             // 
@@ -456,7 +461,7 @@
             this.tlpPlayerStates.ColumnCount = 3;
             this.tlpPlayerStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpPlayerStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpPlayerStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tlpPlayerStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tlpPlayerStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpPlayerStates.Location = new System.Drawing.Point(7, 9);
             this.tlpPlayerStates.Name = "tlpPlayerStates";
@@ -473,7 +478,7 @@
             this.tlpEnemyStates.ColumnCount = 3;
             this.tlpEnemyStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpEnemyStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpEnemyStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tlpEnemyStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tlpEnemyStates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpEnemyStates.Location = new System.Drawing.Point(677, 9);
             this.tlpEnemyStates.Name = "tlpEnemyStates";

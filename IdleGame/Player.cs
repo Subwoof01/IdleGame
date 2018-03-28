@@ -1,4 +1,5 @@
 ﻿using IdleGame.Attributes;
+using IdleGame.Enemies;
 using IdleGame.Skills;
 using IdleGame.States;
 using IdleGame.Talents;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace IdleGame
 {
@@ -57,13 +59,10 @@ namespace IdleGame
             {
                 // Increase level by 1.
                 this.level++;
-                // Set current experience.
-                if (experienceCurrent > experienceNextLevel)
-                    this.experienceCurrent -= experienceNextLevel;
-                else
-                    this.experienceCurrent = 0;
+                // Set current EXP
+                this.experienceCurrent = 0;
                 // Set next level experience.
-                this.experienceNextLevel = 100 * (int)Math.Pow(1.59, level);
+                this.experienceNextLevel = (int)(100 * Math.Pow(level, 0.1) + Math.Pow(level, 2.5) + Math.Pow(level - 1, 4));
                 // Give 5 skill points.
                 this.skillPoints += 5;
                 // Give the player 1 talent point.
@@ -73,6 +72,24 @@ namespace IdleGame
                 {
                     skill.SetRank(this);
                 }
+            }
+        }
+
+        public void Die(CombatForm combatForm, MainForm mainForm)
+        {
+            DialogResult defeat = MessageBox.Show(combatForm,
+                "You died...\n" +
+                $"You lost {(int)(this.experienceCurrent * 0.10)} (10%) experience.",
+                "Defeat!",
+                MessageBoxButtons.OK);
+
+            this.experienceCurrent -= (int)(this.experienceCurrent * 0.10);
+
+            mainForm.UpdateText();
+
+            if (defeat == DialogResult.OK)
+            {
+                combatForm.Close();
             }
         }
 

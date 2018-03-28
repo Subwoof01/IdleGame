@@ -163,47 +163,6 @@ namespace IdleGame
             tbInventorySpace.Text = $"{_player.inventorySlotsUsed}/{_player.inventorySlotsMax}";
         }
 
-        private void ShowWeaponStats(Weapon weapon)
-        {
-            // Show weapon stats on the textbox.
-            tbItemStats.Text = $"{weapon.name}\r\n---------------\r\n" +
-                ((weapon.twoHanded) ? "Two-Handed " : "One-Handed ") + $"{Enum.GetName(typeof(Weapon.Type), weapon.type)}\r\n" +
-                $"{weapon.speed.ToString("#.#")} speed\r\n" +
-                $"{weapon.damageMin} - {weapon.damageMax} damage\r\n---------------\r\n" +
-                $"Lvl: {weapon.levelRequirement}, Str: {weapon.strengthRequirement}, Int: {weapon.intelligenceRequirement}, Dex: {weapon.dexterityRequirement}\r\n---------------\r\n" +
-                ((weapon.strengthBonus != 0) ? $"+{weapon.strengthBonus} to strength\r\n" : "") +
-                ((weapon.intelligenceBonus != 0) ? $"+{weapon.intelligenceBonus} to intelligence\r\n" : "") +
-                ((weapon.dexterityBonus != 0) ? $"+{weapon.dexterityBonus} to dexterity\r\n" : "") +
-                ((weapon.physicalDamageBonus != 0) ? $"+{weapon.physicalDamageBonus * 100}% to physical damage\r\n" : "") +
-                ((weapon.elementalDamageBonus != 0) ? $"+{weapon.elementalDamageBonus * 100}% to elemental damage\r\n" : "") +
-                ((weapon.criticalChanceBonus != 0) ? $"+{weapon.criticalChanceBonus * 100}% to critical strike chance\r\n" : "") +
-                ((weapon.criticalDamageBonus != 0) ? $"+{weapon.criticalDamageBonus * 100}% to critical strike damage\r\n" : "") +
-                $"---------------\r\n" +
-                $"Cost: {weapon.price}g";
-        }
-
-        private void ShowArmourStats(Armour armour)
-        {
-            // Show armour stats on the textbox.
-            tbItemStats.Text = $"{armour.name}\r\n---------------\r\n" +
-                $"{Enum.GetName(typeof(Item.Equip), armour.equipSlot)} ({Enum.GetName(typeof(Armour.Type), armour.type)})\r\n" +
-                $"{armour.armourBonus} armour\r\n---------------\r\n" +
-                $"Lvl: {armour.levelRequirement}, Str: {armour.strengthRequirement}, Int: {armour.intelligenceRequirement}, Dex: {armour.dexterityRequirement}\r\n---------------\r\n" +
-                ((armour.strengthBonus != 0) ? $"+{armour.strengthBonus} to strength\r\n" : "") +
-                ((armour.intelligenceBonus != 0) ? $"+{armour.intelligenceBonus} to intelligence\r\n" : "") +
-                ((armour.dexterityBonus != 0) ? $"+{armour.dexterityBonus} to dexterity\r\n" : "") +
-                ((armour.physicalDamageBonus != 0) ? $"+{armour.physicalDamageBonus * 100}% to physical damage\r\n" : "") +
-                ((armour.elementalDamageBonus != 0) ? $"+{armour.elementalDamageBonus * 100}% to elemental damage\r\n" : "") +
-                ((armour.healthBonus != 0) ? $"+{armour.healthBonus} health\r\n" : "") +
-                ((armour.manaBonus != 0) ? $"+{armour.manaBonus} mana\r\n" : "") +
-                ((armour.healthRegenerationBonus != 0) ? $"+{armour.healthRegenerationBonus} health per second\r\n" : "") +
-                ((armour.manaRegenerationBonus != 0) ? $"+{armour.manaRegenerationBonus} mana per second\r\n" : "") +
-                ((armour.physicalResistanceBonus != 0) ? $"+{armour.physicalResistanceBonus * 100}% to physical damage reduction\r\n" : "") +
-                ((armour.elementalResistance != 0) ? $"+{armour.elementalResistance * 100}% to elemental resistance\r\n" : "") +
-                $"---------------\r\n" +
-                $"Cost: {armour.price}g";
-        }
-
         private void ShopForm_Load(object sender, EventArgs e)
         {
             _mainForm.UpdateText();
@@ -236,7 +195,7 @@ namespace IdleGame
                 }
             }
 
-            ShowArmourStats(item);
+            tbItemStats.Text = item.tooltip;
         }
 
         private void lbWeapons_SelectedIndexChanged(object sender, EventArgs e)
@@ -255,7 +214,7 @@ namespace IdleGame
                 }
             }
 
-            ShowWeaponStats(item);
+            tbItemStats.Text = item.tooltip;
         }
 
         private void lbInventory_SelectedIndexChanged(object sender, EventArgs e)
@@ -275,8 +234,7 @@ namespace IdleGame
             }
 
             // Show stats of selected item.
-            if (item is Weapon) ShowWeaponStats((Weapon)item);
-            if (item is Armour) ShowArmourStats((Armour)item);
+            tbItemStats.Text = item.tooltip;
         }
     }
 }

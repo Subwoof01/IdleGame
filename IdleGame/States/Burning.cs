@@ -1,4 +1,5 @@
 ﻿using IdleGame.Attributes;
+using IdleGame.Enemies;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -26,12 +27,15 @@ namespace IdleGame.States
             return Damage();
         }
 
-        public Burning(int _startTime, int _duration, int _tickSpeed, Enemy enemy, Player player)
+        public Burning(int _startTime, int _duration, int _tickSpeed, Enemy enemy, Player player, Target _target)
         {
             _player = player;
             _enemy = enemy;
+            target = _target;
 
-            flavourText = "burns";
+            flavourText = $"{((target.Equals(Target.Player)) ? _enemy.name : _player.name)} " +
+                $"burns {((target.Equals(Target.Player)) ? _player.name : _enemy.name)} for " +
+                $"{Damage().ToString("0")} Fire.";
 
             image = Image.FromFile(@"Resources\StateIcons\Burning.png");
 

@@ -47,11 +47,17 @@
   <ItemGroup>
     <Compile Include="Armour.cs" />
     <Compile Include="Attributes\ArmourStat.cs" />
+    <Compile Include="Attributes\PoisonDamage.cs" />
+    <Compile Include="Attributes\ColdResistance.cs" />
     <Compile Include="Attributes\CriticalChance.cs" />
     <Compile Include="Attributes\CriticalDamage.cs" />
     <Compile Include="Attributes\Dexterity.cs" />
-    <Compile Include="Attributes\ElementalDamage.cs" />
-    <Compile Include="Attributes\ElementalResistance.cs" />
+    <Compile Include="Attributes\FireDamage.cs" />
+    <Compile Include="Attributes\ColdDamage.cs" />
+    <Compile Include="Attributes\LightningDamage.cs" />
+    <Compile Include="Attributes\PoisonResistance.cs" />
+    <Compile Include="Attributes\LightningResistance.cs" />
+    <Compile Include="Attributes\FireResistance.cs" />
     <Compile Include="Attributes\Health.cs" />
     <Compile Include="Attributes\HealthRegeneration.cs" />
     <Compile Include="Attributes\Intelligence.cs" />
@@ -67,7 +73,18 @@
     <Compile Include="CharacterCreationForm.Designer.cs">
       <DependentUpon>CharacterCreationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Enemy.cs" />
+    <Compile Include="Enemies\Enemy.cs" />
+    <Compile Include="Enemies\Types\Aberration.cs" />
+    <Compile Include="Enemies\Types\Mechanical.cs" />
+    <Compile Include="Enemies\Types\Giant.cs" />
+    <Compile Include="Enemies\Types\Demon.cs" />
+    <Compile Include="Enemies\Types\Elemental.cs" />
+    <Compile Include="Enemies\Types\Beast.cs" />
+    <Compile Include="Enemies\Types\Ethereal.cs" />
+    <Compile Include="Enemies\Types\Dragonkin.cs" />
+    <Compile Include="Enemies\Types\Undead.cs" />
+    <Compile Include="Enemies\Types\Humanoid.cs" />
+    <Compile Include="Enemies\Types\Goblinoid.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="ExperienceBar.cs">
       <Generator>ExperienceBar</Generator>
@@ -116,6 +133,7 @@
     <Compile Include="Skills\Skill.cs" />
     <Compile Include="Skills\Warrior\PowerStrike.cs" />
     <Compile Include="States\Burning.cs" />
+    <Compile Include="States\Poisoned.cs" />
     <Compile Include="States\State.cs" />
     <Compile Include="Statistic.cs" />
     <Compile Include="Talents\Warrior\ArmouredToTheTeeth.cs" />
@@ -134,6 +152,12 @@
     </Compile>
     <Compile Include="SkillBook.Designer.cs">
       <DependentUpon>SkillBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TravelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TravelForm.Designer.cs">
+      <DependentUpon>TravelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WarriorTalentTree.cs">
       <SubType>Form</SubType>
@@ -173,6 +197,9 @@
     <EmbeddedResource Include="SkillBook.resx">
       <DependentUpon>SkillBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TravelForm.resx">
+      <DependentUpon>TravelForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WarriorTalentTree.resx">
       <DependentUpon>WarriorTalentTree.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +217,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Enemies\Named\" />
     <Folder Include="Saves\" />
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +257,36 @@
     <Content Include="Resources\TalentIcons\Warrior\IronSkin.png" />
     <Content Include="Resources\TalentIcons\Warrior\Tree.png" />
     <Content Include="Resources\TalentIcons\Warrior\WeaponMastery.png" />
+    <Content Include="Resources\Zone Banners\Arena.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Zone Banners\Cave.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Zone Banners\Ethereal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Zone Banners\Forest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Zone Banners\Graveyard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Zone Banners\HuntingGrounds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Zone Banners\Mountains.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Zone Banners\Ruins.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Zone Banners\Town.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Zone Banners\Underworld.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,6 @@
 ﻿using IdleGame.Attributes;
+using IdleGame.Enemies;
+using IdleGame.Enemies.Types;
 using IdleGame.Skills;
 using IdleGame.States;
 using System;
@@ -20,6 +22,7 @@ namespace IdleGame
 
         private Player _player;
         private Enemy _enemy;
+        private MainForm _mainForm;
         private PictureBox[] _actionSlots;
         private ToolTip[] _actionSlotTooltips;
 
@@ -62,7 +65,7 @@ namespace IdleGame
             }
 
             // Enemy updates.
-            lblEnemyName.Text = _enemy.name;
+            lblEnemyName.Text = $"(Lv{_enemy.level}) {_enemy.name}";
             lblEnemyType.Text = Enum.GetName(typeof(Enemy.Type), _enemy.type);
             actionSpeedBarEnemy.Maximum = _enemyAttackSpeed;
             healthBarEnemy.Maximum = _enemy.healthBase;
@@ -77,7 +80,21 @@ namespace IdleGame
             // State updates.
             if (_time % 500 == 0)
             {
+                tlpPlayerStates.Controls.Clear();
                 tlpEnemyStates.Controls.Clear();
+
+                if (_player.states.Count > 0)
+                {
+                    for (int i = 0; i < _player.states.Count; i++)
+                    {
+                        PictureBox state = new PictureBox();
+                        state.Image = _player.states[i].image;
+                        state.SizeMode = PictureBoxSizeMode.StretchImage;
+                        state.Size = new Size(20, 20);
+                        tlpPlayerStates.Controls.Add(state);
+                    }
+                }
+
                 if (_enemy.states.Count > 0)
                 {
                     for (int i = 0; i < _enemy.states.Count; i++)
@@ -211,15 +228,32 @@ namespace IdleGame
 
             if (_enemyAttackProgress >= _enemyAttackSpeed)
             {
-                double lastDamage;
+                string lastAction;
 
-                lastDamage = _enemy.Attack(_player);
+                lastAction = _enemy.Action(_player);
 
-                lbCombatLog.Items.Add($"{_enemy.name} hits you for {lastDamage.ToString("0")} Physical.");
+                lbCombatLog.Items.Add(lastAction);
 
                 _enemyAttackProgress = 0;
             }
 
+            #region State management.
+            if (_player.states.Count > 0)
+            {
+                for (int i = _player.states.Count - 1; i >= 0; i--)
+                {
+                    if (_player.states[i].startTime + _player.states[i].duration < _time)
+                    {
+                        _player.states.Remove(_player.states[i]);
+                    }
+                    else if (_time > _player.states[i].lastTime + _player.states[i].tickSpeed)
+                    {
+                        _player.states[i].lastTime = _time;
+                        double lastDamage = _player.states[i].Effect();
+                        lbCombatLog.Items.Add(_player.states[i].flavourText);
+                    }
+                }
+            }
 
             if (_enemy.states.Count > 0)
             {
@@ -233,9 +267,52 @@ namespace IdleGame
                     {
                         _enemy.states[i].lastTime = _time;
                         double lastDamage = _enemy.states[i].Effect();
-                        lbCombatLog.Items.Add($"{_enemy.name} {_enemy.states[i].flavourText} for {lastDamage.ToString("0")} Elemental.");
+                        lbCombatLog.Items.Add(_enemy.states[i].flavourText);
                     }
                 }
+            }
+            #endregion
+
+            #region Health and Mana regeneration.
+            if (_time % 1000 == 0)
+            {
+                if (_player.healthCurrent + (int)_player.attributes[(int)PlayerStat.Attribute.HealthRegeneration].Final() > _player.attributes[(int)PlayerStat.Attribute.Health].Final())
+                    _player.healthCurrent = (int)_player.attributes[(int)PlayerStat.Attribute.Health].Final();
+                else
+                    _player.healthCurrent += (int)_player.attributes[(int)PlayerStat.Attribute.HealthRegeneration].Final();
+
+                if (_player.manaCurrent + (int)_player.attributes[(int)PlayerStat.Attribute.ManaRegeneration].Final() > (int)_player.attributes[(int)PlayerStat.Attribute.Mana].Final())
+                    _player.manaCurrent = (int)_player.attributes[(int)PlayerStat.Attribute.Mana].Final();
+                else
+                    _player.manaCurrent += (int)_player.attributes[(int)PlayerStat.Attribute.ManaRegeneration].Final();
+
+                if (_enemy.healthCurrent + _enemy.healthRegenerationBase > _enemy.healthBase)
+                    _enemy.healthCurrent = _enemy.healthBase;
+                else
+                    _enemy.healthCurrent += (int)_enemy.healthRegenerationBase;
+
+                if (_enemy.manaCurrent + _enemy.manaRegenerationBase > _enemy.manaBase)
+                    _enemy.manaCurrent = _enemy.manaBase;
+                else
+                    _enemy.manaCurrent += (int)_enemy.manaRegenerationBase;
+            }
+            #endregion
+
+            if (_enemy.healthCurrent <= 0)
+            {
+                if (_enemy.healthCurrent < 0)
+                    _enemy.healthCurrent = 0;
+                UpdateFrame();
+                timerAction.Stop();
+                _enemy.Die(_player, this, _mainForm);
+            }
+            if (_player.healthCurrent <= 0)
+            {
+                if (_player.healthCurrent < 0)
+                    _player.healthCurrent = 0;
+                UpdateFrame();
+                timerAction.Stop();
+                _player.Die(this, _mainForm);
             }
 
             UpdateFrame();
@@ -349,11 +426,66 @@ namespace IdleGame
         }
         #endregion
 
-        public CombatForm(Player player)
+        private Enemy SpawnEnemy(TravelForm.Selection type)
+        {
+            Random random = new Random();
+
+            int choose;
+
+            switch (type)
+            {
+                case TravelForm.Selection.Forest:
+                    choose = random.Next(11);
+                    if (choose == 0)
+                        return Humanoid.Generate((_player.level + 5 > 10) ? 5 : _player.level);
+                    else
+                        return Beast.Generate((_player.level + 5 > 10) ? 5 : _player.level);
+
+                case TravelForm.Selection.Cave:
+                    choose = random.Next(11);
+                    if (choose == 0)
+                        return Humanoid.Generate((_player.level + 5 > 20) ? 15 : (_player.level - 5 < 10) ? 15 : _player.level);
+                    else
+                        return Goblinoid.Generate((_player.level + 5 > 20) ? 15 : (_player.level - 5 < 10) ? 15 : _player.level);
+
+                case TravelForm.Selection.Ethereal:
+                    return Ethereal.Generate((_player.level + 5 > 90) ? 85 : (_player.level - 5 < 70) ? 75 : _player.level);
+
+                case TravelForm.Selection.Graveyard:
+                    choose = random.Next(11);
+                    if (choose == 0)
+                        return Humanoid.Generate((_player.level + 5 > 40) ? 35 : (_player.level - 5 < 20) ? 25 : _player.level);
+                    else
+                        return Undead.Generate((_player.level + 5 > 40) ? 35 : (_player.level - 5 < 20) ? 25 : _player.level);
+
+                case TravelForm.Selection.Mountains:
+                    choose = random.Next(21);
+                    if (choose == 0)
+                        return Humanoid.Generate((_player.level + 5 > 55) ? 50 : (_player.level - 5 < 40) ? 45 : _player.level);
+                    else if (choose > 0 && choose < 15)
+                        return Giant.Generate((_player.level + 5 > 55) ? 50 : (_player.level - 5 < 40) ? 45 : _player.level);
+                    else
+                        return Dragonkin.Generate((_player.level + 5 > 55) ? 50 : (_player.level - 5 < 40) ? 45 : _player.level);
+
+                case TravelForm.Selection.Ruins:
+                    choose = random.Next(11);
+                    if (choose == 0)
+                        return Humanoid.Generate((_player.level + 5 > 70) ? 65 : (_player.level - 5 < 55) ? 60 : _player.level);
+                    else
+                        return Mechanical.Generate((_player.level + 5 > 70) ? 65 : (_player.level - 5 < 55) ? 60 : _player.level);
+
+                case TravelForm.Selection.Underworld:
+                    return Demon.Generate((_player.level - 5 < 90) ? 95 : _player.level);
+            }
+            return null;
+        }
+
+        public CombatForm(Player player, MainForm mainForm, TravelForm.Selection type)
         {
             InitializeComponent();
             _player = player;
-            _enemy = new Enemy("Goblin", Enemy.Type.Goblinoid, 2, 100, 10000, 0.5, 24, 0.5, 10, 10, 20, 1.9);
+            _enemy = SpawnEnemy(type);
+            _mainForm = mainForm;
 
             _playerAttackProgress = 0;
             _enemyAttackProgress = 0;
@@ -362,7 +494,7 @@ namespace IdleGame
             lblClass.Text = Enum.GetName(typeof(Player.Class), _player.playerClass);
 
             _playerCurrentActionText = "Weapon Attack";
-            _enemyCurrentActionText = "Melee Strike";
+            _enemyCurrentActionText = "Weapon Attack";
 
             _actionSlots = new PictureBox[] { pbActionBarSlot1, pbActionBarSlot2, pbActionBarSlot3, pbActionBarSlot4, pbActionBarSlot5, pbActionBarSlot6, pbActionBarSlot7, pbActionBarSlot8, pbActionBarSlot9 };
             _actionSlotTooltips = new ToolTip[] { ttActionSlot1, ttActionSlot2, ttActionSlot3, ttActionSlot4, ttActionSlot5, ttActionSlot6, ttActionSlot7, ttActionSlot8, ttActionSlot9 };
