@@ -121,8 +121,7 @@ namespace IdleGame
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _player.level++;
-            _player.skillPoints += 5;
+            _player.IncreaseExp(99);
             _mainForm.UpdateText();
         }
 

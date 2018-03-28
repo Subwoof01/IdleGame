@@ -22,6 +22,7 @@ namespace IdleGame
 
         private Player _player;
         private Enemy _enemy;
+        private MainForm _mainForm;
         private PictureBox[] _actionSlots;
         private ToolTip[] _actionSlotTooltips;
 
@@ -297,6 +298,23 @@ namespace IdleGame
             }
             #endregion
 
+            if (_enemy.healthCurrent <= 0)
+            {
+                if (_enemy.healthCurrent < 0)
+                    _enemy.healthCurrent = 0;
+                UpdateFrame();
+                timerAction.Stop();
+                _enemy.Die(_player, this, _mainForm);
+            }
+            if (_player.healthCurrent <= 0)
+            {
+                if (_player.healthCurrent < 0)
+                    _player.healthCurrent = 0;
+                UpdateFrame();
+                timerAction.Stop();
+                _player.Die(this, _mainForm);
+            }
+
             UpdateFrame();
         }
 
@@ -408,11 +426,66 @@ namespace IdleGame
         }
         #endregion
 
-        public CombatForm(Player player)
+        private Enemy SpawnEnemy(TravelForm.Selection type)
+        {
+            Random random = new Random();
+
+            int choose;
+
+            switch (type)
+            {
+                case TravelForm.Selection.Forest:
+                    choose = random.Next(11);
+                    if (choose == 0)
+                        return Humanoid.Generate((_player.level + 5 > 10) ? 5 : _player.level);
+                    else
+                        return Beast.Generate((_player.level + 5 > 10) ? 5 : _player.level);
+
+                case TravelForm.Selection.Cave:
+                    choose = random.Next(11);
+                    if (choose == 0)
+                        return Humanoid.Generate((_player.level + 5 > 20) ? 15 : (_player.level - 5 < 10) ? 15 : _player.level);
+                    else
+                        return Goblinoid.Generate((_player.level + 5 > 20) ? 15 : (_player.level - 5 < 10) ? 15 : _player.level);
+
+                case TravelForm.Selection.Ethereal:
+                    return Ethereal.Generate((_player.level + 5 > 90) ? 85 : (_player.level - 5 < 70) ? 75 : _player.level);
+
+                case TravelForm.Selection.Graveyard:
+                    choose = random.Next(11);
+                    if (choose == 0)
+                        return Humanoid.Generate((_player.level + 5 > 40) ? 35 : (_player.level - 5 < 20) ? 25 : _player.level);
+                    else
+                        return Undead.Generate((_player.level + 5 > 40) ? 35 : (_player.level - 5 < 20) ? 25 : _player.level);
+
+                case TravelForm.Selection.Mountains:
+                    choose = random.Next(21);
+                    if (choose == 0)
+                        return Humanoid.Generate((_player.level + 5 > 55) ? 50 : (_player.level - 5 < 40) ? 45 : _player.level);
+                    else if (choose > 0 && choose < 15)
+                        return Giant.Generate((_player.level + 5 > 55) ? 50 : (_player.level - 5 < 40) ? 45 : _player.level);
+                    else
+                        return Dragonkin.Generate((_player.level + 5 > 55) ? 50 : (_player.level - 5 < 40) ? 45 : _player.level);
+
+                case TravelForm.Selection.Ruins:
+                    choose = random.Next(11);
+                    if (choose == 0)
+                        return Humanoid.Generate((_player.level + 5 > 70) ? 65 : (_player.level - 5 < 55) ? 60 : _player.level);
+                    else
+                        return Mechanical.Generate((_player.level + 5 > 70) ? 65 : (_player.level - 5 < 55) ? 60 : _player.level);
+
+                case TravelForm.Selection.Underworld:
+                    return Demon.Generate((_player.level - 5 < 90) ? 95 : _player.level);
+            }
+            return null;
+        }
+
+        public CombatForm(Player player, MainForm mainForm, TravelForm.Selection type)
         {
             InitializeComponent();
             _player = player;
-            _enemy = Goblinoid.Generate(5);
+            _enemy = SpawnEnemy(type);
+            _mainForm = mainForm;
 
             _playerAttackProgress = 0;
             _enemyAttackProgress = 0;

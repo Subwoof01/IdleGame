@@ -17,27 +17,27 @@ namespace IdleGame
     {
         private Player _player;
 
-        private CharacterForm character;
-        private InventoryForm inventory;
-        private ShopForm shop;
-        private CombatForm combat;
+        private CharacterForm _character;
+        private InventoryForm _inventory;
+        private ShopForm _shop;
+        private TravelForm _travel;
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            inventory = new InventoryForm(_player, this);
-            inventory.Show();
+            _inventory = new InventoryForm(_player, this);
+            _inventory.Show();
         }
 
         private void btnCharacter_Click(object sender, EventArgs e)
         {
-            character = new CharacterForm(this, _player, inventory);
-            character.OnOpen();
-            character.Show();
+            _character = new CharacterForm(this, _player, _inventory);
+            _character.OnOpen();
+            _character.Show();
         }
 
         private void btnShop_Click(object sender, EventArgs e)
         {
-            shop = new ShopForm(_player, this);
+            _shop = new ShopForm(_player, this);
 
             // Store if it's the first time opening the shop.
             bool firstTime = true;
@@ -53,10 +53,10 @@ namespace IdleGame
                 firstTime = false;
 
                 // Generate items to fill the shop.
-                shop.FillShop(_player.level);
+                _shop.FillShop(_player.level);
             }
 
-            shop.Show();
+            _shop.Show();
         }
 
         public void UpdateText()
@@ -77,12 +77,12 @@ namespace IdleGame
             experienceBar.Maximum = _player.experienceNextLevel;
             experienceBar.Value = _player.experienceCurrent;
 
-            if (character != null)
-                character.UpdateStats();
-            if (inventory != null)
-                inventory.UpdateText();
-            if (shop != null)
-                shop.UpdateText();
+            if (_character != null)
+                _character.UpdateStats();
+            if (_inventory != null)
+                _inventory.UpdateText();
+            if (_shop != null)
+                _shop.UpdateText();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -118,8 +118,8 @@ namespace IdleGame
 
         private void btnTravel_Click(object sender, EventArgs e)
         {
-            combat = new CombatForm(_player);
-            combat.Show();
+            _travel = new TravelForm(_player, this);
+            _travel.Show();
         }
     }
 }

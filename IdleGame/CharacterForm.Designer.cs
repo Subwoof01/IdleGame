@@ -195,18 +195,18 @@
             // tbExperience
             // 
             this.tbExperience.HideSelection = false;
-            this.tbExperience.Location = new System.Drawing.Point(144, 58);
+            this.tbExperience.Location = new System.Drawing.Point(125, 58);
             this.tbExperience.Name = "tbExperience";
             this.tbExperience.ReadOnly = true;
-            this.tbExperience.Size = new System.Drawing.Size(89, 20);
+            this.tbExperience.Size = new System.Drawing.Size(108, 20);
             this.tbExperience.TabIndex = 47;
-            this.tbExperience.Text = "9999999/9999999";
+            this.tbExperience.Text = "15440150/15440150";
             this.tbExperience.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(107, 61);
+            this.label10.Location = new System.Drawing.Point(88, 61);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(31, 13);
             this.label10.TabIndex = 46;

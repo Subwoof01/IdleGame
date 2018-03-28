@@ -495,7 +495,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 226);
-            this.ControlBox = false;
             this.Controls.Add(this.tlpEnemyStates);
             this.Controls.Add(this.tlpPlayerStates);
             this.Controls.Add(this.pbActionBarSlot9);

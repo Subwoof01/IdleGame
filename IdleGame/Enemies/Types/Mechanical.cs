@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace IdleGame.Enemies.Types
 {
-    public class Goblinoid : Enemy
+    public class Mechanical : Enemy
     {
-        private enum SubType { Warrior, Archer, Shaman };
+        private enum SubType { Warrior };
 
         private SubType subType;
 
@@ -25,7 +25,7 @@ namespace IdleGame.Enemies.Types
             return $"{this.name} hits {player.name} for {damage} Physical.";
         }
 
-        public static Goblinoid Generate(int level)
+        public static Mechanical Generate(int level)
         {
             #region Variables that will be generated.
             string name;
@@ -49,62 +49,38 @@ namespace IdleGame.Enemies.Types
             if (enemyLevel < 1)
                 enemyLevel = 1;
 
-            _subType = (SubType)random.Next(3);
+            _subType = (SubType)random.Next(1);
 
-            name = "Goblin " + Enum.GetName(typeof(SubType), _subType);
+            name = "Mechanical " + Enum.GetName(typeof(SubType), _subType);
 
             reward = 2 * (int)Math.Pow(1.05, enemyLevel);
 
-            health = random.Next(35 * (int)Math.Pow(1.08, enemyLevel), 40 * (int)Math.Pow(1.1, enemyLevel));
+            health = random.Next(50 * (int)Math.Pow(1.08, enemyLevel), 60 * (int)Math.Pow(1.1, enemyLevel));
             healthRegen = health * 0.001;
 
-            if (_subType.Equals(SubType.Shaman))
-            {
-                mana = 5 * (int)Math.Pow(1.06, enemyLevel);
-                manaRegen = mana * 0.001;
-            }
-
             if (_subType.Equals(SubType.Warrior))
-                armour = 15 * (int)Math.Pow(1.02, enemyLevel);
-            if (_subType.Equals(SubType.Archer))
-                armour = 10 * (int)Math.Pow(1.02, enemyLevel);
-            if (_subType.Equals(SubType.Shaman))
-                armour = 5 * (int)Math.Pow(1.02, enemyLevel);
+                armour = 100 * (int)Math.Pow(1.02, enemyLevel);
 
-            fireResist = -0.20;
-            lightningResist = 0.05;
-            coldResist = 0.10;
+            fireResist = 0.20;
+            lightningResist = -0.30;
+            coldResist = 0.30;
 
             if (_subType.Equals(SubType.Warrior))
             {
-                damageMin = 15 * (int)Math.Pow(1.03, enemyLevel);
-                damageMax = 25 * (int)Math.Pow(1.03, enemyLevel);
-            }
-            if (_subType.Equals(SubType.Archer))
-            {
-                damageMin = 20 * (int)Math.Pow(1.03, enemyLevel);
-                damageMax = 35 * (int)Math.Pow(1.03, enemyLevel);
-            }
-            if (_subType.Equals(SubType.Shaman))
-            {
-                damageMin = 10 * (int)Math.Pow(1.03, enemyLevel);
-                damageMax = 20 * (int)Math.Pow(1.03, enemyLevel);
+                damageMin = 51 * (int)Math.Pow(1.03, enemyLevel);
+                damageMax = 91 * (int)Math.Pow(1.03, enemyLevel);
             }
 
             if (_subType.Equals(SubType.Warrior))
-                attackSpeed = 1.5;
-            if (_subType.Equals(SubType.Archer))
-                attackSpeed = 1;
-            if (_subType.Equals(SubType.Shaman))
                 attackSpeed = 2;
 
-            return new Goblinoid(name, enemyLevel, reward, health, healthRegen, mana, manaRegen, armour, fireResist, lightningResist, coldResist, damageMin, damageMax, attackSpeed);
+            return new Mechanical(name, enemyLevel, reward, health, healthRegen, mana, manaRegen, armour, fireResist, lightningResist, coldResist, damageMin, damageMax, attackSpeed);
         }
 
-        public Goblinoid(string _name, int lvl, int reward, int hpBase, double hpRegen, int mpBase, double mpRegen, int _armour, double fireRes, double lightningRes, double coldRes, int damageMin, int damageMax, double atkSpeed)
+        public Mechanical(string _name, int lvl, int reward, int hpBase, double hpRegen, int mpBase, double mpRegen, int _armour, double fireRes, double lightningRes, double coldRes, int damageMin, int damageMax, double atkSpeed)
         {
             name = _name;
-            type = Type.Goblinoid;
+            type = Type.Beast;
 
             states = new List<State>();
 

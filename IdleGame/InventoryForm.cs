@@ -149,10 +149,9 @@ namespace IdleGame
                 {
                     // Store the selected item in item.
                     if (_player.inventory[i] != null && _player.inventory[i].name == lbInventory.SelectedItem.ToString()) item = _player.inventory[i];
+                    tbItemStats.Text = item.tooltip;
                 }
             }
-
-            tbItemStats.Text = item.tooltip;
         }
 
         private void btnHeadShow_Click(object sender, EventArgs e)
