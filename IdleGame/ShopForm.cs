@@ -193,9 +193,8 @@ namespace IdleGame
                     // Store the selected item in item.
                     if (armour[i] != null && armour[i].name == lbArmour.SelectedItem.ToString()) item = armour[i];
                 }
+                tbItemStats.Text = item.tooltip;
             }
-
-            tbItemStats.Text = item.tooltip;
         }
 
         private void lbWeapons_SelectedIndexChanged(object sender, EventArgs e)
@@ -212,9 +211,8 @@ namespace IdleGame
                     // Store the selected item in item.
                     if (weapons[i] != null && weapons[i].name == lbWeapons.SelectedItem.ToString()) item = weapons[i];
                 }
+                tbItemStats.Text = item.tooltip;
             }
-
-            tbItemStats.Text = item.tooltip;
         }
 
         private void lbInventory_SelectedIndexChanged(object sender, EventArgs e)
@@ -231,10 +229,9 @@ namespace IdleGame
                     // Store the selected item in item.
                     if (_player.inventory[i] != null && _player.inventory[i].name == lbInventory.SelectedItem.ToString()) item = _player.inventory[i];
                 }
+                // Show stats of selected item.
+                tbItemStats.Text = item.tooltip;
             }
-
-            // Show stats of selected item.
-            tbItemStats.Text = item.tooltip;
         }
     }
 }

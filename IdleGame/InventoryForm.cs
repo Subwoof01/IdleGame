@@ -58,6 +58,7 @@ namespace IdleGame
                             _player.inventory[i] = null;
                     }
                     lbInventory.Items.RemoveAt(lbInventory.SelectedIndex);
+                    lbInventory.SelectedIndex = lbInventory.SelectedIndex - 1;
 
                     // Decrease available inventory slots.
                     _player.inventorySlotsUsed--;
@@ -138,6 +139,8 @@ namespace IdleGame
 
         private void lbInventory_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // TODO: KeyValuePair in listbox.
+
             // Initialise item variable.
             Item item = null;
 
@@ -149,8 +152,8 @@ namespace IdleGame
                 {
                     // Store the selected item in item.
                     if (_player.inventory[i] != null && _player.inventory[i].name == lbInventory.SelectedItem.ToString()) item = _player.inventory[i];
-                    tbItemStats.Text = item.tooltip;
                 }
+                tbItemStats.Text = item.tooltip;
             }
         }
 
