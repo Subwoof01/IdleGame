@@ -416,11 +416,15 @@ namespace IdleGame
             // Buy and sell price
             price = (int)(20 * Math.Pow(1.024, itemLevel));
 
-            return new Armour(itemName, slot, type, itemLevel, strengthReq, intelligenceReq, dexterityReq, strength, intelligence, dexterity, health, mana, armour, healthRegen, manaRegen, physicalResist, elementalResist, fireResist, lightningResist, coldResist, poisonResist, physicalDamage, elementalDamage, fireDamage, lightningDamage, coldDamage, poisonDamage, price);
+            // Up the item ID.
+            id++;
+
+            return new Armour(itemName, slot, type, itemLevel, strengthReq, intelligenceReq, dexterityReq, strength, intelligence, dexterity, health, mana, armour, healthRegen, manaRegen, physicalResist, elementalResist, fireResist, lightningResist, coldResist, poisonResist, physicalDamage, elementalDamage, fireDamage, lightningDamage, coldDamage, poisonDamage, price, id);
         }
 
-        public Armour(string _name, Equip slot, Enum armourType, int levelReq, int strReq, int intReq, int dexReq, int strBonus, int intBonus, int dexBonus, int health, int mana, int armour, double hpRegen, double mpRegen, double physRes, double eleRes, double fireRes, double lightningRes, double coldRes, double poisonRes, double physDmgBonus, double eleDmgBonus, double fireBonus, double lightningBonus, double coldBonus, double poisonBonus, int gold)
+        public Armour(string _name, Equip slot, Enum armourType, int levelReq, int strReq, int intReq, int dexReq, int strBonus, int intBonus, int dexBonus, int health, int mana, int armour, double hpRegen, double mpRegen, double physRes, double eleRes, double fireRes, double lightningRes, double coldRes, double poisonRes, double physDmgBonus, double eleDmgBonus, double fireBonus, double lightningBonus, double coldBonus, double poisonBonus, int gold, int _id)
         {
+            itemID = _id;
             equipSlot = slot;
             type = armourType;
             name = _name;

@@ -15,11 +15,11 @@ namespace IdleGame
     {
         private MainForm _mainForm;
         private Player _player;
-        private int healCost;
+        private int _healCost;
 
-        private List<Item> general;
-        private List<Armour> armour;
-        private List<Weapon> weapons;
+        private List<Item> _general;
+        private List<Armour> _armour;
+        private List<Weapon> _weapons;
 
         public void FillShop(int currentPlayerLevel)
         {
@@ -36,21 +36,21 @@ namespace IdleGame
             // Generate a random amount of armours and weapons to populate the shop.
             for (int i = 0; i < armourAmount; i++)
             {
-                armour.Add(Armour.Generate((currentPlayerLevel > 5) ? currentPlayerLevel - 5 : 1, currentPlayerLevel + 5));
+                _armour.Add(Armour.Generate((currentPlayerLevel > 5) ? currentPlayerLevel - 5 : 1, currentPlayerLevel + 5));
             }
 
             for (int i = 0; i < weaponAmount; i++)
             {
-                weapons.Add(Weapon.Generate((currentPlayerLevel > 5) ? currentPlayerLevel - 5 : 1, currentPlayerLevel + 5));
+                _weapons.Add(Weapon.Generate((currentPlayerLevel > 5) ? currentPlayerLevel - 5 : 1, currentPlayerLevel + 5));
             }
         }
 
         private void btnHeal_Click(object sender, EventArgs e)
         {
-            if (_player.gold >= healCost)
+            if (_player.gold >= _healCost)
             {
                 _player.healthCurrent = (int)_player.attributes[(int)PlayerStat.Attribute.Health].Final();
-                _player.gold -= healCost;
+                _player.gold -= _healCost;
             }
             _mainForm.UpdateText();
         }
@@ -67,9 +67,9 @@ namespace IdleGame
                     {
                         if (_player.inventory[i] == null)
                         {
-                            _player.AddItem(armour[lbArmour.SelectedIndex]);
-                            _player.gold -= armour[lbArmour.SelectedIndex].price;
-                            armour.RemoveAt(lbArmour.SelectedIndex);
+                            _player.AddItem(_armour[lbArmour.SelectedIndex]);
+                            _player.gold -= _armour[lbArmour.SelectedIndex].price;
+                            _armour.RemoveAt(lbArmour.SelectedIndex);
                             break;
                         }
                     }
@@ -88,13 +88,13 @@ namespace IdleGame
                         if (_player.inventory[i] == null)
                         {
                             // Add the item to the inventory.
-                            _player.AddItem(weapons[lbWeapons.SelectedIndex]);
+                            _player.AddItem(_weapons[lbWeapons.SelectedIndex]);
 
                             // Decrease player gold.
-                            _player.gold -= weapons[lbWeapons.SelectedIndex].price;
+                            _player.gold -= _weapons[lbWeapons.SelectedIndex].price;
 
                             // Remove the item from the shop.
-                            weapons.RemoveAt(lbWeapons.SelectedIndex);
+                            _weapons.RemoveAt(lbWeapons.SelectedIndex);
 
                             break;
                         }
@@ -141,23 +141,33 @@ namespace IdleGame
             lbWeapons.Items.Clear();
             lbInventory.Items.Clear();
 
-            foreach (Armour a in armour)
+            foreach (Armour a in _armour)
             {
-                lbArmour.Items.Add(a.name);
+                lbArmour.Items.Add(a);
             }
-            foreach (Weapon w in weapons)
+
+            lbArmour.ValueMember = "itemID";
+            lbArmour.DisplayMember = "Name";
+
+            foreach (Weapon w in _weapons)
             {
-                lbWeapons.Items.Add(w.name);
+                lbWeapons.Items.Add(w);
             }
+
+            lbWeapons.ValueMember = "itemID";
+            lbWeapons.DisplayMember = "Name";
 
             foreach (Item i in _player.inventory)
             {
                 if (i != null)
-                    lbInventory.Items.Add(i.name);
+                    lbInventory.Items.Add(i);
             }
 
-            healCost = ((int)_player.attributes[(int)PlayerStat.Attribute.Health].Final() - _player.healthCurrent) / 3;
-            btnHeal.Text = $"Heal ({healCost}g)";
+            lbInventory.ValueMember = "itemID";
+            lbInventory.DisplayMember = "Name";
+
+            _healCost = ((int)_player.attributes[(int)PlayerStat.Attribute.Health].Final() - _player.healthCurrent) / 3;
+            btnHeal.Text = $"Heal ({_healCost}g)";
 
             tbGold.Text = _player.gold.ToString();
             tbInventorySpace.Text = $"{_player.inventorySlotsUsed}/{_player.inventorySlotsMax}";
@@ -168,70 +178,42 @@ namespace IdleGame
             _mainForm.UpdateText();
         }
 
+        private void lbArmour_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // NullReferenceException catcher.
+            if (lbArmour.SelectedItem != null)
+            {
+                tbItemStats.Text = (lbArmour.SelectedItem as Armour).tooltip;
+            }
+        }
+
+        private void lbWeapons_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // NullReferenceException catcher.
+            if (lbWeapons.SelectedItem != null)
+            {
+                tbItemStats.Text = (lbWeapons.SelectedItem as Weapon).tooltip;
+            }
+        }
+
+        private void lbInventory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // NullReferenceException catcher.
+            if (lbInventory.SelectedItem != null)
+            {
+                tbItemStats.Text = (lbInventory.SelectedItem as Item).tooltip;
+            }
+        }
+
         public ShopForm(Player player, MainForm mainForm)
         {
             InitializeComponent();
             _player = player;
             _mainForm = mainForm;
 
-            general = new List<Item>();
-            armour = new List<Armour>();
-            weapons = new List<Weapon>();
-        }
-
-        private void lbArmour_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Initialise item variable.
-            Armour item = null;
-
-            // NullReferenceException catcher.
-            if (lbArmour.SelectedItem != null)
-            {
-                // Check every used inventory slot to find the selected item.
-                for (int i = 0; i < armour.Count; i++)
-                {
-                    // Store the selected item in item.
-                    if (armour[i] != null && armour[i].name == lbArmour.SelectedItem.ToString()) item = armour[i];
-                }
-                tbItemStats.Text = item.tooltip;
-            }
-        }
-
-        private void lbWeapons_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Initialise item variable.
-            Weapon item = null;
-
-            // NullReferenceException catcher.
-            if (lbWeapons.SelectedItem != null)
-            {
-                // Check every used inventory slot to find the selected item.
-                for (int i = 0; i < weapons.Count; i++)
-                {
-                    // Store the selected item in item.
-                    if (weapons[i] != null && weapons[i].name == lbWeapons.SelectedItem.ToString()) item = weapons[i];
-                }
-                tbItemStats.Text = item.tooltip;
-            }
-        }
-
-        private void lbInventory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Initialise item variable.
-            Item item = null;
-
-            // NullReferenceException catcher.
-            if (lbInventory.SelectedItem != null)
-            {
-                // Check every used inventory slot to find the selected item.
-                for (int i = 0; i < _player.inventory.Length; i++)
-                {
-                    // Store the selected item in item.
-                    if (_player.inventory[i] != null && _player.inventory[i].name == lbInventory.SelectedItem.ToString()) item = _player.inventory[i];
-                }
-                // Show stats of selected item.
-                tbItemStats.Text = item.tooltip;
-            }
+            _general = new List<Item>();
+            _armour = new List<Armour>();
+            _weapons = new List<Weapon>();
         }
     }
 }
