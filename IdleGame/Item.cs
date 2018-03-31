@@ -11,6 +11,8 @@ namespace IdleGame
         protected static Random random = new Random();
         public enum Equip { Head, Neck, Shoulder, Chest, Hands, Ring, Waist, Feet, MainHand, OffHand };
 
+        public static int id = 0;
+        public int itemID;
         public int affix;
         public Equip equipSlot;
         public Enum type;
@@ -36,5 +38,13 @@ namespace IdleGame
         public double lightningDamageBonus;
         public double coldDamageBonus;
         public double poisonDamageBonus;
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+        }
     }
 }

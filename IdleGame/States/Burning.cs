@@ -1,5 +1,6 @@
 ﻿using IdleGame.Attributes;
 using IdleGame.Enemies;
+using IdleGame.Skills;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -13,12 +14,11 @@ namespace IdleGame.States
     {
         private Player _player;
         private Enemy _enemy;
+        private Skill _skill;
 
         private double Damage()
         {
-            PhysicalDamage damagePhysical = (PhysicalDamage)_player.attributes[(int)PlayerStat.Attribute.PhysicalDamage];
-
-            return damagePhysical.MaxFinal();
+            return _skill.Damage() * (1 + _player.attributes[(int)PlayerStat.Attribute.FireDamage].Final());
         }
 
         public override double Effect()
@@ -27,11 +27,12 @@ namespace IdleGame.States
             return Damage();
         }
 
-        public Burning(int _startTime, int _duration, int _tickSpeed, Enemy enemy, Player player, Target _target)
+        public Burning(int _startTime, int _duration, int _tickSpeed, Enemy enemy, Player player, Target _target, Skill skill)
         {
             _player = player;
             _enemy = enemy;
             target = _target;
+            _skill = skill;
 
             flavourText = $"{((target.Equals(Target.Player)) ? _enemy.name : _player.name)} " +
                 $"burns {((target.Equals(Target.Player)) ? _player.name : _enemy.name)} for " +

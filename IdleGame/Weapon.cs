@@ -451,11 +451,15 @@ namespace IdleGame
             // Buy and sell price
             price = (int)(20 * Math.Pow(1.024, itemLevel));
 
-            return new Weapon(itemName, slot, type, twoHanded, itemLevel, strengthReq, intelligenceReq, dexterityReq, strength, intelligence, dexterity, physicalDamage, elementalDamage, fireDamage, lightningDamage, coldDamage, poisonDamage, damageMin, damageMax, speed, criticalChance, criticalDamage, price);
+            // Up the item ID.
+            id++;
+
+            return new Weapon(itemName, slot, type, twoHanded, itemLevel, strengthReq, intelligenceReq, dexterityReq, strength, intelligence, dexterity, physicalDamage, elementalDamage, fireDamage, lightningDamage, coldDamage, poisonDamage, damageMin, damageMax, speed, criticalChance, criticalDamage, price, id);
         }
 
-        public Weapon(string _name, Equip slot, Enum weaponType, bool _twoHanded, int levelReq, int strReq, int intReq, int dexReq, int strBonus, int intBonus, int dexBonus, double physDmgBonus, double eleDmgBonus, double fireBonus, double lightningBonus, double coldBonus, double poisonBonus, int dmgMin, int dmgMax, double _speed, double critChc, double critDmg, int gold)
+        public Weapon(string _name, Equip slot, Enum weaponType, bool _twoHanded, int levelReq, int strReq, int intReq, int dexReq, int strBonus, int intBonus, int dexBonus, double physDmgBonus, double eleDmgBonus, double fireBonus, double lightningBonus, double coldBonus, double poisonBonus, int dmgMin, int dmgMax, double _speed, double critChc, double critDmg, int gold, int _id)
         {
+            itemID = _id;
             equipSlot = slot;
             type = weaponType;
             twoHanded = _twoHanded;

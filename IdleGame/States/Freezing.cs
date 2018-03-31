@@ -10,24 +10,20 @@ using System.Threading.Tasks;
 
 namespace IdleGame.States
 {
-    public class Poisoned : State
+    public class Freezing : State
     {
         private Player _player;
         private Enemy _enemy;
         private Skill _skill;
-
-        private double Damage()
-        {
-            return _skill.Damage() * (1 + _player.attributes[(int)PlayerStat.Attribute.PoisonDamage].Final());
-        }
-
+        
         public override double Effect()
         {
-            _enemy.healthCurrent -= (int)Damage();
-            return Damage();
+            _enemy.attackSpeed *= 2;
+            firstApplied = true;
+            return 0;
         }
 
-        public Poisoned(int _startTime, int _duration, int _tickSpeed, Enemy enemy, Player player, Target _target, Skill skill)
+        public Freezing(int _startTime, int _duration, Enemy enemy, Player player, Target _target, Skill skill)
         {
             _player = player;
             _enemy = enemy;
@@ -35,15 +31,15 @@ namespace IdleGame.States
             _skill = skill;
 
             flavourText = $"{((target.Equals(Target.Player)) ? _enemy.name : _player.name)} " +
-                $"hits {((target.Equals(Target.Player)) ? _player.name : _enemy.name)} for " +
-                $"{Damage().ToString("0")} Poison.";
+                $"freezes {((target.Equals(Target.Player)) ? _player.name : _enemy.name)}.";
 
-            image = Image.FromFile(@"Resources\StateIcons\Poisoned.png");
+            image = Image.FromFile(@"Resources\StateIcons\Freezing.png");
 
             startTime = _startTime;
             duration = _duration;
-            tickSpeed = _tickSpeed;
+            tickSpeed = _duration;
             lastTime = 0;
+            firstApplied = false;
         }
     }
 }

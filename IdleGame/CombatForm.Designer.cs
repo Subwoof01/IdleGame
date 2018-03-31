@@ -1,4 +1,6 @@
-﻿namespace IdleGame
+﻿using IdleGame.ProgressBars;
+
+namespace IdleGame
 {
     partial class CombatForm
     {
@@ -30,13 +32,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CombatForm));
-            this.lblMana = new System.Windows.Forms.Label();
-            this.lblHealth = new System.Windows.Forms.Label();
             this.lblClass = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lbCombatLog = new System.Windows.Forms.ListBox();
-            this.lblManaEnemy = new System.Windows.Forms.Label();
-            this.lblHealthEnemy = new System.Windows.Forms.Label();
             this.lblEnemyType = new System.Windows.Forms.Label();
             this.lblEnemyName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -66,12 +64,12 @@
             this.ttActionSlot7 = new System.Windows.Forms.ToolTip(this.components);
             this.ttActionSlot8 = new System.Windows.Forms.ToolTip(this.components);
             this.ttActionSlot9 = new System.Windows.Forms.ToolTip(this.components);
-            this.actionSpeedBarEnemy = new IdleGame.ExperienceBar();
-            this.manaBarEnemy = new IdleGame.ManaBar();
-            this.healthBarEnemy = new IdleGame.HealthBar();
-            this.actionSpeedBar = new IdleGame.ExperienceBar();
-            this.manaBar = new IdleGame.ManaBar();
-            this.healthBar = new IdleGame.HealthBar();
+            this.actionSpeedBarEnemy = new IdleGame.ProgressBars.ExperienceBar();
+            this.manaBarEnemy = new IdleGame.ProgressBars.ManaBar();
+            this.healthBarEnemy = new IdleGame.ProgressBars.HealthBar();
+            this.actionSpeedBar = new IdleGame.ProgressBars.ExperienceBar();
+            this.manaBar = new IdleGame.ProgressBars.ManaBar();
+            this.healthBar = new IdleGame.ProgressBars.HealthBar();
             this.tlpPlayerStates = new System.Windows.Forms.TableLayoutPanel();
             this.tlpEnemyStates = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -85,25 +83,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActionBarSlot1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblMana
-            // 
-            this.lblMana.AutoSize = true;
-            this.lblMana.Location = new System.Drawing.Point(265, 59);
-            this.lblMana.Name = "lblMana";
-            this.lblMana.Size = new System.Drawing.Size(60, 13);
-            this.lblMana.TabIndex = 32;
-            this.lblMana.Text = "9999/9999";
-            // 
-            // lblHealth
-            // 
-            this.lblHealth.AutoSize = true;
-            this.lblHealth.BackColor = System.Drawing.Color.Transparent;
-            this.lblHealth.Location = new System.Drawing.Point(265, 32);
-            this.lblHealth.Name = "lblHealth";
-            this.lblHealth.Size = new System.Drawing.Size(60, 13);
-            this.lblHealth.TabIndex = 31;
-            this.lblHealth.Text = "9999/9999";
             // 
             // lblClass
             // 
@@ -132,25 +111,6 @@
             this.lbCombatLog.Name = "lbCombatLog";
             this.lbCombatLog.Size = new System.Drawing.Size(330, 69);
             this.lbCombatLog.TabIndex = 37;
-            // 
-            // lblManaEnemy
-            // 
-            this.lblManaEnemy.AutoSize = true;
-            this.lblManaEnemy.Location = new System.Drawing.Point(611, 59);
-            this.lblManaEnemy.Name = "lblManaEnemy";
-            this.lblManaEnemy.Size = new System.Drawing.Size(60, 13);
-            this.lblManaEnemy.TabIndex = 41;
-            this.lblManaEnemy.Text = "9999/9999";
-            // 
-            // lblHealthEnemy
-            // 
-            this.lblHealthEnemy.AutoSize = true;
-            this.lblHealthEnemy.BackColor = System.Drawing.Color.Transparent;
-            this.lblHealthEnemy.Location = new System.Drawing.Point(611, 32);
-            this.lblHealthEnemy.Name = "lblHealthEnemy";
-            this.lblHealthEnemy.Size = new System.Drawing.Size(60, 13);
-            this.lblHealthEnemy.TabIndex = 40;
-            this.lblHealthEnemy.Text = "9999/9999";
             // 
             // lblEnemyType
             // 
@@ -516,16 +476,12 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.actionSpeedBarEnemy);
             this.Controls.Add(this.manaBarEnemy);
-            this.Controls.Add(this.lblManaEnemy);
-            this.Controls.Add(this.lblHealthEnemy);
             this.Controls.Add(this.lblEnemyType);
             this.Controls.Add(this.lblEnemyName);
             this.Controls.Add(this.healthBarEnemy);
             this.Controls.Add(this.lbCombatLog);
             this.Controls.Add(this.actionSpeedBar);
             this.Controls.Add(this.manaBar);
-            this.Controls.Add(this.lblMana);
-            this.Controls.Add(this.lblHealth);
             this.Controls.Add(this.lblClass);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.healthBar);
@@ -553,16 +509,12 @@
 
         private ManaBar manaBar;
         private HealthBar healthBar;
-        private System.Windows.Forms.Label lblMana;
-        private System.Windows.Forms.Label lblHealth;
         private System.Windows.Forms.Label lblClass;
         private System.Windows.Forms.Label lblName;
         private ExperienceBar actionSpeedBar;
         private System.Windows.Forms.ListBox lbCombatLog;
         private ExperienceBar actionSpeedBarEnemy;
         private ManaBar manaBarEnemy;
-        private System.Windows.Forms.Label lblManaEnemy;
-        private System.Windows.Forms.Label lblHealthEnemy;
         private System.Windows.Forms.Label lblEnemyType;
         private System.Windows.Forms.Label lblEnemyName;
         private HealthBar healthBarEnemy;

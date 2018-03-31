@@ -14,11 +14,6 @@ namespace IdleGame
     public partial class SkillBook : Form
     {
         private Player _player;
-        private PictureBox[] _skillImage;
-        private Label[] _skillLearned;
-        private Label[] _skillNextRank;
-        private Label[] _skillType;
-        private ToolTip[] _skillTooltip;
         private PictureBox[] _actionBar;
 
         private Image _actionSlotEmpty;
@@ -27,19 +22,91 @@ namespace IdleGame
         private PictureBox _selectedSlot;
         private int _actionSlotIndex;
 
+        private List<Skill> _skillCheck;
+
+        private TabPage _tabPage2;
+        private TableLayoutPanel _tlPage2;
+
         public void UpdateForm()
         {
-            for (int i = 0; i < _player.skills.Length; i++)
+            if (!_player.skills.SequenceEqual(_skillCheck))
             {
-                if (_player.skills[i] != null)
+                tlPage1.Controls.Clear();
+                if (_tlPage2 != null)
+                    _tlPage2.Controls.Clear();
+
+                if (_player.skills.Count > 0)
                 {
-                    _skillImage[i].Image = _player.skills[i].image;
-                    _skillImage[i].Tag = _player.skills[i].name;
-                    _skillLearned[i].Text = (_player.skills[i].currentRank > 0) ? $"{_player.skills[i].name} (Rank {_player.skills[i].currentRank})" : $"{_player.skills[i].name} (Unlearned)";
-                    _skillNextRank[i].Text = $"Next Rank: level {_player.skills[i].levelRank[_player.skills[i].currentRank]}";
-                    _skillType[i].Text = Enum.GetName(typeof(Skill.Type), _player.skills[i].type);
-                    _skillTooltip[i].ToolTipTitle = _player.skills[i].name;
-                    _skillTooltip[i].SetToolTip(_skillImage[i], _player.skills[i].ToolTip());
+                    for (int i = 0; i < ((_player.skills.Count > 12) ? 12 : _player.skills.Count); i++)
+                    {
+                        tlPage1.Controls.Add(new SkillBookPanel(_player, _player.skills[i], this));
+                    }
+
+                    if (_player.skills.Count > 12)
+                    {
+                        _tabPage2 = new TabPage("Page 2");
+                        tcPages.Controls.Add(_tabPage2);
+
+                        _tlPage2 = new TableLayoutPanel();
+                        _tlPage2.AutoSize = true;
+                        _tlPage2.AutoSizeMode = AutoSizeMode.GrowOnly;
+                        _tabPage2.Controls.Add(_tlPage2);
+
+                        for (int i = 12; i < _player.skills.Count; i++)
+                        {
+                            _tlPage2.Controls.Add(new SkillBookPanel(_player, _player.skills[i], this));
+                        }
+
+                        if (_tlPage2.Controls.Count > 0)
+                        {
+                            int index = 12;
+
+                            foreach (SkillBookPanel sbp in _tlPage2.Controls)
+                            {
+                                sbp.pbSkill.Image = _player.skills[index].image;
+                                sbp.lblSkillLearned.Text = (_player.skills[index].currentRank > 0) ? $"{_player.skills[index].name} (Rank {_player.skills[index].currentRank})" : $"{_player.skills[index].name} (Unlearned)";
+                                sbp.lblSkillNextRank.Text = $"Next Rank: level {_player.skills[index].levelRank[_player.skills[index].currentRank]}";
+                                sbp.lblSkillType.Text = Enum.GetName(typeof(Skill.Type), _player.skills[index].type);
+                                sbp.ttSkillEffect.ToolTipTitle = _player.skills[index].name;
+                                sbp.ttSkillEffect.SetToolTip(sbp.pbSkill, _player.skills[index].ToolTip());
+                                index++;
+                            }
+                        }
+                    }
+
+                    if (tlPage1.Controls.Count > 0)
+                    {
+                        int index = 0;
+
+                        foreach (SkillBookPanel sbp in tlPage1.Controls)
+                        {
+                            sbp.pbSkill.Image = _player.skills[index].image;
+                            sbp.lblSkillLearned.Text = (_player.skills[index].currentRank > 0) ? $"{_player.skills[index].name} (Rank {_player.skills[index].currentRank})" : $"{_player.skills[index].name} (Unlearned)";
+                            sbp.lblSkillNextRank.Text = $"Next Rank: level {_player.skills[index].levelRank[_player.skills[index].currentRank]}";
+                            sbp.lblSkillType.Text = Enum.GetName(typeof(Skill.Type), _player.skills[index].type);
+                            sbp.ttSkillEffect.ToolTipTitle = _player.skills[index].name;
+                            sbp.ttSkillEffect.SetToolTip(sbp.pbSkill, _player.skills[index].ToolTip());
+                            index++;
+                        }
+                    }
+                }
+                _skillCheck = _player.skills;
+            }
+
+            if (tlPage1 != null)
+            {
+                foreach (SkillBookPanel sbp in tlPage1.Controls)
+                {
+                    sbp.SetSelection(_actionSlotIndex);
+                }
+
+            }
+
+            if (_tlPage2 != null)
+            {
+                foreach (SkillBookPanel sbp in _tlPage2.Controls)
+                {
+                    sbp.SetSelection(_actionSlotIndex);
                 }
             }
 
@@ -117,96 +184,6 @@ namespace IdleGame
             UpdateForm();
         }
 
-        private void pbSkillOne_Click(object sender, EventArgs e)
-        {
-            if (_player.skills[0] != null && _selectedSlot != null)
-            {
-                _selectedSlot.Image = _player.skills[0].image;
-                _player.actionBar[_actionSlotIndex] = _player.skills[0];
-            }
-        }
-
-        private void pbSkillTwo_Click(object sender, EventArgs e)
-        {
-            if (_player.skills[1] != null && _selectedSlot != null)
-            {
-                _selectedSlot.Image = _player.skills[1].image;
-                _player.actionBar[_actionSlotIndex] = _player.skills[1];
-            }
-        }
-
-        private void pbSkillThree_Click(object sender, EventArgs e)
-        {
-            if (_player.skills[2] != null && _selectedSlot != null)
-            {
-                _selectedSlot.Image = _player.skills[2].image;
-                _player.actionBar[_actionSlotIndex] = _player.skills[2];
-            }
-        }
-
-        private void pbSkillFour_Click(object sender, EventArgs e)
-        {
-            if (_player.skills[3] != null && _selectedSlot != null)
-            {
-                _selectedSlot.Image = _player.skills[3].image;
-                _player.actionBar[_actionSlotIndex] = _player.skills[3];
-            }
-        }
-
-        private void pbSkillFive_Click(object sender, EventArgs e)
-        {
-            if (_player.skills[4] != null && _selectedSlot != null)
-            {
-                _selectedSlot.Image = _player.skills[4].image;
-                _player.actionBar[_actionSlotIndex] = _player.skills[4];
-            }
-        }
-
-        private void pbSkillSix_Click(object sender, EventArgs e)
-        {
-            if (_player.skills[5] != null && _selectedSlot != null)
-            {
-                _selectedSlot.Image = _player.skills[5].image;
-                _player.actionBar[_actionSlotIndex] = _player.skills[5];
-            }
-        }
-
-        private void pbSkillSeven_Click(object sender, EventArgs e)
-        {
-            if (_player.skills[6] != null && _selectedSlot != null)
-            {
-                _selectedSlot.Image = _player.skills[6].image;
-                _player.actionBar[_actionSlotIndex] = _player.skills[6];
-            }
-        }
-
-        private void pbSkillEight_Click(object sender, EventArgs e)
-        {
-            if (_player.skills[7] != null && _selectedSlot != null)
-            {
-                _selectedSlot.Image = _player.skills[7].image;
-                _player.actionBar[_actionSlotIndex] = _player.skills[7];
-            }
-        }
-
-        private void pbSkillNine_Click(object sender, EventArgs e)
-        {
-            if (_player.skills[8] != null && _selectedSlot != null)
-            {
-                _selectedSlot.Image = _player.skills[8].image;
-                _player.actionBar[_actionSlotIndex] = _player.skills[8];
-            }
-        }
-
-        private void pbSkillTen_Click(object sender, EventArgs e)
-        {
-            if (_player.skills[9] != null && _selectedSlot != null)
-            {
-                _selectedSlot.Image = _player.skills[9].image;
-                _player.actionBar[_actionSlotIndex] = _player.skills[9];
-            }
-        }
-
         public SkillBook(Player player)
         {
             InitializeComponent();
@@ -214,14 +191,11 @@ namespace IdleGame
 
             _actionSlotEmpty = Image.FromFile(@"Resources\ActionBarSlot.png");
             _actionSlotSelected = Image.FromFile(@"Resources\ActionBarSlotSelected.png");
-
-            _skillImage = new PictureBox[] { pbSkillOne, pbSkillTwo, pbSkillThree, pbSkillFour, pbSkillFive, pbSkillSix, pbSkillSeven, pbSkillEight, pbSkillNine, pbSkillTen };
-            _skillLearned = new Label[] { lblSkillOneLearned, lblSkillTwoLearned, lblSkillThreeLearned, lblSkillFourLearned, lblSkillFiveLearned, lblSkillSixLearned, lblSkillSevenLearned, lblSkillEightLearned, lblSkillNineLearned, lblSkillTenLearned };
-            _skillNextRank = new Label[] { lblSkillOneNextRank, lblSkillTwoNextRank, lblSkillThreeNextRank, lblSkillFourNextRank, lblSkillFiveNextRank, lblSkillSixNextRank, lblSkillSevenNextRank, lblSkillEightNextRank, lblSkillNineNextRank, lblSkillThreeNextRank };
-            _skillType = new Label[] { lblSkillOneType, lblSkillTwoType, lblSkillThreeType, lblSkillFourType, lblSkillFiveType, lblSkillSixType, lblSkillSevenType, lblSkillEightType, lblSkillNineType, lblSkillTenType };
-            _skillTooltip = new ToolTip[] { ttSkillOne, ttSkillTwo, ttSkillThree, ttSkillFour, ttSkillFive, ttSkillSix, ttSkillSeven, ttSkillEight, ttSkillNine, ttSkillTen };
-
             _actionBar = new PictureBox[] { pbActionBarSlot1, pbActionBarSlot2, pbActionBarSlot3, pbActionBarSlot4, pbActionBarSlot5, pbActionBarSlot6, pbActionBarSlot7, pbActionBarSlot8, pbActionBarSlot9 };
+            _skillCheck = new List<Skill>();
+
+            _tabPage2 = null;
+            _tlPage2 = null;
 
             UpdateForm();
         }

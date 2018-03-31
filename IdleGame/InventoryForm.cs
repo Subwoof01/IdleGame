@@ -19,6 +19,8 @@ namespace IdleGame
         // For debug item spawning
         private Random random = new Random();
 
+        private Dictionary<string, int> inventoryItems;
+
         private void InventoryForm_Load(object sender, EventArgs e)
         {
              _mainForm.UpdateText();
@@ -38,7 +40,7 @@ namespace IdleGame
                 for (int i = 0; i < _player.inventory.Length; i++)
                 {
                     // Store selected item in itemEquip.
-                    if (_player.inventory[i] != null && _player.inventory[i].name == lbInventory.SelectedItem.ToString())
+                    if (_player.inventory[i] != null && _player.inventory[i] == (lbInventory.SelectedItem as Item))
                         itemEquip = _player.inventory[i];
                 }
 
@@ -54,10 +56,9 @@ namespace IdleGame
                     // Remove from inventory.
                     for (int i = 0; i < _player.inventory.Length; i++)
                     {
-                        if (_player.inventory[i] != null && _player.inventory[i].name.Equals(lbInventory.SelectedItem.ToString()))
+                        if (_player.inventory[i] != null && _player.inventory[i] == (lbInventory.SelectedItem as Item))
                             _player.inventory[i] = null;
                     }
-                    lbInventory.Items.RemoveAt(lbInventory.SelectedIndex);
 
                     // Decrease available inventory slots.
                     _player.inventorySlotsUsed--;
@@ -122,54 +123,60 @@ namespace IdleGame
 
             for (int i = 0; i < _player.inventory.Length; i++)
             {
-                if (_player.inventory[i] != null) lbInventory.Items.Add(_player.inventory[i].name);
+                if (_player.inventory[i] != null)
+                    lbInventory.Items.Add(_player.inventory[i]);
             }
+
+            lbInventory.ValueMember = "itemID";
+            lbInventory.DisplayMember = "Name";
 
             tbGold.Text = _player.gold.ToString();
             tbInventorySpace.Text = $"{_player.inventorySlotsUsed}/{_player.inventorySlotsMax}";
 
-            if (_player.equipment[(int)Item.Equip.Head] != null) tbHeadEquipped.Text = _player.equipment[(int)Item.Equip.Head].name;
-            else tbHeadEquipped.Text = "<Empty>";
-            if (_player.equipment[(int)Item.Equip.Chest] != null) tbChestEquipped.Text = _player.equipment[(int)Item.Equip.Chest].name;
-            else tbChestEquipped.Text = "<Empty>";
-            if (_player.equipment[(int)Item.Equip.MainHand] != null) tbMainHandEquipped.Text = _player.equipment[(int)Item.Equip.MainHand].name;
-            else tbMainHandEquipped.Text = "<Empty>";
+            if (_player.equipment[(int)Item.Equip.Head] != null)
+                tbHeadEquipped.Text = _player.equipment[(int)Item.Equip.Head].name;
+            else
+                tbHeadEquipped.Text = "<Empty>";
+
+            if (_player.equipment[(int)Item.Equip.Chest] != null)
+                tbChestEquipped.Text = _player.equipment[(int)Item.Equip.Chest].name;
+            else
+                tbChestEquipped.Text = "<Empty>";
+
+            if (_player.equipment[(int)Item.Equip.MainHand] != null)
+                tbMainHandEquipped.Text = _player.equipment[(int)Item.Equip.MainHand].name;
+            else
+                tbMainHandEquipped.Text = "<Empty>";
         }
 
         private void lbInventory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Initialise item variable.
-            Item item = null;
-
             // NullReferenceException catcher.
             if (lbInventory.SelectedItem != null)
             {
-                // Check every used inventory slot to find the selected item.
-                for (int i = 0; i < _player.inventory.Length; i++)
-                {
-                    // Store the selected item in item.
-                    if (_player.inventory[i] != null && _player.inventory[i].name == lbInventory.SelectedItem.ToString()) item = _player.inventory[i];
-                    tbItemStats.Text = item.tooltip;
-                }
+                tbItemStats.Text = (lbInventory.SelectedItem as Item).tooltip;
             }
         }
 
         private void btnHeadShow_Click(object sender, EventArgs e)
         {
             _mainForm.UpdateText();
-            if (_player.equipment[(int)Item.Equip.Head] != null) tbItemStats.Text = _player.equipment[(int)Item.Equip.Head].tooltip;
+            if (_player.equipment[(int)Item.Equip.Head] != null)
+                tbItemStats.Text = _player.equipment[(int)Item.Equip.Head].tooltip;
         }
 
         private void btnChestShow_Click(object sender, EventArgs e)
         {
             _mainForm.UpdateText();
-            if (_player.equipment[(int)Item.Equip.Chest] != null) tbItemStats.Text = _player.equipment[(int)Item.Equip.Chest].tooltip;
+            if (_player.equipment[(int)Item.Equip.Chest] != null)
+                tbItemStats.Text = _player.equipment[(int)Item.Equip.Chest].tooltip;
         }
 
         private void btnWeaponShow_Click(object sender, EventArgs e)
         {
             _mainForm.UpdateText();
-            if (_player.equipment[(int)Item.Equip.MainHand] != null) tbItemStats.Text = _player.equipment[(int)Item.Equip.MainHand].tooltip;
+            if (_player.equipment[(int)Item.Equip.MainHand] != null)
+                tbItemStats.Text = _player.equipment[(int)Item.Equip.MainHand].tooltip;
         }
 
         private void btnHeadUnequip_Click(object sender, EventArgs e)
@@ -224,7 +231,7 @@ namespace IdleGame
                 for (int i = 0; i < _player.inventory.Length; i++)
                 {
                     // Store selected item in itemEquip.
-                    if (_player.inventory[i] != null && lbInventory.SelectedItem != null && _player.inventory[i].name == lbInventory.SelectedItem.ToString())
+                    if (_player.inventory[i] != null && lbInventory.SelectedItem != null && _player.inventory[i] == (lbInventory.SelectedItem as Item))
                     {
                         // Remove the item from the inventory.
                         _player.inventory[i] = null;
@@ -244,6 +251,7 @@ namespace IdleGame
             InitializeComponent();
             _player = player;
             _mainForm = mainForm;
+            inventoryItems = new Dictionary<string, int>();
         }
 
         private void btnSpawnArmour_Click(object sender, EventArgs e)
@@ -251,9 +259,9 @@ namespace IdleGame
             int itemChance = random.Next();
 
             if (itemChance % 2 == 0)
-                _player.AddItem(Armour.Generate(1, 20));
+                _player.AddItem(Armour.Generate(1, 100));
             else
-                _player.AddItem(Weapon.Generate(1, 80));
+                _player.AddItem(Weapon.Generate(1, 100));
 
             _mainForm.UpdateText();
         }

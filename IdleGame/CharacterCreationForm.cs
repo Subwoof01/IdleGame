@@ -37,7 +37,7 @@ namespace IdleGame
                 new Strength(player, 10),
                 new Intelligence(player, 3),
                 new Dexterity(player, 6),
-                new Health(player, 100),
+                new Health(player, 10000),
                 new Mana(player, 20),
                 new ArmourStat(player),
                 new PhysicalDamage(player, 1, 2),
@@ -63,18 +63,10 @@ namespace IdleGame
                 new ArmouredToTheTeeth(player)
             };
 
-            player.skills = new Skill[]
-            {
-                new PowerStrike(player),
-                new PowerStrike(player),
-                new PowerStrike(player),
-                new PowerStrike(player),
-                new PowerStrike(player),
-                new PowerStrike(player),
-                new PowerStrike(player),
-                new PowerStrike(player),
-                new PowerStrike(player)
-            };
+            player.skills = new List<Skill>();
+
+            player.skills.Add(new PowerStrike(player));
+            player.skills.Add(new Gut(player));
 
             player.healthCurrent = (int)player.attributes[(int)PlayerStat.Attribute.Health].Final();
             player.manaCurrent = (int)player.attributes[(int)PlayerStat.Attribute.Mana].Final();
