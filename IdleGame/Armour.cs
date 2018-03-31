@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame
 {
+    [Serializable]
     public class Armour : Item
     {
         public enum Type { Heavy, Medium, Light };

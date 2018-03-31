@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame.Skills.Warrior
 {
+    [Serializable]
     public class Gut : Skill
     {
         private Player _player;

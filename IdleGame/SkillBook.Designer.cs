@@ -113,6 +113,9 @@
             this.tlPage1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlPage1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlPage1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlPage1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlPage1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlPage1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlPage1.Size = new System.Drawing.Size(82, 177);
             this.tlPage1.TabIndex = 2;
             // 

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame.States
 {
+    [Serializable]
     public abstract class State
     {
         //public enum States { Bleeding, Poisoned, Feared, Enraged, Burning, Freezing };

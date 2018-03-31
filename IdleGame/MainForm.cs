@@ -1,5 +1,6 @@
 ﻿using IdleGame.Attributes;
 using IdleGame.ProgressBars;
+using IdleGame.SaveLoad;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,12 +9,14 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IdleGame
 {
+    [Serializable]
     public partial class MainForm : Form
     {
         private Player _player;
@@ -86,11 +89,24 @@ namespace IdleGame
         private void btnSave_Click(object sender, EventArgs e)
         {
             // TODO: Figure out how serialization works.
+            SaveForm saveForm = new SaveForm(_player);
+            saveForm.Show();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            // TODO
+            loadFileDialog.InitialDirectory = @"Saves\save.dat";
+            if (loadFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (File.Exists(loadFileDialog.FileName))
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    FileStream file = File.Open(loadFileDialog.FileName, FileMode.Open);
+                    _player = (Player)bf.Deserialize(file);
+                    file.Close();
+                }
+
+            }
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -101,7 +117,6 @@ namespace IdleGame
         public MainForm(Player player)
         {
             InitializeComponent();
-
             _player = player;
             UpdateText();
         }

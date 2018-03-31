@@ -7,6 +7,7 @@ using IdleGame;
 
 namespace IdleGame.Talents.Warrior
 {
+    [Serializable]
     public class WeaponMastery : Talent
     {
         public override double Effect()

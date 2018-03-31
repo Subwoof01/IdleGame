@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame.Attributes
 {
+    [Serializable]
     public class Intelligence : PlayerStat
     {
         public override double SkillBonus()
