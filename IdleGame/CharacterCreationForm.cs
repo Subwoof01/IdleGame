@@ -8,7 +8,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -122,6 +124,22 @@ namespace IdleGame
                         break;
                     case Player.Class.Ranger:
                         break;
+                }
+            }
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            loadFileDialog.InitialDirectory = @"Saves\save.dat";
+            if (loadFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (File.Exists(loadFileDialog.FileName))
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    FileStream file = File.Open(loadFileDialog.FileName, FileMode.Open);
+                    player = (Player)bf.Deserialize(file);
+                    file.Close();
+                    OpenMainForm();
                 }
             }
         }

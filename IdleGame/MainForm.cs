@@ -106,7 +106,6 @@ namespace IdleGame
                     _player = (Player)bf.Deserialize(file);
                     file.Close();
                 }
-
             }
         }
 

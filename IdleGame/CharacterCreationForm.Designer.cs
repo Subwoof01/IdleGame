@@ -44,6 +44,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbDexterity = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.loadFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // lblNameStatic
@@ -87,7 +89,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(58, 209);
+            this.btnCreate.Location = new System.Drawing.Point(102, 209);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 7;
@@ -195,11 +197,22 @@
             this.label5.TabIndex = 17;
             this.label5.Text = "Dexterity:";
             // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(18, 209);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(75, 23);
+            this.btnLoad.TabIndex = 19;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // CharacterCreationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(193, 238);
+            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.tbDexterity);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbIntelligence);
@@ -243,5 +256,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbDexterity;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.OpenFileDialog loadFileDialog;
     }
 }
