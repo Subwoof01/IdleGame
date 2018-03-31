@@ -16,9 +16,14 @@ namespace IdleGame.Skills
         public int currentRank;
         public Type type;
         public double castTime;
+        public bool onCooldown = false;
+        public double cooldown;
+        public double timeCasted = 0;
         public Image image;
+        public Image cooldownImage;
         public string name;
         public DamageType damageType;
+        public int manaCost;
 
         public void SetRank(Player player)
         {
@@ -38,6 +43,6 @@ namespace IdleGame.Skills
 
         public abstract string ToolTip();
 
-        public abstract double Effect(Enemy enemy, int _startTime);
+        public abstract double Effect(Enemy enemy, int _timeCasted);
     }
 }

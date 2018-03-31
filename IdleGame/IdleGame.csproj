@@ -86,12 +86,12 @@
     <Compile Include="Enemies\Types\Humanoid.cs" />
     <Compile Include="Enemies\Types\Goblinoid.cs" />
     <Compile Include="Entity.cs" />
-    <Compile Include="ExperienceBar.cs">
+    <Compile Include="ProgressBars\ExperienceBar.cs">
       <Generator>ExperienceBar</Generator>
       <CustomToolNamespace>ExperienceBar</CustomToolNamespace>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ManaBar.cs">
+    <Compile Include="ProgressBars\ManaBar.cs">
       <Generator>ManaBar</Generator>
       <CustomToolNamespace>ManaBar</CustomToolNamespace>
       <SubType>Component</SubType>
@@ -113,7 +113,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="HealthBar.cs">
+    <Compile Include="ProgressBars\HealthBar.cs">
       <SubType>Component</SubType>
       <Generator>HealthBar</Generator>
       <CustomToolNamespace>HealthBar</CustomToolNamespace>
@@ -130,8 +130,19 @@
     <Compile Include="CharacterForm.Designer.cs">
       <DependentUpon>CharacterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SkillBookPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SkillBookPanel.Designer.cs">
+      <DependentUpon>SkillBookPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Skills\Skill.cs" />
+    <Compile Include="Skills\Warrior\Gut.cs" />
     <Compile Include="Skills\Warrior\PowerStrike.cs" />
+    <Compile Include="States\Bleeding.cs" />
+    <Compile Include="States\Enraged.cs" />
+    <Compile Include="States\Feared.cs" />
+    <Compile Include="States\Freezing.cs" />
     <Compile Include="States\Burning.cs" />
     <Compile Include="States\Poisoned.cs" />
     <Compile Include="States\State.cs" />
@@ -197,6 +208,9 @@
     <EmbeddedResource Include="SkillBook.resx">
       <DependentUpon>SkillBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SkillBookPanel.resx">
+      <DependentUpon>SkillBookPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TravelForm.resx">
       <DependentUpon>TravelForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,7 +246,16 @@
     <Content Include="Resources\Icon.ico" />
     <Content Include="Resources\Inventory.ico" />
     <Content Include="Resources\Shop.ico" />
+    <Content Include="Resources\SpellIcons\Warrior\Gut.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\SpellIcons\Warrior\Gut_Cooldown.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\SpellIcons\Warrior\PowerStrike.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\SpellIcons\Warrior\PowerStrike_Cooldown.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\StateIcons\Angered.png">

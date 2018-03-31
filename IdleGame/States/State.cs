@@ -9,7 +9,7 @@ namespace IdleGame.States
 {
     public abstract class State
     {
-        //public enum States { Bleeding, Poisoned, Feared, Angered, Burning, Freezing };
+        //public enum States { Bleeding, Poisoned, Feared, Enraged, Burning, Freezing };
         public enum Target { Player, Enemy };
 
         public string flavourText;
@@ -23,5 +23,7 @@ namespace IdleGame.States
         public Image image;
 
         public abstract double Effect();
+
+        public bool firstApplied;
     }
 }

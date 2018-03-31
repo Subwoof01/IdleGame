@@ -55,7 +55,7 @@ namespace IdleGame.Enemies.Types
 
             reward = 2 * (int)Math.Pow(1.05, enemyLevel);
 
-            health = random.Next(50 * (int)Math.Pow(1.08, enemyLevel), 60 * (int)Math.Pow(1.1, enemyLevel));
+            health = random.Next(100 * (int)Math.Pow(1.08, enemyLevel), 140 * (int)Math.Pow(1.1, enemyLevel));
             healthRegen = health * 0.001;
 
             if (_subType.Equals(SubType.Warrior))

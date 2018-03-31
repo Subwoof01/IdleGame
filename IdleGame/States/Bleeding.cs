@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame.States
 {
-    public class Poisoned : State
+    public class Bleeding : State
     {
         private Player _player;
         private Enemy _enemy;
@@ -18,7 +18,7 @@ namespace IdleGame.States
 
         private double Damage()
         {
-            return _skill.Damage() * (1 + _player.attributes[(int)PlayerStat.Attribute.PoisonDamage].Final());
+            return (_skill.Damage() * 0.20) * (1 + _player.attributes[(int)PlayerStat.Attribute.PhysicalDamage].Final());
         }
 
         public override double Effect()
@@ -27,18 +27,17 @@ namespace IdleGame.States
             return Damage();
         }
 
-        public Poisoned(int _startTime, int _duration, int _tickSpeed, Enemy enemy, Player player, Target _target, Skill skill)
+        public Bleeding(int _startTime, int _duration, int _tickSpeed, Enemy enemy, Player player, Target _target, Skill skill)
         {
             _player = player;
             _enemy = enemy;
             target = _target;
             _skill = skill;
 
-            flavourText = $"{((target.Equals(Target.Player)) ? _enemy.name : _player.name)} " +
-                $"hits {((target.Equals(Target.Player)) ? _player.name : _enemy.name)} for " +
-                $"{Damage().ToString("0")} Poison.";
+            flavourText = $"{((target.Equals(Target.Player)) ? _player.name : _enemy.name)} bleeds for " +
+                $"{Damage().ToString("0")} Physical.";
 
-            image = Image.FromFile(@"Resources\StateIcons\Poisoned.png");
+            image = Image.FromFile(@"Resources\StateIcons\Bleeding.png");
 
             startTime = _startTime;
             duration = _duration;

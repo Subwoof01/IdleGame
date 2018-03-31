@@ -1,4 +1,5 @@
 ﻿using IdleGame.Attributes;
+using IdleGame.ProgressBars;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,9 +65,6 @@ namespace IdleGame
             // Update player stat text.
             lblName.Text = _player.name;
             lblClass.Text = Enum.GetName(typeof(Player.Class), _player.playerClass);
-            lblHealth.Text = $"{_player.healthCurrent}/{(int)_player.attributes[(int)PlayerStat.Attribute.Health].Final()}";
-            lblMana.Text = $"{_player.manaCurrent}/{(int)_player.attributes[(int)PlayerStat.Attribute.Mana].Final()}";
-            lblExperience.Text = $"{_player.experienceCurrent}/{_player.experienceNextLevel}";
 
             healthBar.Maximum = (int)_player.attributes[(int)PlayerStat.Attribute.Health].Final();
             healthBar.Value = _player.healthCurrent;
@@ -104,14 +102,6 @@ namespace IdleGame
         {
             InitializeComponent();
 
-            // Pass the player instance to the WarriorTree object so we can read its values there. (Needed for tooltips).
-            //WarriorTalent warrior;
-            //if (player.playerClass.Equals(Player.Class.Warrior))
-            //{
-            //    warrior = player.warriorTree;
-            //    warrior.WarriorTreeSetPlayer(player);
-            //}
-            
             _player = player;
             UpdateText();
         }

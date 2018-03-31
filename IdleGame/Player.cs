@@ -19,7 +19,7 @@ namespace IdleGame
 
         public PlayerStat[] attributes;
         public Talent[] talents;
-        public Skill[] skills;
+        public List<Skill> skills;
         public Skill[] actionBar;
         public Item[] inventory;
         public Item[] equipment;
