@@ -24,7 +24,7 @@ namespace IdleGame
 
         private void OpenMainForm()
         {
-            mainForm = new MainForm(player);
+            mainForm = new MainForm(player, this);
             this.Hide();
             mainForm.FormClosed += (s, args) => this.Close();
             mainForm.Show();
