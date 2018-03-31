@@ -21,6 +21,7 @@ namespace IdleGame
     {
         private Player _player;
 
+        private CharacterCreationForm _characterCreationForm;
         private CharacterForm _character;
         private InventoryForm _inventory;
         private ShopForm _shop;
@@ -105,19 +106,20 @@ namespace IdleGame
                     _player = (Player)bf.Deserialize(file);
                     file.Close();
                 }
-
             }
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            // TODO
+            _characterCreationForm.Show();
+            this.Hide();
         }
 
-        public MainForm(Player player)
+        public MainForm(Player player, CharacterCreationForm creationForm)
         {
             InitializeComponent();
             _player = player;
+            _characterCreationForm = creationForm;
             UpdateText();
         }
 

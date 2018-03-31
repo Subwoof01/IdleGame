@@ -17,7 +17,7 @@ namespace IdleGame
     {
         public enum Class { Warrior, Sorcerer, Ranger };
         public Class playerClass;
-
+        
         public PlayerStat[] attributes;
         public Talent[] talents;
         public List<Skill> skills;
