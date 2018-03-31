@@ -20,9 +20,11 @@ namespace IdleGame
         public Player player;
         public MainForm mainForm;
 
+        private Player.Class playerClass;
+
         private void OpenMainForm()
         {
-            MainForm mainForm = new MainForm(player);
+            mainForm = new MainForm(player);
             this.Hide();
             mainForm.FormClosed += (s, args) => this.Close();
             mainForm.Show();
@@ -32,12 +34,14 @@ namespace IdleGame
         {
             player = new Player(Player.Class.Warrior);
 
+            player.name = tbPlayerName.Text;
+
             player.attributes = new PlayerStat[]
             {
                 new Strength(player, 10),
                 new Intelligence(player, 3),
                 new Dexterity(player, 6),
-                new Health(player, 10000),
+                new Health(player, 100),
                 new Mana(player, 20),
                 new ArmourStat(player),
                 new PhysicalDamage(player, 1, 2),
@@ -74,17 +78,52 @@ namespace IdleGame
             OpenMainForm();
         }
 
-        private void btnWarrior_Click(object sender, EventArgs e)
+        private void cbClass_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Warrior();
+            switch (cbClass.SelectedItem)
+            {
+                case "Warrior":
+                    playerClass = Player.Class.Warrior;
+                    tbMaxHealth.Text = "100";
+                    tbMaxMana.Text = "20";
+                    tbStrength.Text = "10";
+                    tbIntelligence.Text = "3";
+                    tbDexterity.Text = "6";
+                    break;
+                case "Sorcerer":
+                    playerClass = Player.Class.Sorcerer;
+                    tbMaxHealth.Text = "70";
+                    tbMaxMana.Text = "50";
+                    tbStrength.Text = "3";
+                    tbIntelligence.Text = "10";
+                    tbDexterity.Text = "6";
+                    break;
+                case "Ranger":
+                    playerClass = Player.Class.Ranger;
+                    tbMaxHealth.Text = "85";
+                    tbMaxMana.Text = "35";
+                    tbStrength.Text = "5";
+                    tbIntelligence.Text = "5";
+                    tbDexterity.Text = "10";
+                    break;
+            }
         }
 
-        private void btnSorcerer_Click(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
-        }
-
-        private void btnRanger_Click(object sender, EventArgs e)
-        {
+            if (!tbPlayerName.Text.Equals("") && cbClass.SelectedItem != null)
+            {
+                switch (playerClass)
+                {
+                    case Player.Class.Warrior:
+                        Warrior();
+                        break;
+                    case Player.Class.Sorcerer:
+                        break;
+                    case Player.Class.Ranger:
+                        break;
+                }
+            }
         }
 
         public CharacterCreationForm()

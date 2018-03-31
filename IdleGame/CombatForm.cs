@@ -586,6 +586,11 @@ namespace IdleGame
 
             _time = 0;
 
+            foreach (Skill s in _player.skills)
+            {
+                s.onCooldown = false;
+            }
+
             SetAttackSpeed();
         }
     }
