@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame
 {
+    [Serializable]
     public abstract class Item : Entity
     {
         protected static Random random = new Random();

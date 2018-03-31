@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace IdleGame
 {
+    [Serializable]
     public class Player : Living
     {
         public enum Class { Warrior, Sorcerer, Ranger };

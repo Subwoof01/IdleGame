@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame
 {
+    [Serializable]
     public class Entity
     {
         public string name;
