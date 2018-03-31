@@ -1,16 +1,14 @@
 # IdleGame
-Current version: v0.2-alpha.3 (Mar 28, 2018)
+Current version: v0.2-alpha.4 (Mar 30, 2018)
 
 Latest changes:
-* Improved item code to be more object oriented.
-* Expanded elemental resist and damage to fire, lightning, cold and poison. 
-* Added first enemy type and enemy generation.
-* Started on the travel system.
-* Created base enemy types.
-* Implemented random enemy generation.
-* Implemented victory and defeat in combat. (You now earn exp and gold when defeating an enemy and lose exp when getting killed).
-* Put the travel system in between the main form and the combat form.
-* Implemented most of the travel functionality.
+* Fixed the tooltip bug.
+* Changed the listbox code to hold the actual objects instead of the names. (Items can now have the same name without problems).
+* Improved to skillbook to be dynamic and work with multiple pages.
+* Made some UI improvements.
+* Implemented cooldowns for skills.
+* Implemented mana costs for skills.
+* Improved the combat code to be more efficient.
 
 # Changelog
 v0.1-alpha.1 (Mar 16, 2018):
@@ -53,3 +51,12 @@ v0.2-alpha.3 (Mar 28, 2018):
 * Implemented victory and defeat in combat. (You now earn exp and gold when defeating an enemy and lose exp when getting killed).
 * Put the travel system in between the main form and the combat form.
 * Implemented most of the travel functionality.
+
+v0.2-alpha.4 (Mar 30, 2018)
+* Fixed the tooltip bug.
+* Changed the listbox code to hold the actual objects instead of the names. (Items can now have the same name without problems).
+* Improved to skillbook to be dynamic and work with multiple pages.
+* Made some UI improvements.
+* Implemented cooldowns for skills.
+* Implemented mana costs for skills.
+* Improved the combat code to be more efficient.
