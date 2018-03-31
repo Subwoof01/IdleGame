@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame.Talents.Warrior
 {
+    [Serializable]
     class ArmouredToTheTeeth : Talent
     {
         public override double Effect()

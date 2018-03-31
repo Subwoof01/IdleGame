@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame.Attributes
 {
+    [Serializable]
     public class Mana : PlayerStat
     {
         public override double SkillBonus()

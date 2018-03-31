@@ -41,6 +41,7 @@ namespace IdleGame
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
+            this.loadFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.experienceBar = new IdleGame.ProgressBars.ExperienceBar();
             this.manaBar = new IdleGame.ProgressBars.ManaBar();
             this.healthBar = new IdleGame.ProgressBars.HealthBar();
@@ -144,6 +145,12 @@ namespace IdleGame
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
+            // loadFileDialog
+            // 
+            this.loadFileDialog.DefaultExt = "dat";
+            this.loadFileDialog.FileName = "save.dat";
+            this.loadFileDialog.Filter = "Save files (*.dat)|*.dat";
+            // 
             // experienceBar
             // 
             this.experienceBar.Location = new System.Drawing.Point(12, 81);
@@ -169,7 +176,7 @@ namespace IdleGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(190, 201);
+            this.ClientSize = new System.Drawing.Size(186, 201);
             this.Controls.Add(this.experienceBar);
             this.Controls.Add(this.manaBar);
             this.Controls.Add(this.healthBar);
@@ -209,6 +216,7 @@ namespace IdleGame
         private HealthBar healthBar;
         private ManaBar manaBar;
         private ExperienceBar experienceBar;
+        private System.Windows.Forms.OpenFileDialog loadFileDialog;
     }
 }
 

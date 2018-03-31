@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame.States
 {
+    [Serializable]
     public class Poisoned : State
     {
         private Player _player;

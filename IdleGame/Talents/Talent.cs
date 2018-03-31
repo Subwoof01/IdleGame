@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame.Talents
 {
+    [Serializable]
     abstract public class Talent
     {
 

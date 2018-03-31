@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame.Skills
 {
+    [Serializable]
     public abstract class Skill
     {
         public enum Type { Active, Passive };

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame
 {
+    [Serializable]
     public class Living : Entity
     {
         public int level;

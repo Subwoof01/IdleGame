@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame.Skills.Warrior
 {
+    [Serializable]
     public class PowerStrike : Skill
     {
         private Player _player;

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdleGame
 {
+    [Serializable]
     public class Weapon : Item
     {
         public enum Type { Axe, Mace, Sword, Staff, Polearm, Bow, Crossbow, Dagger, Wand };
